@@ -6,7 +6,7 @@
 import urllib2
 import json
 
-output_file = "top.out"
+output_file = "today.out"
 
 def write_stories(stories):
   f = open(output_file, "w")
@@ -48,12 +48,11 @@ def main():
   article_list = get_top()
   stories = []
 
-  for i in article_list[:10]:
+  for i in article_list:
     story = get_item(i)
     print story_to_string(story)
     stories.append(story)
 
   write_stories(stories)
-
 
 main()
