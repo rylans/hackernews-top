@@ -1,8 +1,19 @@
+## top.py
+## Get top stories from Hacker News' official API
+##
+## Rylan Santinon
+
 import urllib2
 import json
 
 def make_item_endpoint(item_id):
   return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
+
+def story_to_string(story):
+  score = story["score"]
+  title = story["title"]
+  by = story["by"]
+  return "[" + str(score) + "] " + title + " (" + by + ")"
 
 def get_top():
   endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
@@ -21,13 +32,12 @@ def get_item(item_id):
   title = story["title"]
   by = story["by"]
 
-  print "[" + str(score) + "] " + title + " (" + by + " )"
-  
+  print story_to_string(story)
 
 def main():
   article_list = get_top()
 
-  for i in article_list[:5]:
+  for i in article_list[:10]:
     get_item(i)
 
 main()
