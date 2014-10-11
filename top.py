@@ -5,11 +5,16 @@
 
 import urllib2
 import json
+from time import strftime
 
-output_file = "today.out"
-output_csv = "today.csv"
+ext_out = ".out"
+ext_csv = ".csv"
+
+def get_datetime():
+  return strftime("%Y-%m-%d")
 
 def write_stories(stories):
+  output_file = get_datetime() + ext_out
   f = open(output_file, "w")
   for story in stories:
     story_string = story_to_string(story).encode('utf-8')
@@ -18,6 +23,7 @@ def write_stories(stories):
   f.close()
 
 def write_stories_csv(stories):
+  output_csv = get_datetime() + ext_csv
   f = open(output_csv, "w")
   f.write("SCORE,TITLE,BY,URL\n")
   for story in stories:
