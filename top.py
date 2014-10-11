@@ -7,11 +7,21 @@ import urllib2
 import json
 
 output_file = "today.out"
+output_csv = "today.csv"
 
 def write_stories(stories):
   f = open(output_file, "w")
   for story in stories:
     story_string = story_to_string(story).encode('utf-8')
+    f.write(story_string)
+    f.write('\n')
+  f.close()
+
+def write_stories_csv(stories):
+  f = open(output_csv, "w")
+  f.write("SCORE,TITLE,BY,URL\n")
+  for story in stories:
+    story_string = story_to_csv(story).encode('utf-8')
     f.write(story_string)
     f.write('\n')
   f.close()
@@ -24,6 +34,24 @@ def story_to_string(story):
   title = story["title"]
   by = story["by"]
   return "[" + str(score) + "] " + title + " (" + by + ")"
+
+def remove_csv_chars(text):
+  return remove_commas(remove_quotes(text))
+
+def remove_quotes(text):
+  return text.replace('"','')
+
+def remove_commas(text):
+  return text.replace(',','')
+
+def story_to_csv(story):
+  cols = []
+  cols.append(str(story["score"]))
+  cols.append(story["title"])
+  cols.append(story["by"])
+  cols.append(story["url"])
+  csv_cols = [remove_csv_chars(col) for col in cols]
+  return ','.join(csv_cols)
 
 def get_top():
   endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
@@ -38,10 +66,6 @@ def get_item(item_id):
   rawdata = resp.read()
   story = json.loads(rawdata)
 
-  score = story["score"]
-  title = story["title"]
-  by = story["by"]
-
   return story
 
 def main():
@@ -54,5 +78,6 @@ def main():
     stories.append(story)
 
   write_stories(stories)
+  write_stories_csv(stories)
 
 main()
