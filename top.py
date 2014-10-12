@@ -10,6 +10,8 @@ from time import strftime
 ext_out = ".out"
 ext_csv = ".csv"
 
+users = {}
+
 def get_datetime():
   return strftime("%Y-%m-%d")
 
@@ -35,11 +37,23 @@ def write_stories_csv(stories):
 def make_item_endpoint(item_id):
   return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
 
+def make_user_endpoint(username):
+  return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
+  
 def story_to_string(story):
   score = story["score"]
   title = story["title"]
   by = story["by"]
   return "[" + str(score) + "] " + title + " (" + by + ")"
+
+def user_to_string(user):
+  name = user["id"]
+  karma = str(user["karma"])
+  created = str(user["created"])
+  submitted = [str(s) for s in user["submitted"]]
+  submissions = str(len(submitted))
+
+  return name + " (" + karma + ") <" + created + "> " + submissions
 
 def remove_csv_chars(text):
   return remove_commas(remove_quotes(text))
@@ -73,6 +87,14 @@ def get_item(item_id):
   story = json.loads(rawdata)
 
   return story
+
+def get_user(username):
+  url = make_user_endpoint(username)
+  resp = urllib2.urlopen(url)
+  rawdata = resp.read()
+  user = json.loads(rawdata)
+
+  return user
 
 def main():
   article_list = get_top()
