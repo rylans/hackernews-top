@@ -10,7 +10,7 @@ from time import strftime
 ext_out = ".out"
 ext_csv = ".csv"
 
-users = {}
+user_dict = {}
 
 def get_datetime():
   return strftime("%Y-%m-%d")
@@ -31,6 +31,16 @@ def write_stories_csv(stories):
   for story in stories:
     story_string = story_to_csv(story).encode('utf-8')
     f.write(story_string)
+    f.write('\n')
+  f.close()
+
+def write_users_csv(users):
+  output_csv = "users" + ext_csv
+  f = open(output_csv, "w")
+  f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
+  for user in users:
+    user_string = user_to_csv(user).encode('utf-8')
+    f.write(user_string)
     f.write('\n')
   f.close()
 
@@ -65,11 +75,23 @@ def remove_commas(text):
   return text.replace(',','')
 
 def story_to_csv(story):
+  #SCORE,TITLE,BY,URL
   cols = []
   cols.append(str(story["score"]))
   cols.append(story["title"])
   cols.append(story["by"])
   cols.append(story["url"])
+  csv_cols = [remove_csv_chars(col) for col in cols]
+  return ','.join(csv_cols)
+
+def user_to_csv(user):
+  #ID,KARMA,CREATED,SUBMISSIONS
+  cols = []
+  cols.append(user["id"])
+  cols.append(str(user["karma"]))
+  cols.append(str(user["created"]))
+  submitted = [str(s) for s in user["submitted"]]
+  cols.append(str(len(submitted)))
   csv_cols = [remove_csv_chars(col) for col in cols]
   return ','.join(csv_cols)
 
@@ -85,6 +107,9 @@ def get_item(item_id):
   resp = urllib2.urlopen(url)
   rawdata = resp.read()
   story = json.loads(rawdata)
+
+  by = str(story["by"])
+  user_dict[by] = by
 
   return story
 
@@ -107,5 +132,13 @@ def main():
 
   write_stories(stories)
   write_stories_csv(stories)
+
+  users = []
+  for u in sorted(user_dict.keys()):
+    userjson = get_user(u)
+    users.append(userjson)
+    print user_to_csv(userjson)
+
+  write_users_csv(users)
 
 main()
