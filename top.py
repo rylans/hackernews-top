@@ -113,6 +113,22 @@ def get_item(item_id):
 
   return story
 
+def get_kids(story):
+  if not story.get("kids"):
+    return
+  kids = story["kids"]
+
+  for k in [str(k) for k in kids]:
+    url = make_item_endpoint(k)
+    resp = urllib2.urlopen(url)
+    rawdata = resp.read()
+    jdata = json.loads(rawdata)
+    print k
+    if not jdata.get("by"):
+      continue
+    by = str(jdata["by"])
+    user_dict[by] = by
+
 def get_user(username):
   url = make_user_endpoint(username)
   resp = urllib2.urlopen(url)
@@ -127,6 +143,7 @@ def main():
 
   for i in article_list:
     story = get_item(i)
+    get_kids(story)
     print story_to_string(story)
     stories.append(story)
 
