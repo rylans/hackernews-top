@@ -6,6 +6,7 @@
 import urllib2
 import json
 from time import strftime
+import os
 
 ext_out = ".out"
 ext_csv = ".csv"
@@ -15,9 +16,15 @@ user_dict = {}
 def get_datetime():
   return strftime("%Y-%m-%d")
 
+def get_path(filename):
+  #If file is 2014-10-14.csv then return 2014/10/2014-10-14.csv
+  parts = filename.split('-')
+  return os.path.join(parts[0],parts[1],filename)
+  
 def write_stories(stories):
-  output_file = get_datetime() + ext_out
-  f = open(output_file, "w")
+  filepath = get_datetime() + ext_out
+  fullpath = get_path(filepath)
+  f = open(fullpath, "w")
   for story in stories:
     story_string = story_to_string(story).encode('utf-8')
     f.write(story_string)
@@ -25,8 +32,9 @@ def write_stories(stories):
   f.close()
 
 def write_stories_csv(stories):
-  output_csv = get_datetime() + ext_csv
-  f = open(output_csv, "w")
+  filepath = get_datetime() + ext_csv
+  fullpath = get_path(filepath)
+  f = open(fullpath, "w")
   f.write("SCORE,TITLE,BY,URL\n")
   for story in stories:
     story_string = story_to_csv(story).encode('utf-8')
@@ -35,8 +43,9 @@ def write_stories_csv(stories):
   f.close()
 
 def write_users_csv(users):
-  output_csv = "users" + ext_csv
-  f = open(output_csv, "w")
+  filepath = get_datetime() + ext_csv
+  fullpath = os.path.join("users",get_path(filepath))
+  f = open(fullpath, "w")
   f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
   for user in users:
     user_string = user_to_csv(user).encode('utf-8')
@@ -143,12 +152,15 @@ def main():
 
   for i in article_list:
     story = get_item(i)
-    get_kids(story)
+
     print story_to_string(story)
     stories.append(story)
 
   write_stories(stories)
   write_stories_csv(stories)
+
+  for story in stories:
+    get_kids(story)
 
   users = []
   for u in sorted(user_dict.keys()):
