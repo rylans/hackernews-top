@@ -1,5 +1,6 @@
 ## top.py
-## Get top stories from Hacker News' official API
+## -Get top stories from Hacker News' official API
+## -Record all users who comment on those stories
 ##
 ## Rylan Santinon
 
@@ -12,6 +13,10 @@ ext_out = ".out"
 ext_csv = ".csv"
 
 user_dict = {}
+
+class NetworkError(RuntimeError):
+  def __init__(self, e):
+    super(RuntimeError,self).__init__(e)
 
 def get_datetime():
   return strftime("%Y-%m-%d")
@@ -104,18 +109,22 @@ def user_to_csv(user):
   csv_cols = [remove_csv_chars(col) for col in cols]
   return ','.join(csv_cols)
 
+def json_api_call(url):
+  try:
+    resp = urllib2.urlopen(url)
+    raw = resp.read()
+    jsondata = json.loads(raw) #TODO: catch json.loads exceptions
+    return jsondata
+  except urllib2.URLError as e:
+    raise NetworkError(e)
+
 def get_top():
   endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
-  resp = urllib2.urlopen(endpoint_top100)
-  rawdata = resp.read()
-  article_list = json.loads(rawdata)
-  return article_list
+  return json_api_call(endpoint_top100)
 
 def get_item(item_id):
   url = make_item_endpoint(item_id)
-  resp = urllib2.urlopen(url)
-  rawdata = resp.read()
-  story = json.loads(rawdata)
+  story = json_api_call(url)
 
   by = str(story["by"])
   user_dict[by] = by
@@ -129,9 +138,8 @@ def get_kids(story):
 
   for k in [str(k) for k in kids]:
     url = make_item_endpoint(k)
-    resp = urllib2.urlopen(url)
-    rawdata = resp.read()
-    jdata = json.loads(rawdata)
+    jdata = json_api_call(url)
+    
     print k
     if not jdata.get("by"):
       continue
@@ -140,33 +148,37 @@ def get_kids(story):
 
 def get_user(username):
   url = make_user_endpoint(username)
-  resp = urllib2.urlopen(url)
-  rawdata = resp.read()
-  user = json.loads(rawdata)
-
-  return user
+  return json_api_call(url)
 
 def main():
   article_list = get_top()
   stories = []
 
   for i in article_list:
-    story = get_item(i)
-
-    print story_to_string(story)
-    stories.append(story)
+    try:
+      story = get_item(i)
+      print story_to_string(story)
+      stories.append(story)
+    except NetworkError as e:
+      print e
 
   write_stories(stories)
   write_stories_csv(stories)
 
   for story in stories:
-    get_kids(story)
+    try:
+      get_kids(story)
+    except NetworkError as e:
+      print e
 
   users = []
   for u in sorted(user_dict.keys()):
-    userjson = get_user(u)
-    users.append(userjson)
-    print user_to_csv(userjson)
+    try:
+      userjson = get_user(u)
+      users.append(userjson)
+      print u
+    except NetworkError as e:
+      print e
 
   write_users_csv(users)
 
