@@ -179,6 +179,7 @@ def concat_users():
   sorted_users = sorted(user_lines)
 
   f = open(os.path.join(USERS_PATH,'all_users.csv'), "w")
+  f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
   for u in sorted_users:
     f.write(u)
     f.write('\n')
