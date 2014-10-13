@@ -150,6 +150,40 @@ def get_user(username):
   url = make_user_endpoint(username)
   return json_api_call(url)
 
+def recursive_walk(directory):
+  IGNORE = ['all_users.csv']
+  file_list = []
+  for root, dirs, files in os.walk(directory):
+    for f in files:
+      if f not in IGNORE:
+        file_list.append(os.path.join(root,f))
+  return file_list
+
+def concat_users():
+  print "concat_users"
+  USERS_PATH = "users"
+  user_csvs = recursive_walk(USERS_PATH)
+  user_lines = []
+
+  for user_csv in user_csvs:
+    f = open(user_csv)
+    i = 0
+    for line in f.readlines():
+      if i == 0:
+        i += 1
+        continue
+      user_lines.append(line.strip())
+      
+    f.close()
+
+  sorted_users = sorted(user_lines)
+
+  f = open(os.path.join(USERS_PATH,'all_users.csv'), "w")
+  for u in sorted_users:
+    f.write(u)
+    f.write('\n')
+  f.close()
+
 def main():
   article_list = get_top()
   stories = []
@@ -182,4 +216,6 @@ def main():
 
   write_users_csv(users)
 
-main()
+if __name__ == '__main__':
+  main()
+  concat_users()
