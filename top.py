@@ -68,9 +68,14 @@ def make_user_endpoint(username):
   return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
   
 def story_to_string(story):
-  score = story["score"]
-  title = story["title"]
-  by = story["by"]
+  try:
+    score = story["score"]
+    title = story["title"]
+    by = story["by"]
+  except KeyError as e:
+    print story
+    raise e
+
   return "[" + str(score) + "] " + title + " (" + by + ")"
 
 def user_to_string(user):
@@ -129,8 +134,9 @@ def get_item(item_id):
   url = make_item_endpoint(item_id)
   story = json_api_call(url)
 
-  by = str(story["by"])
-  user_dict[by] = by
+  if story.get("by"):
+    by = str(story["by"])
+    user_dict[by] = by
 
   return story
 
@@ -198,6 +204,8 @@ def main():
   for i in article_list:
     try:
       story = get_item(i)
+      if story.get("deleted"):
+	continue
       print story_to_string(story)
       stories.append(story)
     except NetworkError as e:
