@@ -163,7 +163,7 @@ def concat_users():
   print "concat_users"
   USERS_PATH = "users"
   user_csvs = recursive_walk(USERS_PATH)
-  user_lines = []
+  user_lines = {}
 
   for user_csv in user_csvs:
     f = open(user_csv)
@@ -172,11 +172,14 @@ def concat_users():
       if i == 0:
         i += 1
         continue
-      user_lines.append(line.strip())
+      stripped_line = line.strip()
+      user_lines[stripped_line.split(',')[0]] = stripped_line
+      #TODO: Resolve duplicates by greatest submissions
       
     f.close()
 
-  sorted_users = sorted(user_lines)
+  line_list = [user_lines[k] for k in user_lines.keys()]
+  sorted_users = sorted(line_list)
 
   f = open(os.path.join(USERS_PATH,'all_users.csv'), "w")
   f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
