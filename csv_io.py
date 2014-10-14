@@ -13,6 +13,12 @@ class CsvIo:
     self.ignore = ['all_users.csv']
 
   def get_datetime(self):
+    """Get yyyy-mm-dd formatted string
+
+    >>> s = CsvIo().get_datetime()
+    >>> len(s) == 10
+    True
+    """
     return strftime("%Y-%m-%d")
 
   def get_path(self, filename):
@@ -68,6 +74,11 @@ class CsvIo:
     return ','.join(csv_cols)
 
   def remove_csv_chars(self, text):
+    """Remove commas and quotes
+
+    >>> CsvIo().remove_csv_chars('abc,"31,ab",z"')
+    'abc31abz'
+    """
     return self.remove_commas(self.remove_quotes(text))
 
   def remove_quotes(self, text):
@@ -85,6 +96,12 @@ class CsvIo:
     return file_list
 
   def concat_users(self):
+    """Concatenate all csv files in /users folder
+
+    >>> w = CsvIo().concat_users()
+    >>> w > 0
+    True
+    """
     user_csvs = self.recursive_walk(self.users_dir)
     user_lines = {}
 
