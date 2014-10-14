@@ -11,7 +11,7 @@ class NetworkError(RuntimeError):
 
 class ApiConnector:
   def __init__(self):
-    pass
+    self.user_dict = {}
 
   def request(self, url):
     """Request json data from the URL
@@ -47,6 +47,56 @@ class ApiConnector:
     """
     endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
     return self.request(endpoint_top100)
+
+  def make_item_endpoint(self, item_id):
+    return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
+
+  def make_user_endpoint(self, username):
+    return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
+
+  def get_item(self, item_id):
+    """Get a particular item by item's id
+    
+    >>> it = ApiConnector().get_item(1)
+    >>> it['by'] == 'pg'
+    True
+    """
+    url = self.make_item_endpoint(item_id)
+    story = self.request(url)
+    if story.get("by"):
+      by = str(story["by"])
+      self.user_dict[by] = by
+    return story
+
+  def get_user(self, username):
+    """Get a user by username
+
+    >>> u = ApiConnector().get_user('pg')
+    >>> u['id'] == 'pg'
+    True
+    """
+    url = self.make_user_endpoint(username)
+    return self.request(url)
+
+  def get_kids(self, story):
+    """Get all usernames from top level comments of a story
+
+    >>> o = ApiConnector().get_kids({'kids':[1,8,444]})
+    >>> len(o.keys()) == 3
+    True
+    """
+    if not story.get("kids"):
+      return
+    kids = story["kids"]
+
+    for k in [str(k) for k in kids]:
+      url = self.make_item_endpoint(k)
+      jdata = self.request(url)
+      if not jdata.get("by"):
+	continue
+      by = str(jdata["by"])
+      self.user_dict[by] = by
+    return self.user_dict
 
 if __name__ == '__main__':
   import doctest

@@ -4,9 +4,8 @@
 ##
 ## Rylan Santinon
 
-import urllib2
-import json
 from time import strftime
+from api_connector import *
 import os
 
 ext_out = ".out"
@@ -15,11 +14,6 @@ ext_csv = ".csv"
 users_dir = "users"
 stories_dir = "stories"
 
-user_dict = {}
-
-class NetworkError(RuntimeError):
-  def __init__(self, e):
-    super(RuntimeError,self).__init__(e)
 
 def get_datetime():
   return strftime("%Y-%m-%d")
@@ -60,12 +54,6 @@ def write_users_csv(users):
     f.write(user_string)
     f.write('\n')
   f.close()
-
-def make_item_endpoint(item_id):
-  return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
-
-def make_user_endpoint(username):
-  return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
   
 def story_to_string(story):
   try:
@@ -117,48 +105,6 @@ def user_to_csv(user):
   csv_cols = [remove_csv_chars(col) for col in cols]
   return ','.join(csv_cols)
 
-def json_api_call(url):
-  try:
-    resp = urllib2.urlopen(url)
-    raw = resp.read()
-    jsondata = json.loads(raw) #TODO: catch json.loads exceptions
-    return jsondata
-  except urllib2.URLError as e:
-    raise NetworkError(e)
-
-def get_top():
-  endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
-  return json_api_call(endpoint_top100)
-
-def get_item(item_id):
-  url = make_item_endpoint(item_id)
-  story = json_api_call(url)
-
-  if story.get("by"):
-    by = str(story["by"])
-    user_dict[by] = by
-
-  return story
-
-def get_kids(story):
-  if not story.get("kids"):
-    return
-  kids = story["kids"]
-
-  for k in [str(k) for k in kids]:
-    url = make_item_endpoint(k)
-    jdata = json_api_call(url)
-    
-    print k
-    if not jdata.get("by"):
-      continue
-    by = str(jdata["by"])
-    user_dict[by] = by
-
-def get_user(username):
-  url = make_user_endpoint(username)
-  return json_api_call(url)
-
 def recursive_walk(directory):
   IGNORE = ['all_users.csv']
   file_list = []
@@ -198,12 +144,13 @@ def concat_users():
   f.close()
 
 def main():
-  article_list = get_top()
+  conn = ApiConnector()
+  article_list = conn.get_top()
   stories = []
 
   for i in article_list:
     try:
-      story = get_item(i)
+      story = conn.get_item(i)
       if story.get("deleted"):
 	continue
       print story_to_string(story)
@@ -216,14 +163,14 @@ def main():
 
   for story in stories:
     try:
-      get_kids(story)
+      conn.get_kids(story)
     except NetworkError as e:
       print e
 
   users = []
-  for u in sorted(user_dict.keys()):
+  for u in sorted(conn.user_dict.keys()):
     try:
-      userjson = get_user(u)
+      userjson = conn.get_user(u)
       users.append(userjson)
       print u
     except NetworkError as e:
