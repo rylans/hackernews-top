@@ -12,6 +12,9 @@ import os
 ext_out = ".out"
 ext_csv = ".csv"
 
+users_dir = "users"
+stories_dir = "stories"
+
 user_dict = {}
 
 class NetworkError(RuntimeError):
@@ -28,7 +31,7 @@ def get_path(filename):
   
 def write_stories(stories):
   filepath = get_datetime() + ext_out
-  fullpath = get_path(filepath)
+  fullpath = os.path.join(stories_dir,get_path(filepath))
   f = open(fullpath, "w")
   for story in stories:
     story_string = story_to_string(story).encode('utf-8')
@@ -38,7 +41,7 @@ def write_stories(stories):
 
 def write_stories_csv(stories):
   filepath = get_datetime() + ext_csv
-  fullpath = get_path(filepath)
+  fullpath = os.path.join(stories_dir,get_path(filepath))
   f = open(fullpath, "w")
   f.write("SCORE,TITLE,BY,URL\n")
   for story in stories:
@@ -49,7 +52,7 @@ def write_stories_csv(stories):
 
 def write_users_csv(users):
   filepath = get_datetime() + ext_csv
-  fullpath = os.path.join("users",get_path(filepath))
+  fullpath = os.path.join(users_dir,get_path(filepath))
   f = open(fullpath, "w")
   f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
   for user in users:
@@ -161,8 +164,8 @@ def recursive_walk(directory):
 
 def concat_users():
   print "concat_users"
-  USERS_PATH = "users"
-  user_csvs = recursive_walk(USERS_PATH)
+
+  user_csvs = recursive_walk(users_dir)
   user_lines = {}
 
   for user_csv in user_csvs:
@@ -181,7 +184,7 @@ def concat_users():
   line_list = [user_lines[k] for k in user_lines.keys()]
   sorted_users = sorted(line_list)
 
-  f = open(os.path.join(USERS_PATH,'all_users.csv'), "w")
+  f = open(os.path.join(users_dir,'all_users.csv'), "w")
   f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
   for u in sorted_users:
     f.write(u)
