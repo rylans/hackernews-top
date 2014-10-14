@@ -6,6 +6,12 @@ import urllib2
 import json
 
 class NetworkError(RuntimeError):
+  """Runtime errors for http calls and json parsing
+
+  >>> raise NetworkError('foo')
+  Traceback (most recent call last):
+  NetworkError: foo
+  """
   def __init__(self, e):
     super(RuntimeError,self).__init__(e)
 
