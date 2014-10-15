@@ -1,8 +1,10 @@
-## top.py
-## -Get top stories from Hacker News' official API
-## -Record all users who comment on those stories
-##
-## Rylan Santinon
+"""
+Hacker News Top:
+  -Get top stories from Hacker News' official API
+  -Record all users who comment on those stories
+
+Author: Rylan Santinon
+"""
 
 from api_connector import *
 from csv_io import *

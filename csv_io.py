@@ -1,6 +1,8 @@
-## csv_io.py
-##
-## Rylan Santinon
+"""
+Input and output for CSV files based on the JSON objects in the API
+
+Author: Rylan Santinon
+"""
 
 from time import strftime
 import os
