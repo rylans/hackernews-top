@@ -100,7 +100,7 @@ class CsvIo:
 	  file_list.append(os.path.join(root,f))
     return file_list
 
-  def concat_csv(self, dir, out, header):
+  def concat_csv(self, dir, out, header, sort_col):
     csvs = self.recursive_walk(dir)
     csv_lines = {}
 
@@ -112,7 +112,7 @@ class CsvIo:
 	  i += 1
 	  continue
 	stripped_line = line.strip()
-	csv_lines[stripped_line.split(',')[0]] = stripped_line
+	csv_lines[stripped_line.split(',')[sort_col]] = stripped_line
 	#TODO: Resolve duplicates by greatest submissions
       f.close()
 
@@ -136,7 +136,7 @@ class CsvIo:
     >>> w > 0
     True
     """
-    return self.concat_csv(self.users_dir, self.users_aggregate, "ID,KARMA,CREATED,SUBMISSIONS\n")
+    return self.concat_csv(self.users_dir, self.users_aggregate, "ID,KARMA,CREATED,SUBMISSIONS\n", 0)
 
   def concat_stories(self):
     """Concatenate all csv files in /stories folder
@@ -145,7 +145,7 @@ class CsvIo:
     >>> w > 0
     True
     """
-    return self.concat_csv(self.stories_dir, self.stories_aggregate, "SCORE,TITLE,BY,URL\n")
+    return self.concat_csv(self.stories_dir, self.stories_aggregate, "SCORE,TITLE,BY,URL\n", 3)
 
 if __name__ == '__main__':
   import doctest
