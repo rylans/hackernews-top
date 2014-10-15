@@ -10,7 +10,10 @@ class CsvIo:
     self.ext_csv = ".csv"
     self.users_dir = "users"
     self.stories_dir = "stories"
-    self.ignore = ['all_users.csv']
+
+    self.users_aggregate = 'all_users.csv'
+    self.stories_aggregate = 'all_stories.csv'
+    self.ignore = [self.users_aggregate, self.stories_aggregate]
 
   def get_datetime(self):
     """Get yyyy-mm-dd formatted string
@@ -91,9 +94,40 @@ class CsvIo:
     file_list = []
     for root, dirs, files in os.walk(directory):
       for f in files:
+	if self.ext_csv not in f:
+	  continue
 	if f not in self.ignore:
 	  file_list.append(os.path.join(root,f))
     return file_list
+
+  def concat_csv(self, dir, out, header):
+    csvs = self.recursive_walk(dir)
+    csv_lines = {}
+
+    for csv in csvs:
+      f = open(csv)
+      i = 0
+      for line in f.readlines():
+	if i == 0:
+	  i += 1
+	  continue
+	stripped_line = line.strip()
+	csv_lines[stripped_line.split(',')[0]] = stripped_line
+	#TODO: Resolve duplicates by greatest submissions
+      f.close()
+
+    line_list = [csv_lines[k] for k in csv_lines.keys()]
+    sorted_lines = sorted(line_list)
+
+    f = open(os.path.join(dir, out), "w")
+    f.write(header)
+    wrote = 0
+    for u in sorted_lines:
+      wrote += 1
+      f.write(u)
+      f.write('\n')
+    f.close()
+    return wrote
 
   def concat_users(self):
     """Concatenate all csv files in /users folder
@@ -102,33 +136,16 @@ class CsvIo:
     >>> w > 0
     True
     """
-    user_csvs = self.recursive_walk(self.users_dir)
-    user_lines = {}
+    return self.concat_csv(self.users_dir, self.users_aggregate, "ID,KARMA,CREATED,SUBMISSIONS\n")
 
-    for user_csv in user_csvs:
-      f = open(user_csv)
-      i = 0
-      for line in f.readlines():
-	if i == 0:
-	  i += 1
-	  continue
-	stripped_line = line.strip()
-	user_lines[stripped_line.split(',')[0]] = stripped_line
-	#TODO: Resolve duplicates by greatest submissions
-      f.close()
+  def concat_stories(self):
+    """Concatenate all csv files in /stories folder
 
-    line_list = [user_lines[k] for k in user_lines.keys()]
-    sorted_users = sorted(line_list)
-
-    f = open(os.path.join(self.users_dir,'all_users.csv'), "w")
-    f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
-    wrote = 0
-    for u in sorted_users:
-      wrote += 1
-      f.write(u)
-      f.write('\n')
-    f.close()
-    return wrote
+    >>> w = CsvIo().concat_stories()
+    >>> w > 0
+    True
+    """
+    return self.concat_csv(self.stories_dir, self.stories_aggregate, "SCORE,TITLE,BY,URL\n")
 
 if __name__ == '__main__':
   import doctest
