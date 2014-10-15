@@ -1,6 +1,11 @@
-## api_connector.py
-##
-## Rylan Santinon
+"""
+Wrapper for the Hacker News API
+Supports requests for:
+  -Story items
+  -Users
+
+Author: Rylan Santinon
+"""
 
 import urllib2
 import json
