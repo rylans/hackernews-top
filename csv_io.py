@@ -5,6 +5,16 @@
 from time import strftime
 import os
 
+class CsvIoError(RuntimeError):
+  """Runtime error for file io
+
+  >>> raise CsvIoError('bar')
+  Traceback (most recent call last):
+  CsvIoError: bar
+  """
+  def __init__(self, e):
+    super(RuntimeError,self).__init__(e)
+
 class CsvIo:
   def __init__(self):
     self.ext_csv = ".csv"
@@ -101,11 +111,15 @@ class CsvIo:
     return file_list
 
   def concat_csv(self, dir, out, header, sort_col):
-    csvs = self.recursive_walk(dir)
+    try:
+      csvs = self.recursive_walk(dir)
+    except IOError as e:
+      raise CsvIoError(e)
+
     csv_lines = {}
 
     for csv in csvs:
-      f = open(csv)
+      f = open(csv, "r")
       i = 0
       for line in f.readlines():
 	if i == 0:
