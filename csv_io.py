@@ -116,8 +116,9 @@ class CsvIo:
 	#TODO: Resolve duplicates by greatest submissions
       f.close()
 
-    line_list = [csv_lines[k] for k in csv_lines.keys()]
-    sorted_lines = sorted(line_list)
+    keys = [k for k in csv_lines.keys()]
+    sorted_keys = sorted(keys)
+    sorted_lines = [csv_lines[k] for k in sorted_keys]
 
     f = open(os.path.join(dir, out), "w")
     f.write(header)
