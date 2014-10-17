@@ -45,6 +45,7 @@ def main():
   csvio.write_users_csv(users)
 
 if __name__ == '__main__':
+  csvio = CsvIo()
   main()
-  CsvIo().concat_users()
-  CsvIo().concat_stories()
+  csvio.concat_users()
+  csvio.concat_stories()
