@@ -6,6 +6,7 @@ Author: Rylan Santinon
 
 from time import strftime
 import os
+import logging
 
 class CsvIoError(RuntimeError):
   """Runtime error for file io
@@ -27,6 +28,8 @@ class CsvIo:
     self.stories_aggregate = 'all_stories.csv'
     self.ignore = [self.users_aggregate, self.stories_aggregate]
 
+    self.logger = logging.getLogger(__name__)
+
   def get_datetime(self):
     """Get yyyy-mm-dd formatted string
 
@@ -46,6 +49,7 @@ class CsvIo:
     return os.path.join(parts[0],parts[1],filename)
 
   def write_stories_csv(self, stories):
+    self.logger.debug("Writing stories to csv")
     filepath = self.get_datetime() + self.ext_csv
     fullpath = os.path.join(self.stories_dir, self.get_path(filepath))
     f = open(fullpath, "w")
@@ -57,6 +61,7 @@ class CsvIo:
     f.close()
 
   def write_users_csv(self, users):
+    self.logger.debug("Writing users to csv")
     filepath = self.get_datetime() + self.ext_csv
     fullpath = os.path.join(self.users_dir,self.get_path(filepath))
     f = open(fullpath, "w")
@@ -116,6 +121,7 @@ class CsvIo:
     try:
       csvs = self.recursive_walk(dir)
     except IOError as e:
+      self.logger.exception(e)
       raise CsvIoError(e)
 
     csv_lines = {}
@@ -153,6 +159,7 @@ class CsvIo:
     >>> w > 0
     True
     """
+    self.logger.debug("Concat users")
     return self.concat_csv(self.users_dir, self.users_aggregate, "ID,KARMA,CREATED,SUBMISSIONS\n", 0)
 
   def concat_stories(self):
@@ -162,8 +169,11 @@ class CsvIo:
     >>> w > 0
     True
     """
+    self.logger.debug("Concat stories")
     return self.concat_csv(self.stories_dir, self.stories_aggregate, "SCORE,TITLE,BY,URL\n", 3)
 
 if __name__ == '__main__':
   import doctest
+  logging.disable(logging.CRITICAL)
   doctest.testmod()
+  logging.disable(logging.NOTSET)
