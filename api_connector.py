@@ -89,17 +89,7 @@ class ApiConnector:
     url = self.make_user_endpoint(username)
     return self.request(url)
 
-  def get_kids(self, story):
-    """Get all usernames from top level comments of a story
-
-    >>> o = ApiConnector().get_kids({'kids':[1,8,444]})
-    >>> len(o.keys()) == 3
-    True
-    """
-    if not story.get("kids"):
-      return
-    kids = story["kids"]
-
+  def get_kids_recur(self, kids, level):
     for k in [str(k) for k in kids]:
       url = self.make_item_endpoint(k)
       jdata = self.request(url)
@@ -107,6 +97,42 @@ class ApiConnector:
 	continue
       by = str(jdata["by"])
       self.user_dict[by] = by
+      print (" " * level) + by
+      if jdata.get("kids"):
+	self.get_kids_recur(jdata["kids"], level + 1)
+
+  def get_kids(self, story):
+    """Get all usernames from comments of a story
+
+    >>> o = ApiConnector().get_kids({'kids':[1]})
+    pg
+     jacquesm
+     sama
+      pg
+       dmon
+       Arrington
+      Arrington
+     kleevr
+      kleevr
+      sebg
+       kleevr
+       byrneseyeview
+        kleevr
+      byrneseyeview
+       rms
+        byrneseyeview
+	 rms
+	  sebg
+     Arrington
+     vice
+
+    >>> len(o.keys()) == 10
+    True
+    """
+    if not story.get("kids"):
+      return
+    kids = story["kids"]
+    self.get_kids_recur(kids, 0)
     return self.user_dict
 
 if __name__ == '__main__':
