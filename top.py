@@ -8,8 +8,9 @@ Author: Rylan Santinon
 
 from api_connector import *
 from csv_io import *
+import logging
 
-def main():
+def main(logger):
   conn = ApiConnector()
   csvio = CsvIo()
   article_list = conn.get_top()
@@ -20,10 +21,10 @@ def main():
       story = conn.get_item(i)
       if story.get("deleted"):
 	continue
-      print csvio.story_to_csv(story)
+      logger.debug(csvio.story_to_csv(story))
       stories.append(story)
     except NetworkError as e:
-      print e
+      logger.exception(e)
 
   csvio.write_stories_csv(stories)
 
@@ -31,21 +32,25 @@ def main():
     try:
       conn.get_kids(story)
     except NetworkError as e:
-      print e
+      logger.exception(e)
 
   users = []
   for u in sorted(conn.user_dict.keys()):
     try:
       userjson = conn.get_user(u)
       users.append(userjson)
-      print u
     except NetworkError as e:
-      print e
+      logger.exception(e)
 
   csvio.write_users_csv(users)
 
 if __name__ == '__main__':
+  logging.basicConfig(level=logging.DEBUG,
+    filename='top.log',
+    filemode='w')
+  logger = logging.getLogger(__name__)
+
   csvio = CsvIo()
-  main()
+  main(logger)
   csvio.concat_users()
   csvio.concat_stories()

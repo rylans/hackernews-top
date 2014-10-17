@@ -9,6 +9,7 @@ Author: Rylan Santinon
 
 import urllib2
 import json
+import logging
 
 class NetworkError(RuntimeError):
   """Runtime errors for http calls and json parsing
@@ -23,6 +24,7 @@ class NetworkError(RuntimeError):
 class ApiConnector:
   def __init__(self):
     self.user_dict = {}
+    self.logger = logging.getLogger(__name__)
 
   def request(self, url):
     """Request json data from the URL
@@ -45,9 +47,13 @@ class ApiConnector:
       jsondata = json.loads(raw)
       return jsondata
     except urllib2.URLError as e:
+      self.logger.exception(e)
       raise NetworkError(e)
     except ValueError as e:
+      self.logger.exception(e)
       raise NetworkError(e)
+    finally:
+      self.logger.debug("Requested %s", url)
 
   def get_top(self):
     """Request the top 100 stories
@@ -97,7 +103,7 @@ class ApiConnector:
 	continue
       by = str(jdata["by"])
       self.user_dict[by] = by
-      print (" " * level) + by
+      self.logger.debug("Found user: %s at level: %s" % (by, level))
       if jdata.get("kids"):
 	self.get_kids_recur(jdata["kids"], level + 1)
 
@@ -105,27 +111,6 @@ class ApiConnector:
     """Get all usernames from comments of a story
 
     >>> o = ApiConnector().get_kids({'kids':[1]})
-    pg
-     jacquesm
-     sama
-      pg
-       dmon
-       Arrington
-      Arrington
-     kleevr
-      kleevr
-      sebg
-       kleevr
-       byrneseyeview
-        kleevr
-      byrneseyeview
-       rms
-        byrneseyeview
-	 rms
-	  sebg
-     Arrington
-     vice
-
     >>> len(o.keys()) == 10
     True
     """
@@ -137,4 +122,6 @@ class ApiConnector:
 
 if __name__ == '__main__':
   import doctest
+  logging.disable(logging.CRITICAL)
   doctest.testmod()
+  logging.disable(logging.NOTSET)
