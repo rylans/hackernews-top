@@ -42,7 +42,7 @@ class ApiConnector:
     NetworkError: No JSON object could be decoded
     """
     try:
-      resp = urllib2.urlopen(url)
+      resp = urllib2.urlopen(url, timeout = 2)
       raw = resp.read()
       jsondata = json.loads(raw)
       return jsondata
@@ -52,6 +52,9 @@ class ApiConnector:
     except ValueError as e:
       self.logger.exception(e)
       raise NetworkError(e)
+    except:
+      self.logger.exception("exception")
+      raise NetworkError('unknown error')
     finally:
       self.logger.debug("Requested %s", url)
 
@@ -100,7 +103,7 @@ class ApiConnector:
       url = self.make_item_endpoint(k)
       jdata = self.request(url)
       if not jdata.get("by"):
-	continue
+        continue
       by = str(jdata["by"])
       self.user_dict[by] = by
       self.logger.debug("Found user: %s at level: %s" % (by, level))
