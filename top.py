@@ -20,7 +20,7 @@ def main(logger):
     try:
       story = conn.get_item(i)
       if story.get("deleted"):
-	continue
+        continue
       logger.debug(csvio.story_to_csv(story))
       stories.append(story)
     except NetworkError as e:
