@@ -52,9 +52,9 @@ class ApiConnector:
     except ValueError as e:
       self.logger.exception(e)
       raise NetworkError(e)
-    except:
-      self.logger.exception("exception")
-      raise NetworkError('unknown error')
+    except Exception as e:
+      self.logger.exception(e)
+      raise NetworkError(e)
     finally:
       self.logger.debug("Requested %s", url)
 
