@@ -169,6 +169,21 @@ class CsvIo:
     self.logger.debug("Concat stories")
     return self.concat_csv(self.stories_dir, self.stories_aggregate, "SCORE,TITLE,BY,URL\n", 3)
 
+  def get_all_users(self):
+    """Get users in the all_users.csv file
+
+    >>> u = CsvIo().get_all_users()
+    >>> u['tptacek']
+    'tptacek'
+    """
+    users_file = os.path.join(self.users_dir, self.users_aggregate)
+    users = {}
+    with open(users_file, 'r') as f:
+      for line in f.readlines():
+	userid = line.split(',')[0]
+	users[userid] = userid
+    return users
+
 if __name__ == '__main__':
   import doctest
   logging.disable(logging.CRITICAL)

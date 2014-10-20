@@ -10,7 +10,7 @@ from api_connector import *
 from csv_io import *
 import logging
 
-def main(logger):
+def main(logger, known_users):
   conn = ApiConnector()
   csvio = CsvIo()
   article_list = conn.get_top()
@@ -36,6 +36,9 @@ def main(logger):
 
   users = []
   for u in sorted(conn.user_dict.keys()):
+    if known_users.get(u) == None:
+      logger.debug("Skipping get_user call for %s" % u)
+      continue
     try:
       userjson = conn.get_user(u)
       users.append(userjson)
@@ -51,6 +54,7 @@ if __name__ == '__main__':
   logger = logging.getLogger(__name__)
 
   csvio = CsvIo()
-  main(logger)
+  known_users = csvio.get_all_users()
+  main(logger, known_users)
   csvio.concat_users()
   csvio.concat_stories()
