@@ -52,25 +52,23 @@ class CsvIo:
     self.logger.debug("Writing stories to csv")
     filepath = self.get_datetime() + self.ext_csv
     fullpath = os.path.join(self.stories_dir, self.get_path(filepath))
-    f = open(fullpath, "w")
-    f.write("SCORE,TITLE,BY,URL\n")
-    for story in stories:
-      story_string = self.story_to_csv(story).encode('utf-8')
-      f.write(story_string)
-      f.write('\n')
-    f.close()
+    with open(fullpath, 'w') as f:
+      f.write("SCORE,TITLE,BY,URL\n")
+      for story in stories:
+	story_string = self.story_to_csv(story).encode('utf-8')
+	f.write(story_string)
+	f.write('\n')
 
   def write_users_csv(self, users):
     self.logger.debug("Writing users to csv")
     filepath = self.get_datetime() + self.ext_csv
     fullpath = os.path.join(self.users_dir,self.get_path(filepath))
-    f = open(fullpath, "w")
-    f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
-    for user in users:
-      user_string = self.user_to_csv(user).encode('utf-8')
-      f.write(user_string)
-      f.write('\n')
-    f.close()
+    with open(fullpath, 'w') as f:
+      f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
+      for user in users:
+	user_string = self.user_to_csv(user).encode('utf-8')
+	f.write(user_string)
+	f.write('\n')
 
   def story_to_csv(self, story):
     #SCORE,TITLE,BY,URL
@@ -127,29 +125,28 @@ class CsvIo:
     csv_lines = {}
 
     for csv in csvs:
-      f = open(csv, "r")
-      i = 0
-      for line in f.readlines():
-	if i == 0:
-	  i += 1
-	  continue
-	stripped_line = line.strip()
-	csv_lines[stripped_line.split(',')[sort_col]] = stripped_line
-	#TODO: Resolve duplicates by greatest submissions
-      f.close()
+      with open(csv, 'r') as f:
+	i = 0
+	for line in f.readlines():
+	  if i == 0:
+	    i += 1
+	    continue
+	  stripped_line = line.strip()
+	  csv_lines[stripped_line.split(',')[sort_col]] = stripped_line
+	  #TODO: Resolve duplicates by greatest submissions
 
     keys = [k for k in csv_lines.keys()]
     sorted_keys = sorted(keys)
     sorted_lines = [csv_lines[k] for k in sorted_keys]
 
-    f = open(os.path.join(dir, out), "w")
-    f.write(header)
-    wrote = 0
-    for u in sorted_lines:
-      wrote += 1
-      f.write(u)
-      f.write('\n')
-    f.close()
+    with open(os.path.join(dir, out), 'w') as f:
+      f.write(header)
+      wrote = 0
+      for u in sorted_lines:
+	wrote += 1
+	f.write(u)
+	f.write('\n')
+
     return wrote
 
   def concat_users(self):
