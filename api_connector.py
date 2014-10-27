@@ -60,7 +60,6 @@ class ApiConnector:
 
   def get_top(self):
     """Request the top 100 stories
-    
     >>> top = ApiConnector().get_top()
     >>> len(top) == 100
     True
@@ -76,7 +75,7 @@ class ApiConnector:
 
   def get_item(self, item_id):
     """Get a particular item by item's id
-    
+
     >>> it = ApiConnector().get_item(1)
     >>> it['by'] == 'pg'
     True
@@ -108,7 +107,7 @@ class ApiConnector:
       self.user_dict[by] = by
       self.logger.debug("Found user: %s at level: %s" % (by, level))
       if jdata.get("kids"):
-	self.get_kids_recur(jdata["kids"], level + 1)
+        self.get_kids_recur(jdata["kids"], level + 1)
 
   def get_kids(self, story):
     """Get all usernames from comments of a story

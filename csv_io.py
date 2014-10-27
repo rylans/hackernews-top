@@ -55,9 +55,9 @@ class CsvIo:
     with open(fullpath, 'w') as f:
       f.write("SCORE,TITLE,BY,URL\n")
       for story in stories:
-	story_string = self.story_to_csv(story).encode('utf-8')
-	f.write(story_string)
-	f.write('\n')
+        story_string = self.story_to_csv(story).encode('utf-8')
+        f.write(story_string)
+        f.write('\n')
 
   def write_users_csv(self, users):
     self.logger.debug("Writing users to csv")
@@ -66,9 +66,9 @@ class CsvIo:
     with open(fullpath, 'w') as f:
       f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
       for user in users:
-	user_string = self.user_to_csv(user).encode('utf-8')
-	f.write(user_string)
-	f.write('\n')
+        user_string = self.user_to_csv(user).encode('utf-8')
+        f.write(user_string)
+        f.write('\n')
 
   def story_to_csv(self, story):
     #SCORE,TITLE,BY,URL
@@ -109,10 +109,10 @@ class CsvIo:
     file_list = []
     for root, dirs, files in os.walk(directory):
       for f in files:
-	if self.ext_csv not in f:
-	  continue
-	if f not in self.ignore:
-	  file_list.append(os.path.join(root,f))
+        if self.ext_csv not in f:
+          continue
+        if f not in self.ignore:
+          file_list.append(os.path.join(root,f))
     return file_list
 
   def concat_csv(self, dir, out, header, sort_col):
@@ -126,14 +126,14 @@ class CsvIo:
 
     for csv in csvs:
       with open(csv, 'r') as f:
-	i = 0
-	for line in f.readlines():
-	  if i == 0:
-	    i += 1
-	    continue
-	  stripped_line = line.strip()
-	  csv_lines[stripped_line.split(',')[sort_col]] = stripped_line
-	  #TODO: Resolve duplicates by greatest submissions
+        i = 0
+        for line in f.readlines():
+          if i == 0:
+            i += 1
+            continue
+          stripped_line = line.strip()
+          csv_lines[stripped_line.split(',')[sort_col]] = stripped_line
+          #TODO: Resolve duplicates by greatest submissions
 
     keys = [k for k in csv_lines.keys()]
     sorted_keys = sorted(keys)
@@ -143,9 +143,9 @@ class CsvIo:
       f.write(header)
       wrote = 0
       for u in sorted_lines:
-	wrote += 1
-	f.write(u)
-	f.write('\n')
+        wrote += 1
+        f.write(u)
+        f.write('\n')
 
     return wrote
 
@@ -180,8 +180,8 @@ class CsvIo:
     users = {}
     with open(users_file, 'r') as f:
       for line in f.readlines():
-	userid = line.split(',')[0]
-	users[userid] = userid
+        userid = line.split(',')[0]
+        users[userid] = userid
     return users
 
 if __name__ == '__main__':
