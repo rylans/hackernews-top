@@ -25,6 +25,22 @@ class ApiConnector:
   def __init__(self):
     self.user_dict = {}
     self.logger = logging.getLogger(__name__)
+    self.timeout = 5
+
+  def set_timeout(self, t):
+    """Set the timeout in seconds for the urllib2.urlopen call
+
+    >>> ApiConnector().set_timeout(3.551).timeout == 3.551
+    True
+
+    >>> ApiConnector().set_timeout(-2)
+    Traceback (most recent call last):
+    RuntimeError: Timeout must be non-negative
+    """
+    if t < 0:
+      raise RuntimeError("Timeout must be non-negative")
+    self.timeout = t
+    return self
 
   def request(self, url):
     """Request json data from the URL
@@ -42,7 +58,7 @@ class ApiConnector:
     NetworkError: No JSON object could be decoded
     """
     try:
-      resp = urllib2.urlopen(url, timeout = 2)
+      resp = urllib2.urlopen(url, timeout = self.timeout)
       jsondata = json.loads(resp.read())
       return jsondata
     except urllib2.URLError as e:
