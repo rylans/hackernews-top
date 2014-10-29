@@ -87,6 +87,11 @@ class ApiConnector:
     return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
 
   def make_user_endpoint(self, username):
+    """Return the API URL for the given username
+
+    >>> ApiConnector().make_user_endpoint('pg')
+    'https://hacker-news.firebaseio.com/v0/user/pg.json'
+    """
     return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
 
   def get_item(self, item_id):
