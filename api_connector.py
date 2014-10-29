@@ -43,8 +43,7 @@ class ApiConnector:
     """
     try:
       resp = urllib2.urlopen(url, timeout = 2)
-      raw = resp.read()
-      jsondata = json.loads(raw)
+      jsondata = json.loads(resp.read())
       return jsondata
     except urllib2.URLError as e:
       self.logger.exception(e)
@@ -68,6 +67,23 @@ class ApiConnector:
     return self.request(endpoint_top100)
 
   def make_item_endpoint(self, item_id):
+    """Return the API URL for the given item_id
+
+    >>> ApiConnector().make_item_endpoint(1)
+    'https://hacker-news.firebaseio.com/v0/item/1.json'
+
+    >>> ApiConnector().make_item_endpoint(None)
+    Traceback (most recent call last):
+    RuntimeError: Parameter None must be an integer
+
+    >>> ApiConnector().make_item_endpoint('baz')
+    Traceback (most recent call last):
+    RuntimeError: Parameter baz must be an integer
+    """
+    try:
+      int(item_id)
+    except (TypeError, ValueError) as e:
+      raise RuntimeError("Parameter %s must be an integer" % item_id)
     return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
 
   def make_user_endpoint(self, username):
