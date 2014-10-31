@@ -80,7 +80,10 @@ class ApiConnector:
     True
     """
     endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
-    return self.request(endpoint_top100)
+    try:
+      return self.request(endpoint_top100)
+    except NetworkError:
+      return []
 
   def make_item_endpoint(self, item_id):
     """Return the API URL for the given item_id
