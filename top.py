@@ -19,7 +19,7 @@ def main(logger, known_users):
   for i in article_list:
     try:
       story = conn.get_item(i)
-      if story.get("deleted"):
+      if story == None or story.get("deleted"):
         continue
       logger.debug(csvio.story_to_csv(story))
       stories.append(story)

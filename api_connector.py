@@ -122,7 +122,7 @@ class ApiConnector:
     """
     url = self.make_item_endpoint(item_id)
     story = self.request(url)
-    if story.get("by"):
+    if story != None and story.get("by"):
       by = str(story["by"])
       self.user_dict[by] = by
     return story
@@ -141,7 +141,7 @@ class ApiConnector:
     for k in [str(k) for k in kids]:
       url = self.make_item_endpoint(k)
       jdata = self.request(url)
-      if not jdata.get("by"):
+      if jdata == None or not jdata.get("by"):
         continue
       by = str(jdata["by"])
       self.user_dict[by] = by
@@ -156,7 +156,7 @@ class ApiConnector:
     >>> len(o.keys()) == 10
     True
     """
-    if not story.get("kids"):
+    if story == None or not story.get("kids"):
       return
     kids = story["kids"]
     self.get_kids_recur(kids, 0)

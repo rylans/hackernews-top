@@ -48,10 +48,19 @@ class CsvIo:
     parts = filename.split('-')
     return os.path.join(parts[0],parts[1],filename)
 
+  def get_dir(self, filename):
+    """Get the proper relative directory for a yyyy-mm-dd filename
+    """
+    parts = filename.split('-')
+    return os.path.join(parts[0],parts[1])
+
   def write_stories_csv(self, stories):
-    self.logger.debug("Writing stories to csv")
     filepath = self.get_datetime() + self.ext_csv
     fullpath = os.path.join(self.stories_dir, self.get_path(filepath))
+    self.logger.debug("Writing stories to csv at %s" % fullpath)
+    direct = os.path.join(self.stories_dir, self.get_dir(filepath))
+    if not os.path.exists(direct):
+      os.makedirs(direct)
     with open(fullpath, 'w') as f:
       f.write("SCORE,TITLE,BY,URL\n")
       for story in stories:
@@ -63,6 +72,10 @@ class CsvIo:
     self.logger.debug("Writing users to csv")
     filepath = self.get_datetime() + self.ext_csv
     fullpath = os.path.join(self.users_dir,self.get_path(filepath))
+    self.logger.debug("Writing users to csv at %s" % fullpath)
+    direct = os.path.join(self.users_dir, self.get_dir(filepath))
+    if not os.path.exists(direct):
+      os.makedirs(direct)
     with open(fullpath, 'w') as f:
       f.write("ID,KARMA,CREATED,SUBMISSIONS\n")
       for user in users:
