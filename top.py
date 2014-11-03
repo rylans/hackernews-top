@@ -12,6 +12,8 @@ import logging
 
 def main(logger, known_users):
   conn = ApiConnector()
+  conn.set_timeout(40)
+
   csvio = CsvIo()
   article_list = conn.get_top()
   stories = []
