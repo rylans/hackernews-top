@@ -12,158 +12,166 @@ import json
 import logging
 
 class NetworkError(RuntimeError):
-  """Runtime errors for http calls and json parsing
+    """Runtime errors for http calls and json parsing
 
-  >>> raise NetworkError('foo')
-  Traceback (most recent call last):
-  NetworkError: foo
-  """
-  def __init__(self, e):
-    super(RuntimeError,self).__init__(e)
+    >>> raise NetworkError('foo')
+    Traceback (most recent call last):
+    NetworkError: foo
+    """
+    def __init__(self, e):
+        super(RuntimeError,self).__init__(e)
 
 class ApiConnector:
-  def __init__(self):
-    self.user_dict = {}
-    self.logger = logging.getLogger(__name__)
-    self.timeout = 5
+    def __init__(self):
+        self.user_dict = {}
+        self.logger = logging.getLogger(__name__)
+        self.timeout = 35
 
-  def set_timeout(self, t):
-    """Set the timeout in seconds for the urllib2.urlopen call
+    def set_timeout(self, t):
+        """Set the timeout in seconds for the urllib2.urlopen call
 
-    >>> ApiConnector().set_timeout(3.551).timeout == 3.551
-    True
+        >>> ApiConnector().set_timeout(3.551).timeout == 3.551
+        True
 
-    >>> ApiConnector().set_timeout(-2)
-    Traceback (most recent call last):
-    RuntimeError: Timeout must be non-negative
-    """
-    if t < 0:
-      raise RuntimeError("Timeout must be non-negative")
-    self.timeout = t
-    return self
+        >>> ApiConnector().set_timeout(-2)
+        Traceback (most recent call last):
+        RuntimeError: Timeout must be non-negative
+        """
+        if t < 0:
+            raise RuntimeError("Timeout must be non-negative")
+        self.timeout = t
+        return self
 
-  def request(self, url):
-    """Request json data from the URL
+    def request(self, url):
+        """Request json data from the URL
 
-    >>> j = ApiConnector().request('https://hacker-news.firebaseio.com/v0/item/1.json')
-    >>> j['by'] == 'pg'
-    True
+        >>> j = ApiConnector().request('https://hacker-news.firebaseio.com/v0/item/1.json')
+        >>> j['by'] == 'pg'
+        True
 
-    >>> ApiConnector().request('https://hacker-news.firebaseio.com/v0/foobar/1.json')
-    Traceback (most recent call last):
-    NetworkError: HTTP Error 401: Unauthorized
+        >>> ApiConnector().request('https://hacker-news.firebaseio.com/v0/foobar/1.json')
+        Traceback (most recent call last):
+        NetworkError: HTTP Error 401: Unauthorized
 
-    >>> ApiConnector().request('http://www.yahoo.co.jp')
-    Traceback (most recent call last):
-    NetworkError: No JSON object could be decoded
-    """
-    try:
-      resp = urllib2.urlopen(url, timeout = self.timeout)
-      jsondata = json.loads(resp.read())
-      return jsondata
-    except urllib2.URLError as e:
-      self.logger.exception(e)
-      raise NetworkError(e)
-    except ValueError as e:
-      self.logger.exception(e)
-      raise NetworkError(e)
-    except Exception as e:
-      self.logger.exception(e)
-      raise NetworkError(e)
-    finally:
-      self.logger.debug("Requested %s", url)
+        >>> ApiConnector().request('http://www.yahoo.co.jp')
+        Traceback (most recent call last):
+        NetworkError: No JSON object could be decoded
+        """
+        try:
+            resp = urllib2.urlopen(url, timeout=self.timeout)
+            jsondata = json.loads(resp.read())
+            return jsondata
+        except urllib2.URLError as e:
+            self.logger.exception(e)
+            raise NetworkError(e)
+        except ValueError as e:
+            self.logger.exception(e)
+            raise NetworkError(e)
+        except Exception as e:
+            self.logger.exception(e)
+            raise NetworkError(e)
+        finally:
+            self.logger.debug("Requested %s", url)
 
-  def get_top(self):
-    """Request the top 100 stories
-    >>> top = ApiConnector().get_top()
-    >>> len(top) == 100
-    True
-    """
-    endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
-    try:
-      return self.request(endpoint_top100)
-    except NetworkError:
-      return []
+    def get_top(self):
+        """Request the top 100 stories
+        >>> top = ApiConnector().get_top()
+        >>> len(top) == 100
+        True
+        """
+        endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
+        try:
+            return self.request(endpoint_top100)
+        except NetworkError:
+            return []
 
-  def make_item_endpoint(self, item_id):
-    """Return the API URL for the given item_id
+    def make_item_endpoint(self, item_id):
+        """Return the API URL for the given item_id
 
-    >>> ApiConnector().make_item_endpoint(1)
-    'https://hacker-news.firebaseio.com/v0/item/1.json'
+        >>> ApiConnector().make_item_endpoint(1)
+        'https://hacker-news.firebaseio.com/v0/item/1.json'
 
-    >>> ApiConnector().make_item_endpoint(None)
-    Traceback (most recent call last):
-    RuntimeError: Parameter None must be an integer
+        >>> ApiConnector().make_item_endpoint(None)
+        Traceback (most recent call last):
+        RuntimeError: Parameter None must be an integer
 
-    >>> ApiConnector().make_item_endpoint('baz')
-    Traceback (most recent call last):
-    RuntimeError: Parameter baz must be an integer
-    """
-    try:
-      int(item_id)
-    except (TypeError, ValueError) as e:
-      raise RuntimeError("Parameter %s must be an integer" % item_id)
-    return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
+        >>> ApiConnector().make_item_endpoint('baz')
+        Traceback (most recent call last):
+        RuntimeError: Parameter baz must be an integer
+        """
+        try:
+            int(item_id)
+        except (TypeError, ValueError) as e:
+            raise RuntimeError("Parameter %s must be an integer" % item_id)
+        return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
 
-  def make_user_endpoint(self, username):
-    """Return the API URL for the given username
+    def make_user_endpoint(self, username):
+        """Return the API URL for the given username
 
-    >>> ApiConnector().make_user_endpoint('pg')
-    'https://hacker-news.firebaseio.com/v0/user/pg.json'
-    """
-    return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
+        >>> ApiConnector().make_user_endpoint('pg')
+        'https://hacker-news.firebaseio.com/v0/user/pg.json'
+        """
+        return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
 
-  def get_item(self, item_id):
-    """Get a particular item by item's id
+    def get_item(self, item_id):
+        """Get a particular item by item's id
 
-    >>> it = ApiConnector().get_item(1)
-    >>> it['by'] == 'pg'
-    True
-    """
-    url = self.make_item_endpoint(item_id)
-    story = self.request(url)
-    if story != None and story.get("by"):
-      by = str(story["by"])
-      self.user_dict[by] = by
-    return story
+        >>> it = ApiConnector().get_item(1)
+        >>> it['by'] == 'pg'
+        True
+        """
+        url = self.make_item_endpoint(item_id)
+        story = self.request(url)
+        if story != None and story.get("by"):
+            by = str(story["by"])
+            self.user_dict[by] = by
+        return story
 
-  def get_user(self, username):
-    """Get a user by username
+    def get_user(self, username):
+        """Get a user by username
 
-    >>> u = ApiConnector().get_user('pg')
-    >>> u['id'] == 'pg'
-    True
-    """
-    url = self.make_user_endpoint(username)
-    return self.request(url)
+        >>> u = ApiConnector().get_user('pg')
+        >>> u['id'] == 'pg'
+        True
+        """
+        url = self.make_user_endpoint(username)
+        return self.request(url)
 
-  def get_kids_recur(self, kids, level):
-    for k in [str(k) for k in kids]:
-      url = self.make_item_endpoint(k)
-      jdata = self.request(url)
-      if jdata == None or not jdata.get("by"):
-        continue
-      by = str(jdata["by"])
-      self.user_dict[by] = by
-      self.logger.debug("Found user: %s at level: %s" % (by, level))
-      if jdata.get("kids"):
-        self.get_kids_recur(jdata["kids"], level + 1)
+    def get_kids_recur(self, kids, level):
+        for k in [str(k) for k in kids]:
+            url = self.make_item_endpoint(k)
+            jdata = self.request(url)
+            if jdata == None or not jdata.get("by"):
+                continue
+            by = str(jdata["by"])
+            self.user_dict[by] = by
+            self.logger.debug("Found user: %s at level: %s" % (by, level))
+            if jdata.get("kids"):
+                self.get_kids_recur(jdata["kids"], level + 1)
 
-  def get_kids(self, story):
-    """Get all usernames from comments of a story
+    def get_kids(self, story):
+        """Get all usernames from comments of a story
 
-    >>> o = ApiConnector().get_kids({'kids':[1]})
-    >>> len(o.keys()) == 10
-    True
-    """
-    if story == None or not story.get("kids"):
-      return
-    kids = story["kids"]
-    self.get_kids_recur(kids, 0)
-    return self.user_dict
+        >>> o = ApiConnector().get_kids({'kids':[1]})
+        >>> len(o.keys()) == 10
+        True
+        """
+        if story == None or not story.get("kids"):
+            return
+        kids = story["kids"]
+        self.get_kids_recur(kids, 0)
+        return self.user_dict
+
+    def is_api_item(self, obj):
+        if obj == None:
+            return False
+        return obj.get('id')
+
+    def is_valid_item(self, obj):
+        return self.is_api_item(obj) and not obj.get('deleted')
 
 if __name__ == '__main__':
-  import doctest
-  logging.disable(logging.CRITICAL)
-  doctest.testmod()
-  logging.disable(logging.NOTSET)
+    import doctest
+    logging.disable(logging.CRITICAL)
+    doctest.testmod()
+    logging.disable(logging.NOTSET)
