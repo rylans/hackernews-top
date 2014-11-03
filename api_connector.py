@@ -19,9 +19,10 @@ class NetworkError(RuntimeError):
     NetworkError: foo
     """
     def __init__(self, e):
-        super(RuntimeError,self).__init__(e)
+        super(NetworkError, self).__init__(e)
 
-class ApiConnector:
+class ApiConnector(object):
+    '''Connects to HackerNews API and provides the schema'''
     def __init__(self):
         self.user_dict = {}
         self.logger = logging.getLogger(__name__)
@@ -163,11 +164,33 @@ class ApiConnector:
         return self.user_dict
 
     def is_api_item(self, obj):
+        '''Returns true iff obj is an HN item
+
+        >>> ApiConnector().is_api_item({'id':321})
+        True
+
+        >>> ApiConnector().is_api_item(None)
+        False
+
+        >>> ApiConnector().is_api_item({'id':123, 'deleted':'True'})
+        True
+        '''
         if obj == None:
             return False
-        return obj.get('id')
+        return not not obj.get('id')
 
     def is_valid_item(self, obj):
+        '''Returns true iff obj is an undeleted HN item
+
+        >>> ApiConnector().is_valid_item({'id':123})
+        True
+
+        >>> ApiConnector().is_valid_item(None)
+        False
+
+        >>> ApiConnector().is_valid_item({'id':123, 'deleted':'True'})
+        False
+        '''
         return self.is_api_item(obj) and not obj.get('deleted')
 
 if __name__ == '__main__':
