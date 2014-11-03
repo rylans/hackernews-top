@@ -6,14 +6,12 @@ Hacker News Top:
 Author: Rylan Santinon
 """
 
-from api_connector import *
-from csv_io import *
+from api_connector import ApiConnector, NetworkError
+from csv_io import CsvIo
 import logging
 
 def main(logger, known_users):
   conn = ApiConnector()
-  conn.set_timeout(40)
-
   csvio = CsvIo()
   article_list = conn.get_top()
   stories = []
@@ -21,7 +19,7 @@ def main(logger, known_users):
   for i in article_list:
     try:
       story = conn.get_item(i)
-      if story == None or story.get("deleted"):
+      if not conn.is_valid_item(story):
         continue
       logger.debug(csvio.story_to_csv(story))
       stories.append(story)
