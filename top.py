@@ -7,6 +7,7 @@ Author: Rylan Santinon
 """
 
 from api_connector import ApiConnector, NetworkError
+from graphing import Graphing
 from csv_io import CsvIo
 import logging
 
@@ -58,3 +59,4 @@ if __name__ == '__main__':
   main(logger, known_users)
   csvio.concat_users()
   csvio.concat_stories()
+  Graphing().domain_frequency(10, 'frequency_bar.png')
