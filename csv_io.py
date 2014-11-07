@@ -182,6 +182,16 @@ class CsvIo:
     self.logger.debug("Concat stories")
     return self.concat_csv(self.stories_dir, self.stories_aggregate, "SCORE,TITLE,BY,URL\n", 3)
 
+  def get_all_stories(self):
+    '''Get stories in all_stories.csv file'''
+    stories_file = os.path.join(self.stories_dir, self.stories_aggregate)
+    stories = {}
+    with open(stories_file, 'r') as f:
+      for line in f.readlines():
+        story_title = line.split(',')[1]
+        stories[story_title] = [l.strip() for l in line.split(',')]
+    return stories
+
   def get_all_users(self):
     """Get users in the all_users.csv file
 

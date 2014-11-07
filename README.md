@@ -8,6 +8,9 @@ Get top stories using Hacker News' Firebase API.
 * Written in Python
 * SSL certificates are _ignored_
 
+### Statistical Data
+
+![Domain Frequency](frequency_bar.svg)
 
 ### License
 
