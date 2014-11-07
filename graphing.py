@@ -6,16 +6,54 @@ Author: Rylan Santinon
 import pygal
 from csv_io import CsvIo
 from urlparse import urlparse
+import os
 
 class Graphing(object):
     '''Graphs and diagrams based on retrieved data'''
-    def __init__(self):
-        pass
+    def __init__(self, directory):
+        self.directory = directory
+        self.csvio = CsvIo()
+        self.make_directory()
+
+    def make_directory(self):
+        '''Make the output directory if one does not exist'''
+        if not os.path.exists(self.directory):
+            os.makedirs(self.directory)
+
+    def output_png(self, chart, filename):
+        '''Output the chart to a png file at directory/filename'''
+        chart.render_to_png(os.path.join(self.directory, filename))
+
+    def karma_by_created(self, outpng):
+        FACTOR = 1.0/1000000000
+        users = self.csvio.get_all_users_full()
+        user_list = []
+        for k in users.keys():
+            user_list.append(users[k])
+
+        karmas = []
+        createds = []
+        c = 0
+        for u in user_list:
+            c = c + 1
+            if int(u[1]) > 250 and int(u[1]) < 110000:
+                if c % 15 != 0:
+                    continue
+                karmas.append(int(u[1]))
+                createds.append(int(u[2])/FACTOR)
+
+        #karmas = [int(v[1]) for v in user_list]
+        #createds = [int(v[2])/FACTOR for v in user_list]
+
+        xychart = pygal.XY(stroke=False, x_title='Created time (seconds past epoch) x 10^-9')
+        xychart.title = 'Karma vs Created time'
+        xychart.add('Karma', zip(createds, karmas))
+
+        self.output_png(xychart, outpng)
 
     def domain_frequency(self, topn, outpng):
-        '''Make a png frequency graph for topn domains'''
-        csvio = CsvIo()
-        stories = csvio.get_all_stories()
+        '''Make a png frequency graph for top-n domains'''
+        stories = self.csvio.get_all_stories()
         count_map = {}
         for k in stories.keys():
             count_map_key = self.canonical(stories[k][-1])
@@ -37,7 +75,7 @@ class Graphing(object):
         bar_chart.x_labels = name_axis
         bar_chart.title = "Frequency of top " + str(topn) + " domains"
         bar_chart.add('Domains', count_axis)
-        bar_chart.render_to_png(outpng)
+        self.output_png(bar_chart, outpng)
 
     def canonical(self, url):
         '''Canonical representation of url's domain'''
@@ -48,5 +86,6 @@ class Graphing(object):
             return loc
 
 if __name__ == '__main__':
-    G = Graphing()
+    G = Graphing('diagrams')
     G.domain_frequency(10, 'frequency_bar.png')
+    G.karma_by_created('karma_created.png')

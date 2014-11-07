@@ -192,6 +192,19 @@ class CsvIo:
         stories[story_title] = [l.strip() for l in line.split(',')]
     return stories
 
+  def get_all_users_full(self):
+    users_file = os.path.join(self.users_dir, self.users_aggregate)
+    users = {}
+    n = 0
+    with open(users_file, 'r') as f:
+      for line in f.readlines():
+        n = n + 1
+        if n == 1:
+          continue
+        userid = line.split(',')[0]
+        users[userid] = [l.strip() for l in line.split(',')]
+    return users
+
   def get_all_users(self):
     """Get users in the all_users.csv file
 
