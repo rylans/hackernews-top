@@ -10,7 +10,9 @@ Get top stories using Hacker News' Firebase API.
 
 ### Statistical Data
 
-![Domain Frequency](frequency_bar.png)
+![Domain Frequency](diagrams/frequency_bar.png)
+
+![Karma By Created Time](diagrams/karma_created.png)
 
 ### License
 
