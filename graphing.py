@@ -38,7 +38,7 @@ def main():
     bar_chart.x_labels = name_axis
     bar_chart.title = "Frequency of top 10 domains"
     bar_chart.add('Domains', count_axis)
-    bar_chart.render_to_file('frequency_bar.svg')
+    bar_chart.render_to_png('frequency_bar.png')
 
 if __name__ == '__main__':
     main()
