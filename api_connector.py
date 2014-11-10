@@ -28,7 +28,7 @@ class ApiConnector(object):
         self.logger = logging.getLogger(__name__)
         self.timeout = 35
 
-    def set_timeout(self, t):
+    def set_timeout(self, time):
         """Set the timeout in seconds for the urllib2.urlopen call
 
         >>> ApiConnector().set_timeout(3.551).timeout == 3.551
@@ -38,9 +38,9 @@ class ApiConnector(object):
         Traceback (most recent call last):
         RuntimeError: Timeout must be non-negative
         """
-        if t < 0:
+        if time < 0:
             raise RuntimeError("Timeout must be non-negative")
-        self.timeout = t
+        self.timeout = time
         return self
 
     def request(self, url):
