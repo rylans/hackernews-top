@@ -59,6 +59,7 @@ if __name__ == '__main__':
   main(logger, known_users)
   csvio.concat_users()
   csvio.concat_stories()
-  G = Graphing()
+
+  G = Graphing('diagrams')
   G.domain_frequency(10, 'frequency_bar.png')
   G.karma_by_created('karma_created.png')
