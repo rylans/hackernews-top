@@ -128,7 +128,7 @@ class CsvIo:
           file_list.append(os.path.join(root,f))
     return file_list
 
-  def concat_csv(self, dir, out, header, sort_col):
+  def concat_csv(self, dir, out, header, sort_col, volatile_cols):
     try:
       csvs = self.recursive_walk(dir)
     except IOError as e:
@@ -145,8 +145,15 @@ class CsvIo:
             i += 1
             continue
           stripped_line = line.strip()
-          csv_lines[stripped_line.split(',')[sort_col]] = stripped_line
-          #TODO: Resolve duplicates by greatest submissions
+          split_line = stripped_line.split(',')
+          cols = len(split_line)
+          primary_key = split_line[sort_col]
+          for z in xrange(cols):
+            if z in volatile_cols:
+              continue
+            if z != sort_col:
+              primary_key += split_line[z]
+          csv_lines[primary_key] = stripped_line
 
     keys = [k for k in csv_lines.keys()]
     sorted_keys = sorted(keys)
@@ -170,7 +177,7 @@ class CsvIo:
     True
     """
     self.logger.debug("Concat users")
-    return self.concat_csv(self.users_dir, self.users_aggregate, "ID,KARMA,CREATED,SUBMISSIONS\n", 0)
+    return self.concat_csv(self.users_dir, self.users_aggregate, "ID,KARMA,CREATED,SUBMISSIONS\n", 0, [1, 3])
 
   def concat_stories(self):
     """Concatenate all csv files in /stories folder
@@ -180,7 +187,7 @@ class CsvIo:
     True
     """
     self.logger.debug("Concat stories")
-    return self.concat_csv(self.stories_dir, self.stories_aggregate, "SCORE,TITLE,BY,URL\n", 3)
+    return self.concat_csv(self.stories_dir, self.stories_aggregate, "SCORE,TITLE,BY,URL\n", 3, [0, 1])
 
   def get_all_stories(self):
     '''Get stories in all_stories.csv file'''
