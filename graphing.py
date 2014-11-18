@@ -42,9 +42,6 @@ class Graphing(object):
                 karmas.append(int(u[1]))
                 createds.append(int(u[2])/FACTOR)
 
-        #karmas = [int(v[1]) for v in user_list]
-        #createds = [int(v[2])/FACTOR for v in user_list]
-
         xychart = pygal.XY(stroke=False, x_title='Created time (seconds past epoch) x 10^-9')
         xychart.title = 'Karma vs Created time'
         xychart.add('Karma', zip(createds, karmas))
