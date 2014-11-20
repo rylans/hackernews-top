@@ -43,6 +43,7 @@ class ApiConnector(object):
         self.timeout = time
         return self
 
+    #pylint: disable=line-too-long, invalid-name
     def request(self, url):
         """Request json data from the URL
 
@@ -86,6 +87,7 @@ class ApiConnector(object):
         except NetworkError:
             return []
 
+    #pylint: disable=no-self-use, unused-variable
     def make_item_endpoint(self, item_id):
         """Return the API URL for the given item_id
 
@@ -138,7 +140,9 @@ class ApiConnector(object):
         url = self.make_user_endpoint(username)
         return self.request(url)
 
+    #pylint: disable=logging-not-lazy
     def get_kids_recur(self, kids, level):
+        """Recursive helper method for retrieving kids in comments"""
         for k in [str(k) for k in kids]:
             url = self.make_item_endpoint(k)
             jdata = self.request(url)

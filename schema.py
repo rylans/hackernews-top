@@ -5,10 +5,10 @@ Author: Rylan Santinon
 '''
 
 from abc import ABCMeta, abstractmethod
-from field import Field
 
 class Schema(object):
     '''Schema for data models'''
+    #pylint: disable=abstract-class-not-used
     __metaclass__ = ABCMeta
 
     @abstractmethod
@@ -33,9 +33,11 @@ class Schema(object):
 
     def assert_has_one_key(self, fields):
         '''Raise AssertionError if fields don't have exactly one key'''
+        #pylint: disable=no-self-use
         assert len([f for f in fields if f.get_key()]) == 1
 
     def assert_has_nonvolatile_key(self, fields):
         '''Raise AssertionError if field has volatile key'''
+        #pylint: disable=no-self-use
         assert len([f for f in fields if \
                 f.get_key() and f.get_volatility()]) == 0
