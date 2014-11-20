@@ -51,7 +51,8 @@ class Field(object):
         return self.name
 
     def get_key(self):
-        '''Returns the key property
+        '''Returns the key property.
+        Items will be sorted by the field set as the key
 
         >>> f = Field('baz', True, True)
         >>> f.get_key()
@@ -60,7 +61,9 @@ class Field(object):
         return self.key
 
     def get_volatility(self):
-        '''Returns the volatility property
+        '''Returns the volatility property.
+        Volatile fields are expected to change and are not used in sorting
+        or in canonicalizing the item
 
         >>> f = Field('baz', False, False)
         >>> f.get_volatility()
