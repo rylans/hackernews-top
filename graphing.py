@@ -59,6 +59,8 @@ class Graphing(object):
         count_list = []
 
         for k in count_map.keys():
+            if k == '':
+                continue
             count_list.append([count_map[k], k])
         sorted_list = sorted(count_list)
 
