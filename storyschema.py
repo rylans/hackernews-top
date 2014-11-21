@@ -42,6 +42,7 @@ class StorySchema(Schema):
 
     def __repr__(self):
         return "StorySchema(fields=%r)" % self.fields
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()

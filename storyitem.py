@@ -1,4 +1,19 @@
-"""Story Item"""
+"""Story Item
+
+Example:
+{
+    "by": "dhouston",
+    "id": 8863,
+    "kids": [8952, 9224, 8917],
+    "score": 111,
+    "time": 1175714200,
+    "title": "My YC app: Dropbox - Throw away your USB drive",
+    "type": "story",
+    "url": "http://www.getdropbox.com/u/2/screencast.html"
+}
+
+Author: Rylan Santinon
+"""
 
 from storyschema import StorySchema
 from hnitem import HnItem
@@ -29,6 +44,10 @@ class StoryItem(HnItem):
         else:
             raise RuntimeError("No field named %r in %r" \
                     % (name, schema))
+
+    def __repr__(self):
+        return "StoryItem(json=%r, schema=%r)" \
+                % (self.json, self.get_schema())
 
 if __name__ == '__main__':
     import doctest

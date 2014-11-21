@@ -19,3 +19,7 @@ class HnItem(object):
     def get_field_by_name(self, name):
         """Return field where name == field.get_name()"""
         pass
+
+    @abstractmethod
+    def __repr__(self):
+        pass
