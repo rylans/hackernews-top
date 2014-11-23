@@ -1,8 +1,9 @@
 Hacker News Top
 ==============
 
-Get top stories using Hacker News' Firebase API.
+[![Build Status](https://travis-ci.org/rylans/hackernews-top.svg?branch=master)](https://travis-ci.org/rylans/hackernews-top)
 
+Get top stories using Hacker News' Firebase API.
 
 * Makes use of the [Official HN API](https://github.com/HackerNews/API) (version 0)
 * Written in Python
