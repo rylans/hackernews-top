@@ -3,7 +3,7 @@ python:
   - "2.7"
   - "2.6"
 script: 
-  - python api_connector.py
   - python csv_io.py
-  - python storyitem.py
-  - python storyschema.py
+  - python -m hnapi.connectors.api_connector
+  - python -m hnapi.items.storyitem
+  - python -m hnapi.schemas.storyschema

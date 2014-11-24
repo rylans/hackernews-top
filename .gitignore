@@ -2,3 +2,6 @@
 *.swp
 *.swo
 *.log
+*.egg-info
+build/
+dist/

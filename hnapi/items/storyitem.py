@@ -15,7 +15,7 @@ Example:
 Author: Rylan Santinon
 """
 
-from storyschema import StorySchema
+from ..schemas.storyschema import StorySchema
 from hnitem import HnItem
 
 class StoryItem(HnItem):

@@ -6,7 +6,7 @@ Hacker News Top:
 Author: Rylan Santinon
 """
 
-from api_connector import ApiConnector, NetworkError
+from hnapi.connectors.api_connector import ApiConnector, NetworkError
 from graphing import Graphing
 from csv_io import CsvIo
 import logging
