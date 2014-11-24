@@ -2,6 +2,9 @@ language: python
 python:
   - "2.7"
   - "2.6"
+  - "3.2"
+  - "3.3"
+  - "3.4"
 script: 
   - python csv_io.py
   - python -m hnapi.connectors.api_connector
