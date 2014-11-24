@@ -1,7 +1,7 @@
 '''Story Schema'''
 
-from schema import Schema
-from field import Field
+from .schema import Schema
+from .field import Field
 
 class StorySchema(Schema):
     '''Story Schema (Score, Title, By, Url)

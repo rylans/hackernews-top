@@ -59,13 +59,13 @@ class ApiConnector(object):
         Traceback (most recent call last):
         NetworkError: HTTP Error 401: Unauthorized
 
-        >>> ApiConnector().request('http://www.yahoo.co.jp')
+        >>> ApiConnector().request('http://www.yahoo.co.jp') # doctest: +ELLIPSIS
         Traceback (most recent call last):
-        NetworkError: No JSON object could be decoded
+        NetworkError: ...
         """
         try:
             resp = urllib2.urlopen(url, timeout=self.timeout)
-            jsondata = json.loads(resp.read())
+            jsondata = json.loads(resp.read().decode())
             return jsondata
         except urllib2.URLError as e:
             self.logger.exception(e)

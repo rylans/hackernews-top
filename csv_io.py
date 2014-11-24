@@ -148,7 +148,7 @@ class CsvIo:
           split_line = stripped_line.split(',')
           cols = len(split_line)
           primary_key = split_line[sort_col]
-          for z in xrange(cols):
+          for z in range(cols):
             if z in volatile_cols:
               continue
             if z != sort_col:
