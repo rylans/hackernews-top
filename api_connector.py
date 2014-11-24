@@ -7,7 +7,11 @@ Supports requests for:
 Author: Rylan Santinon
 """
 
-import urllib2
+try:
+    #pylint: disable= no-name-in-module, import-error
+    import urllib.request as urllib2
+except ImportError:
+    import urllib2
 import json
 import logging
 
