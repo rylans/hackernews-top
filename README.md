@@ -3,17 +3,36 @@ Hacker News Top
 
 [![Build Status](https://travis-ci.org/rylans/hackernews-top.svg?branch=master)](https://travis-ci.org/rylans/hackernews-top)
 
-Get top stories using Hacker News' Firebase API.
+Unofficial Python wrapper over Hacker News' official Firebase API.
 
-* Makes use of the [Official HN API](https://github.com/HackerNews/API) (version 0)
-* Written in Python
-* SSL certificates are _ignored_
+### Install
+
+```
+> git clone https://github.com/rylans/hackernews-top.git
+> cd hackernews-top
+> pip install .
+```
+
+### Roadmap
+
+* Item types:
+  * Story **Partial support**
+  * Comment
+  * Job
+  * Ask HN
+  * Poll
+* User **Partial support**
+* API calls
+  * ~~`v0/item`~~ **Done**
+  * ~~`v0/user`~~ **Done**
+  * ~~`v0/topstories`~~ **Done**
+  * `v0/maxitem`
+  * `v0/updates`
+* Schema assertions
 
 ### Statistical Data
 
 ![Domain Frequency](diagrams/frequency_bar.png)
-
-![Karma By Created Time](diagrams/karma_created.png)
 
 ### License
 
