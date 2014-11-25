@@ -19,7 +19,7 @@ from ..schemas.storyschema import StorySchema
 from .hnitem import HnItem
 
 class StoryItem(HnItem):
-    """Story Item"""
+    """Story Item based on the abstract HnItem"""
 
     def __init__(self, json):
         self.json = json
@@ -36,6 +36,24 @@ class StoryItem(HnItem):
     #pylint: disable=line-too-long
     def get_field_by_name(self, name):
         """Get field by name
+
+        Parameters
+        ----------
+        name : str
+            The name of the field
+
+        Returns
+        -------
+        str
+            The value held in the field
+
+        Raises
+        ------
+        RuntimeError
+            if `name` is not in the schema
+
+        Examples
+        --------
 
         >>> StoryItem({'id':1234}).get_field_by_name('id')
         1234

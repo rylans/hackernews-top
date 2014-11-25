@@ -1,17 +1,24 @@
-'''Story Schema'''
+"""
+Story Schema. contains all possible fields that a
+story may have
 
+Author: Rylan Santinon
+"""
 from .schema import Schema
 from .field import Field
 
 class StorySchema(Schema):
-    '''Story Schema (Score, Title, By, Url)
+    """Story Schema (Score, Title, By, Url)
+
+    Examples
+    --------
 
     >>> StorySchema().get_fields()[0].get_name()
     'score'
 
     >>> StorySchema().get_fields()[3].get_key()
     True
-    '''
+    """
 
     def __init__(self):
         self.fields = []
@@ -30,14 +37,27 @@ class StorySchema(Schema):
         return self.fields
 
     def has_field(self, name):
-        '''Return True iff this schema contains a field named 'name'
+        """Return True iff this schema contains a field named 'name'
+
+        Parameters
+        ----------
+        name : str
+            Name of the field if it exists
+
+        Returns
+        -------
+        bool
+            True if this schema contains `name`, False otherwise
+
+        Examples
+        --------
 
         >>> StorySchema().has_field('title')
         True
 
         >>> StorySchema().has_field('zzz')
         False
-        '''
+        """
         return any([f.get_name() == name for f in self.fields])
 
     def __repr__(self):
