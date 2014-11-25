@@ -16,7 +16,7 @@ Author: Rylan Santinon
 """
 
 from ..schemas.storyschema import StorySchema
-from hnitem import HnItem
+from .hnitem import HnItem
 
 class StoryItem(HnItem):
     """Story Item"""
