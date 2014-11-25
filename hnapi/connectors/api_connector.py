@@ -125,8 +125,6 @@ class ApiConnector(object):
         """Build an instance of hnitem depending on the type"""
         if item_json['type'] == "story" or item_json['type'] == 'job':
             return StoryItem(item_json)
-
-        print item_json['type']
         raise RuntimeError("Item type unsupported: %r" % item_json)
 
     def get_item(self, item_id):
