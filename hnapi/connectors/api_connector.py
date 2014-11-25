@@ -193,7 +193,7 @@ class ApiConnector(object):
         '''
         if obj == None:
             return False
-        return not not obj.get('id') or obj.get_field_by_name('id')
+        return not not obj.get('id')
 
     def is_valid_item(self, obj):
         '''Returns true iff obj is an undeleted HN item
