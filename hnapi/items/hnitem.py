@@ -16,8 +16,18 @@ class HnItem(object):
         pass
 
     @abstractmethod
+    def is_deleted(self):
+        """Return True iff this item is deleted"""
+        pass
+
+    @abstractmethod
     def get_field_by_name(self, name):
         """Return field where name == field.get_name()"""
+        pass
+
+    @abstractmethod
+    def get(self, name):
+        """return get_field_by_name(name)"""
         pass
 
     @abstractmethod

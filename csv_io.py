@@ -84,12 +84,23 @@ class CsvIo:
         f.write('\n')
 
   def story_to_csv(self, story):
+    """convert story to csv
+
+    Parameters
+    ----------
+    story : StoryItem
+
+    Returns
+    -------
+    str
+        comma-separated string that represents this story
+    """
     #SCORE,TITLE,BY,URL
     cols = []
-    cols.append(str(story["score"]))
-    cols.append(story["title"])
-    cols.append(story["by"])
-    cols.append(story["url"])
+    cols.append(str(story.get_field_by_name("score")))
+    cols.append(story.get_field_by_name("title"))
+    cols.append(story.get_field_by_name("by"))
+    cols.append(story.get_field_by_name("url"))
     csv_cols = [self.remove_csv_chars(col) for col in cols]
     return ','.join(csv_cols)
 

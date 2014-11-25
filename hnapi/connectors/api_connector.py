@@ -14,6 +14,7 @@ except ImportError:
     import urllib2
 import json
 import logging
+from ..items.storyitem import StoryItem
 
 class NetworkError(RuntimeError):
     """Runtime errors for http calls and json parsing
@@ -65,7 +66,7 @@ class ApiConnector(object):
         """
         try:
             resp = urllib2.urlopen(url, timeout=self.timeout)
-            jsondata = json.loads(resp.read().decode())
+            jsondata = json.loads(resp.read().decode('utf-8'))
             return jsondata
         except urllib2.URLError as e:
             self.logger.exception(e)
@@ -120,11 +121,19 @@ class ApiConnector(object):
         """
         return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
 
+    def build_hnitem(self, item_json):
+        """Build an instance of hnitem depending on the type"""
+        if item_json['type'] == "story" or item_json['type'] == 'job':
+            return StoryItem(item_json)
+
+        print item_json['type']
+        raise RuntimeError("Item type unsupported: %r" % item_json)
+
     def get_item(self, item_id):
         """Get a particular item by item's id
 
         >>> it = ApiConnector().get_item(1)
-        >>> it['by'] == 'pg'
+        >>> it.get_field_by_name('by') == 'pg'
         True
         """
         url = self.make_item_endpoint(item_id)
@@ -132,7 +141,7 @@ class ApiConnector(object):
         if story != None and story.get("by"):
             by = str(story["by"])
             self.user_dict[by] = by
-        return story
+        return self.build_hnitem(story)
 
     def get_user(self, username):
         """Get a user by username
@@ -165,6 +174,7 @@ class ApiConnector(object):
         >>> len(o.keys()) == 10
         True
         """
+        story = story.json
         if story == None or not story.get("kids"):
             return
         kids = story["kids"]
@@ -185,7 +195,7 @@ class ApiConnector(object):
         '''
         if obj == None:
             return False
-        return not not obj.get('id')
+        return not not obj.get('id') or obj.get_field_by_name('id')
 
     def is_valid_item(self, obj):
         '''Returns true iff obj is an undeleted HN item
@@ -199,7 +209,7 @@ class ApiConnector(object):
         >>> ApiConnector().is_valid_item({'id':123, 'deleted':'True'})
         False
         '''
-        return self.is_api_item(obj) and not obj.get('deleted')
+        return self.is_api_item(obj) and not obj.is_deleted()
 
 if __name__ == '__main__':
     import doctest

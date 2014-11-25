@@ -27,6 +27,12 @@ class StoryItem(HnItem):
     def get_schema(self):
         return StorySchema()
 
+    def is_deleted(self):
+        return not not self.json.get('deleted')
+
+    def get(self, name):
+        return self.get_field_by_name(name)
+
     #pylint: disable=line-too-long
     def get_field_by_name(self, name):
         """Get field by name
