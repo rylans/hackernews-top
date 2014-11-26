@@ -19,55 +19,27 @@ from ..schemas.storyschema import StorySchema
 from .hnitem import HnItem
 
 class StoryItem(HnItem):
-    """Story Item based on the abstract HnItem"""
+    """Story Item based on the abstract HnItem
+
+    Examples
+    --------
+
+    >>> StoryItem({'id':1234}).get_field_by_name('id')
+    1234
+
+    >>> StoryItem({'id':'abc'}).get('id')
+    'abc'
+
+    >>> StoryItem({'id':1234}).get_field_by_name('foobar') # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    RuntimeError: No field named 'foobar' in ...
+    """
 
     def __init__(self, json):
         self.json = json
 
     def get_schema(self):
         return StorySchema()
-
-    def is_deleted(self):
-        return not not self.json.get('deleted')
-
-    def get(self, name):
-        return self.get_field_by_name(name)
-
-    #pylint: disable=line-too-long
-    def get_field_by_name(self, name):
-        """Get field by name
-
-        Parameters
-        ----------
-        name : str
-            The name of the field
-
-        Returns
-        -------
-        str
-            The value held in the field
-
-        Raises
-        ------
-        RuntimeError
-            if `name` is not in the schema
-
-        Examples
-        --------
-
-        >>> StoryItem({'id':1234}).get_field_by_name('id')
-        1234
-
-        >>> StoryItem({'id':1234}).get_field_by_name('foobar') # doctest: +ELLIPSIS
-        Traceback (most recent call last):
-        RuntimeError: No field named 'foobar' in ...
-        """
-        schema = self.get_schema()
-        if schema.has_field(name):
-            return self.json[name]
-        else:
-            raise RuntimeError("No field named %r in %r" \
-                    % (name, schema))
 
     def __repr__(self):
         return "StoryItem(json=%r, schema=%r)" \

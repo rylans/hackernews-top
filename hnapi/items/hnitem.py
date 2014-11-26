@@ -15,20 +15,40 @@ class HnItem(object):
         """Return the item's schema"""
         pass
 
-    @abstractmethod
     def is_deleted(self):
-        """Return True iff this item is deleted"""
-        pass
+        """Return True if this item is deleted"""
+        #pylint: disable=no-member
+        return not not self.json.get('deleted')
 
-    @abstractmethod
     def get_field_by_name(self, name):
-        """Return field where name == field.get_name()"""
-        pass
+        """Get field by name
 
-    @abstractmethod
+        Parameters
+        ----------
+        name : str
+            The name of the field
+
+        Returns
+        -------
+        str
+            The value held in the field
+
+        Raises
+        ------
+        RuntimeError
+            if `name` is not in the schema
+        """
+        #pylint: disable=no-member
+        schema = self.get_schema()
+        if schema.has_field(name):
+            return self.json[name]
+        else:
+            raise RuntimeError("No field named %r in %r" \
+                    % (name, schema))
+
     def get(self, name):
-        """return get_field_by_name(name)"""
-        pass
+        """Same as get_field_by_name"""
+        return self.get_field_by_name(name)
 
     @abstractmethod
     def __repr__(self):
