@@ -1,14 +1,14 @@
 '''User Schema'''
 
-from schema import Schema
-from field import Field
+from .schema import Schema
+from .field import Field
 
 class UserSchema(Schema):
     '''User schema'''
 
     def __init__(self):
         self.fields = []
-        self.fields.append(Field("id", key=True, volatile=False))
+        self.fields.append(Field("id", key=True, volatile=False, datatype=str))
         self.fields.append(Field("karma", datatype=int))
         self.fields.append(Field("created", volatile=False, datatype=int))
         self.fields.append(Field("submitted", datatype=list))

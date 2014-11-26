@@ -31,6 +31,15 @@ class UserItem(HnItem):
     >>> UserItem({'id':1234}).get_field_by_name('foobar') # doctest: +ELLIPSIS
     Traceback (most recent call last):
     RuntimeError: No field named 'foobar' in ...
+
+    >>> UserItem({'deleted':'True'}).is_deleted()
+    True
+
+    >>> UserItem({'dead':'True'}).is_deleted()
+    True
+
+    >>> UserItem({}).is_deleted()
+    False
     """
 
     def __init__(self, json):

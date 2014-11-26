@@ -33,6 +33,15 @@ class StoryItem(HnItem):
     >>> StoryItem({'id':1234}).get_field_by_name('foobar') # doctest: +ELLIPSIS
     Traceback (most recent call last):
     RuntimeError: No field named 'foobar' in ...
+
+    >>> StoryItem({'deleted':'True'}).is_deleted()
+    True
+
+    >>> StoryItem({'dead':'True'}).is_deleted()
+    True
+
+    >>> StoryItem({}).is_deleted()
+    False
     """
 
     def __init__(self, json):

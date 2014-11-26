@@ -18,7 +18,8 @@ class HnItem(object):
     def is_deleted(self):
         """Return True if this item is deleted"""
         #pylint: disable=no-member
-        return not not self.json.get('deleted')
+        return not not self.json.get('deleted') or \
+                not not self.json.get('dead')
 
     def get_field_by_name(self, name):
         """Get field by name
