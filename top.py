@@ -45,6 +45,8 @@ def main(logger, known_users):
       users.append(userjson)
     except NetworkError as e:
       logger.exception(e)
+    except RuntimeError as e:
+      logger.exception(e)
 
   csvio.write_users_csv(users)
 
