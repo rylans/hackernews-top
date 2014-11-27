@@ -156,6 +156,20 @@ class ApiConnector(object):
         user = self.request(url)
         return self.build_hnitem(user)
 
+    def get_max_item(self):
+        """Get max item's id
+
+        Examples
+        --------
+
+        >>> itemid = ApiConnector().get_max_item()
+        >>> itemid > 8669130
+        True
+        """
+        url = "https://hacker-news.firebaseio.com/v0/maxitem.json"
+        itemid = self.request(url)
+        return itemid
+
     #pylint: disable=logging-not-lazy
     def get_kids_recur(self, kids, level):
         """Recursive helper method for retrieving kids in comments"""

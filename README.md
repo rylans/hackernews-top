@@ -26,7 +26,7 @@ Unofficial Python wrapper over Hacker News' official Firebase API.
   * ~~`v0/item`~~ **Done**
   * ~~`v0/user`~~ **Done**
   * ~~`v0/topstories`~~ **Done**
-  * `v0/maxitem`
+  * `v0/maxitem` **Partial support**
   * `v0/updates`
 * Schema assertions
 
