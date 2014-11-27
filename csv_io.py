@@ -105,13 +105,26 @@ class CsvIo:
     return ','.join(csv_cols)
 
   def user_to_csv(self, user):
+    """
+    Convert user to csv
+
+    Parameters
+    ----------
+    user : UserItem
+
+    Returns
+    -------
+    str
+        comma-separated string that represents this user
+    """
     #ID,KARMA,CREATED,SUBMISSIONS
     cols = []
-    cols.append(user["id"])
-    cols.append(str(user["karma"]))
-    cols.append(str(user["created"]))
-    submitted = [str(s) for s in user["submitted"]]
+    cols.append(user.get('id'))
+    cols.append(str(user.get('karma')))
+    cols.append(str(user.get('created')))
+    submitted = [str(s) for s in user.get('submitted')]
     cols.append(str(len(submitted)))
+
     csv_cols = [self.remove_csv_chars(col) for col in cols]
     return ','.join(csv_cols)
 
@@ -241,5 +254,5 @@ class CsvIo:
 if __name__ == '__main__':
   import doctest
   logging.disable(logging.CRITICAL)
-  doctest.testmod()
+  doctest.testmod(raise_on_error=True)
   logging.disable(logging.NOTSET)

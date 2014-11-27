@@ -15,6 +15,7 @@ except ImportError:
 import json
 import logging
 from ..items.storyitem import StoryItem
+from ..items.useritem import UserItem
 
 class NetworkError(RuntimeError):
     """Runtime errors for http calls and json parsing
@@ -123,8 +124,10 @@ class ApiConnector(object):
 
     def build_hnitem(self, item_json):
         """Build an instance of hnitem depending on the type"""
-        if item_json['type'] == "story" or item_json['type'] == 'job':
+        if item_json.get('type') == "story" or item_json.get('type') == 'job':
             return StoryItem(item_json)
+        elif item_json.get('karma'):
+            return UserItem(item_json)
         raise RuntimeError("Item type unsupported: %r" % item_json)
 
     def get_item(self, item_id):
@@ -145,11 +148,12 @@ class ApiConnector(object):
         """Get a user by username
 
         >>> u = ApiConnector().get_user('pg')
-        >>> u['id'] == 'pg'
+        >>> u.get('id') == 'pg'
         True
         """
         url = self.make_user_endpoint(username)
-        return self.request(url)
+        user = self.request(url)
+        return self.build_hnitem(user)
 
     #pylint: disable=logging-not-lazy
     def get_kids_recur(self, kids, level):
@@ -171,8 +175,16 @@ class ApiConnector(object):
         >>> o = ApiConnector().get_kids({'kids':[1]})
         >>> len(o.keys()) == 10
         True
+
+        >>> s = StoryItem({'kids':[1]})
+        >>> o = ApiConnector().get_kids(s)
+        >>> len(o.keys()) == 10
+        True
         """
-        story = story.json
+        try:
+            story = story.json
+        except AttributeError:
+            pass
         if story == None or not story.get("kids"):
             return
         kids = story["kids"]
@@ -207,10 +219,13 @@ class ApiConnector(object):
         >>> ApiConnector().is_valid_item({'id':123, 'deleted':'True'})
         False
         '''
-        return self.is_api_item(obj) and not obj.is_deleted()
+        try:
+            return self.is_api_item(obj) and not obj.is_deleted()
+        except AttributeError:
+            return self.is_api_item(obj) and not obj.get('deleted')
 
 if __name__ == '__main__':
     import doctest
     logging.disable(logging.CRITICAL)
-    doctest.testmod()
+    doctest.testmod(raise_on_error=True)
     logging.disable(logging.NOTSET)
