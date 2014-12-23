@@ -13,6 +13,18 @@ Unofficial Python wrapper over Hacker News' official Firebase API.
 > pip install .
 ```
 
+### Usage
+
+```
+>>> from hnapi.connectors.api_connector import ApiConnector
+>>> con = ApiConnector()
+>>> item = con.get_item(8863)
+>>> item.get('title')
+u'My YC app: Dropbox - Throw away your USB drive'
+>>> item.get('by')
+u'dhouston'
+```
+
 ### Roadmap
 
 * Item types:
