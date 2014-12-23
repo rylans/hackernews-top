@@ -28,7 +28,7 @@ class StorySchema(Schema):
         self.fields.append(Field("url", key=True, volatile=False))
         self.fields.append(Field("id", volatile=False))
         self.fields.append(Field("kids"))
-        self.fields.append(Field("time"))
+        self.fields.append(Field("time", volatile=False))
         self.fields.append(Field("type"))
 
         super(StorySchema, self).assert_valid(self.fields)
