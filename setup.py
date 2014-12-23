@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 
 setup(name='HN API',
-    version='0.0.1',
+    version='0.0.2',
     description='Python wrapper over HackerNews Firebase API',
     author='Rylan Santinon',
     url='https://github.com/rylans/hackernews-top',
