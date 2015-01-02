@@ -12,3 +12,4 @@ script:
   - python -m hnapi.items.useritem
   - python -m hnapi.schemas.storyschema
   - python -m hnapi.schemas.userschema
+  - python -m hnapi.schemas.updatesschema
