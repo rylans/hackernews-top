@@ -5,6 +5,8 @@ python:
   - "3.2"
   - "3.3"
   - "3.4"
+install:
+  - pip install .
 script: 
   - python csv_io.py
   - python -m hnapi.connectors.api_connector
@@ -14,3 +16,4 @@ script:
   - python -m hnapi.schemas.storyschema
   - python -m hnapi.schemas.userschema
   - python -m hnapi.schemas.updatesschema
+  - nosetests
