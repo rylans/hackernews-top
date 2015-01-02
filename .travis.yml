@@ -10,6 +10,7 @@ script:
   - python -m hnapi.connectors.api_connector
   - python -m hnapi.items.storyitem
   - python -m hnapi.items.useritem
+  - python -m hnapi.items.updatesitem
   - python -m hnapi.schemas.storyschema
   - python -m hnapi.schemas.userschema
   - python -m hnapi.schemas.updatesschema

@@ -16,6 +16,7 @@ import json
 import logging
 from ..items.storyitem import StoryItem
 from ..items.useritem import UserItem
+from ..items.updatesitem import UpdatesItem
 
 class NetworkError(RuntimeError):
     """Runtime errors for http calls and json parsing
@@ -128,6 +129,8 @@ class ApiConnector(object):
             return StoryItem(item_json)
         elif item_json.get('created'):
             return UserItem(item_json)
+        elif item_json.get('profiles'):
+            return UpdatesItem(item_json)
 
         raise RuntimeError("Item type unsupported: %r" % item_json)
 
@@ -155,6 +158,26 @@ class ApiConnector(object):
         url = self.make_user_endpoint(username)
         user = self.request(url)
         return self.build_hnitem(user)
+
+    def get_updates(self):
+        """Get recent updates
+
+        See UpdatesItem and UpdatesSchema
+
+        >>> u = ApiConnector().get_updates()
+        >>> len(u.get('profiles')) > 3
+        True
+
+        >>> len(u.get('items')) > 3
+        True
+
+        >>> n = u.get('items')[0]
+        >>> int(n) == n
+        True
+        """
+        url = "https://hacker-news.firebaseio.com/v0/updates.json"
+        updates = self.request(url)
+        return self.build_hnitem(updates)
 
     def get_max_item(self):
         """Get max item's id
