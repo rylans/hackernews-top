@@ -1,6 +1,8 @@
 """
 Tests
 """
+from __future__ import unicode_literals
+
 import unittest
 
 from hnapi.connectors.api_connector import ApiConnector
@@ -16,4 +18,4 @@ class HnapiTest(unittest.TestCase):
         con = ApiConnector()
         item = con.get_item(8863)
         byline = item.get('by')
-        self.assertEqual(byline, u'dhouston')
+        self.assertEqual(byline, 'dhouston')
