@@ -13,7 +13,9 @@ script:
   - python -m hnapi.items.storyitem
   - python -m hnapi.items.useritem
   - python -m hnapi.items.updatesitem
+  - python -m hnapi.items.commentitem
   - python -m hnapi.schemas.storyschema
   - python -m hnapi.schemas.userschema
   - python -m hnapi.schemas.updatesschema
+  - python -m hnapi.schemas.commentschema
   - nosetests
