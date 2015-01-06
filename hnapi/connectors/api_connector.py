@@ -17,6 +17,7 @@ import logging
 from ..items.storyitem import StoryItem
 from ..items.useritem import UserItem
 from ..items.updatesitem import UpdatesItem
+from ..items.commentitem import CommentItem
 
 class NetworkError(RuntimeError):
     """Runtime errors for http calls and json parsing
@@ -127,6 +128,8 @@ class ApiConnector(object):
         """Build an instance of hnitem depending on the type"""
         if item_json.get('type') == "story" or item_json.get('type') == 'job':
             return StoryItem(item_json)
+        elif item_json.get('type') == "comment":
+            return CommentItem(item_json)
         elif item_json.get('created'):
             return UserItem(item_json)
         elif item_json.get('profiles'):
