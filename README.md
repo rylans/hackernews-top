@@ -29,7 +29,7 @@ u'dhouston'
 
 * Item types:
   * Story **Partial support**
-  * Comment
+  * Comment **Partial support**
   * Job
   * Ask HN
   * Poll
@@ -39,7 +39,7 @@ u'dhouston'
   * ~~`v0/user`~~ **Done**
   * ~~`v0/topstories`~~ **Done**
   * `v0/maxitem` **Partial support**
-  * `v0/updates`
+  * ~~`v0/updates`~~ **Done**
 * Schema assertions
 
 ### Statistical Data
