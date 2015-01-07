@@ -29,5 +29,27 @@ class HnapiTest(unittest.TestCase):
         max_item = con.get_item(max_item_id)
         self.assertTrue(max_item.get('id') > 0)
 
+    def test_get_updates_users(self):
+        """
+        Test retrieval of new users
+        """
+        con = ApiConnector()
+        updates = con.get_updates()
+        self.assertTrue(len(updates.get('profiles')) > 10)
+        user = con.get_user(updates.get('profiles')[0])
+        year_2001 = 1000000000
+        self.assertTrue(user.get('created') > year_2001)
+
+    def test_get_updates_item(self):
+        """
+        Test retrieval of new items
+        """
+        con = ApiConnector()
+        updates = con.get_updates()
+        self.assertTrue(len(updates.get('items')) > 10)
+        item = con.get_item(updates.get('items')[0])
+        year_2001 = 1000000000
+        self.assertTrue(item.get('time') > year_2001)
+
 if __name__ == '__main__':
     unittest.main()
