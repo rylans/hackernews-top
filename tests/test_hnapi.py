@@ -35,7 +35,7 @@ class HnapiTest(unittest.TestCase):
         """
         con = ApiConnector()
         updates = con.get_updates()
-        self.assertTrue(len(updates.get('profiles')) > 10)
+        self.assertTrue(len(updates.get('profiles')) > 1)
         user = con.get_user(updates.get('profiles')[0])
         year_2001 = 1000000000
         self.assertTrue(user.get('created') > year_2001)
@@ -46,7 +46,7 @@ class HnapiTest(unittest.TestCase):
         """
         con = ApiConnector()
         updates = con.get_updates()
-        self.assertTrue(len(updates.get('items')) > 10)
+        self.assertTrue(len(updates.get('items')) > 1)
         item = con.get_item(updates.get('items')[0])
         year_2001 = 1000000000
         self.assertTrue(item.get('time') > year_2001)
