@@ -3,6 +3,8 @@ Hacker News Top
 
 [![Build Status](https://travis-ci.org/rylans/hackernews-top.svg?branch=master)](https://travis-ci.org/rylans/hackernews-top)
 
+[![Coverage Status](https://coveralls.io/repos/rylans/hackernews-top/badge.svg?branch=master)](https://coveralls.io/r/rylans/hackernews-top?branch=master)
+
 Unofficial Python wrapper over Hacker News' official Firebase API.
 
 ### Install
