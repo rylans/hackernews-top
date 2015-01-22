@@ -6,6 +6,7 @@ python:
   - "3.3"
   - "3.4"
 install:
+  - pip install coveralls
   - pip install .
 script: 
   - python csv_io.py
@@ -18,4 +19,6 @@ script:
   - python -m hnapi.schemas.userschema
   - python -m hnapi.schemas.updatesschema
   - python -m hnapi.schemas.commentschema
-  - nosetests
+  - nosetests --with-coverage --cover-package=hnapi
+after_success:
+  coveralls
