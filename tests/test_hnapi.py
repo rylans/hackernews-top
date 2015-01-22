@@ -61,10 +61,10 @@ class HnapiTest(unittest.TestCase):
         self.assertTrue(len(top) == 100)
 
         item_0 = con.get_item(top[0])
-        self.assertTrue(item_0.get('id') > 0)
+        self.assertTrue(con.is_valid_item(item_0))
 
         item_100 = con.get_item(top[-1])
-        self.assertTrue(item_100.get('id') > 0)
+        self.assertTrue(con.is_valid_item(item_100))
 
 if __name__ == '__main__':
     unittest.main()
