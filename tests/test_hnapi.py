@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import unittest
 
 from hnapi.connectors.api_connector import ApiConnector
+from hnapi.connectors.api_connector import NetworkError
 
 #pylint: disable=too-many-public-methods
 class HnapiTest(unittest.TestCase):
@@ -65,6 +66,14 @@ class HnapiTest(unittest.TestCase):
 
         item_100 = con.get_item(top[-1])
         self.assertTrue(con.is_valid_item(item_100))
+
+    def test_bad_api_request(self):
+        """
+        Test that api fails with appropriate error
+        """
+        con = ApiConnector()
+        self.assertRaises(NetworkError, \
+                con.request, "http://hacker-news.firebaseio.com/v0/foobar")
 
 if __name__ == '__main__':
     unittest.main()
