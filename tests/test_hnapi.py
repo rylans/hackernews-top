@@ -62,10 +62,10 @@ class HnapiTest(unittest.TestCase):
         self.assertTrue(len(top) == 100)
 
         item_0 = con.get_item(top[0])
-        self.assertTrue(con.is_valid_item(item_0))
+        self.assertTrue(con.is_api_item(item_0))
 
         item_100 = con.get_item(top[-1])
-        self.assertTrue(con.is_valid_item(item_100))
+        self.assertTrue(con.is_api_item(item_100))
 
     def test_bad_api_request(self):
         """
@@ -111,6 +111,22 @@ class HnapiTest(unittest.TestCase):
 
         byline = item.get('by')
         self.assertEqual(byline, '')
+
+    def test_is_dead_true(self):
+        """
+        Test that a dead item is determined to be dead
+        """
+        con = ApiConnector()
+        item = con.get_item(8937830)
+        self.assertTrue(con.is_dead_item(item))
+
+    def test_is_dead_false(self):
+        """
+        Test that a non-dead item is determined to be not dead
+        """
+        con = ApiConnector()
+        item = con.get_item(2549)
+        self.assertFalse(con.is_dead_item(item))
 
 if __name__ == '__main__':
     unittest.main()

@@ -24,7 +24,7 @@ class HnItem(object):
     def get_field_by_name(self, name):
         """Get field by name
 
-        Parameters
+        Parameter
         ----------
         name : str
             The name of the field
@@ -41,7 +41,7 @@ class HnItem(object):
         """
         #pylint: disable=no-member
         schema = self.get_schema()
-        if schema.has_field(name):
+        if schema.has_field(name) or self.is_special_field(name):
             try:
                 return self.json[name]
             except KeyError:
@@ -53,6 +53,10 @@ class HnItem(object):
     def get(self, name):
         """Same as get_field_by_name"""
         return self.get_field_by_name(name)
+
+    def is_special_field(self, name):
+        """Return True if name is a field like 'deleted' or 'dead'"""
+        return name == 'deleted' or name == 'dead'
 
     @abstractmethod
     def __repr__(self):

@@ -265,6 +265,21 @@ class ApiConnector(object):
         except AttributeError:
             return self.is_api_item(obj) and not obj.get('deleted')
 
+    def is_dead_item(self, obj):
+        '''
+        Return True iff obj is a dead HN item
+
+        >>> ApiConnector().is_dead_item({'id':101})
+        False
+
+        >>> ApiConnector().is_dead_item({'id':101, 'dead':'true'})
+        True
+
+        >>> ApiConnector().is_dead_item(None)
+        False
+        '''
+        return not not (self.is_api_item(obj) and obj.get('dead'))
+
 if __name__ == '__main__':
     import doctest
     logging.disable(logging.CRITICAL)
