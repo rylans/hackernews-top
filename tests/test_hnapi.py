@@ -75,5 +75,31 @@ class HnapiTest(unittest.TestCase):
         self.assertRaises(NetworkError, \
                 con.request, "http://hacker-news.firebaseio.com/v0/foobar")
 
+    def test_set_timeout_error(self):
+        """
+        Test that set_timeout throws a RuntimeError
+        """
+        con = ApiConnector()
+        self.assertRaises(RuntimeError, con.set_timeout, -1)
+
+    def test_set_timeout(self):
+        """
+        Test set_timeout
+        """
+        con = ApiConnector()
+        con.set_timeout(4)
+        self.assertEqual(con.timeout, 4)
+
+    def test_get_kids(self):
+        """
+        Test retrieval of comment usernames from a story
+        """
+        con = ApiConnector()
+        item = con.get_item(8863)
+        user_dict = con.get_kids(item)
+        self.assertEqual(user_dict['noisemaker'], 'noisemaker')
+        self.assertEqual(user_dict['jganetsk'], 'jganetsk')
+        self.assertEqual(user_dict['vlad'], 'vlad')
+
 if __name__ == '__main__':
     unittest.main()
