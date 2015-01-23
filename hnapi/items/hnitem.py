@@ -42,7 +42,10 @@ class HnItem(object):
         #pylint: disable=no-member
         schema = self.get_schema()
         if schema.has_field(name):
-            return self.json[name]
+            try:
+                return self.json[name]
+            except KeyError:
+                return ''
         else:
             raise RuntimeError("No field named %r in %r" \
                     % (name, schema))

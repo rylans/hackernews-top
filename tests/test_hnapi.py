@@ -101,5 +101,16 @@ class HnapiTest(unittest.TestCase):
         self.assertEqual(user_dict['jganetsk'], 'jganetsk')
         self.assertEqual(user_dict['vlad'], 'vlad')
 
+    def test_get_surrogate_item(self):
+        """
+        Test retrieval of item that isn't really an item
+        """
+        con = ApiConnector()
+        item = con.get_item(8847790)
+        self.assertTrue(con.is_valid_item(item))
+
+        byline = item.get('by')
+        self.assertEqual(byline, '')
+
 if __name__ == '__main__':
     unittest.main()
