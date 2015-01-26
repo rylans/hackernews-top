@@ -71,13 +71,7 @@ class ApiConnector(object):
             resp = urllib2.urlopen(url, timeout=self.timeout)
             jsondata = json.loads(resp.read().decode('utf-8'))
             return jsondata
-        except urllib2.URLError as e:
-            self.logger.exception(e)
-            raise NetworkError(e)
-        except ValueError as e:
-            self.logger.exception(e)
-            raise NetworkError(e)
-        except Exception as e:
+        except (urllib2.URLError, ValueError, Exception) as e:
             self.logger.exception(e)
             raise NetworkError(e)
         finally:

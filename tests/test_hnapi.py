@@ -128,5 +128,13 @@ class HnapiTest(unittest.TestCase):
         item = con.get_item(2549)
         self.assertFalse(con.is_dead_item(item))
 
+    def test_make_item_endpoint_error(self):
+        """
+        Test that make_item_endpoint throws an error when it takes a
+        non-integer parameter
+        """
+        con = ApiConnector()
+        self.assertRaises(RuntimeError, con.make_item_endpoint, "asdf")
+
 if __name__ == '__main__':
     unittest.main()
