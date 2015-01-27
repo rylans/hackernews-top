@@ -18,6 +18,7 @@ from ..items.storyitem import StoryItem
 from ..items.useritem import UserItem
 from ..items.updatesitem import UpdatesItem
 from ..items.commentitem import CommentItem
+from ..items.pollitem import PollItem
 
 class NetworkError(RuntimeError):
     """Runtime errors for http calls and json parsing
@@ -124,6 +125,8 @@ class ApiConnector(object):
             return StoryItem(item_json)
         elif item_json.get('type') == "comment":
             return CommentItem(item_json)
+        elif item_json.get('type') == "poll":
+            return PollItem(item_json)
         elif item_json.get('created'):
             return UserItem(item_json)
         elif item_json.get('profiles'):

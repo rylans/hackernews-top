@@ -112,6 +112,15 @@ class HnapiTest(unittest.TestCase):
         byline = item.get('by')
         self.assertEqual(byline, '')
 
+    def test_get_poll_item(self):
+        """
+        Test retrieval of 'poll'
+        """
+        con = ApiConnector()
+        item = con.get_item(7059569)
+        self.assertTrue(con.is_valid_item(item))
+        self.assertEqual(item.get('type'), 'poll')
+
     def test_is_dead_true(self):
         """
         Test that a dead item is determined to be dead
