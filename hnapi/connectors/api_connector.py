@@ -12,6 +12,7 @@ try:
     import urllib.request as urllib2
 except ImportError:
     import urllib2
+import time
 import json
 import logging
 from ..items.storyitem import StoryItem
@@ -36,8 +37,9 @@ class ApiConnector(object):
         self.user_dict = {}
         self.logger = logging.getLogger(__name__)
         self.timeout = 35
+        self.max_retries = 3
 
-    def set_timeout(self, time):
+    def set_timeout(self, timeout):
         """Set the timeout in seconds for the urllib2.urlopen call
 
         >>> ApiConnector().set_timeout(3.551).timeout == 3.551
@@ -47,9 +49,9 @@ class ApiConnector(object):
         Traceback (most recent call last):
         RuntimeError: Timeout must be non-negative
         """
-        if time < 0:
+        if timeout < 0:
             raise RuntimeError("Timeout must be non-negative")
-        self.timeout = time
+        self.timeout = timeout
         return self
 
     #pylint: disable=line-too-long, invalid-name
@@ -68,6 +70,24 @@ class ApiConnector(object):
         Traceback (most recent call last):
         NetworkError: ...
         """
+        this_try = 0
+        ex = RuntimeError()
+        while this_try < self.max_retries:
+            try:
+                return self.__request(url)
+            except NetworkError as e:
+                ex = e
+                if "HTTP Error 401" not in str(e):
+                    raise e
+                else:
+                    sleep_time = 0.1 * (2**(this_try + 1))
+                    self.logger.debug("Sleeping for %s seconds", str(sleep_time))
+                    time.sleep(sleep_time)
+                    this_try += 1
+        raise ex
+
+    def __request(self, url):
+        """Request json data from url without retries"""
         try:
             resp = urllib2.urlopen(url, timeout=self.timeout)
             jsondata = json.loads(resp.read().decode('utf-8'))
