@@ -80,7 +80,7 @@ class ApiConnector(object):
                 if "HTTP Error 401" not in str(e):
                     raise e
                 else:
-                    sleep_time = 0.1 * (2**(this_try + 1))
+                    sleep_time = 0.2 * (2**(this_try + 1))
                     self.logger.debug("Sleeping for %s seconds", str(sleep_time))
                     time.sleep(sleep_time)
                     this_try += 1

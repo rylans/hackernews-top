@@ -154,5 +154,11 @@ class HnapiTest(unittest.TestCase):
         con = ApiConnector()
         self.assertRaises(RuntimeError, con.make_item_endpoint, "asdf")
 
+    def test_request_retry(self):
+        """Test that the retry occurs"""
+        con = ApiConnector()
+        self.assertRaises(NetworkError, \
+            con.request, 'https://hacker-news.firebaseio.com/v0/foobar/1.json')
+
 if __name__ == '__main__':
     unittest.main()
