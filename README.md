@@ -5,7 +5,7 @@ Hacker News Top
 
 Unofficial Python wrapper over Hacker News' official Firebase API.
 
-### Install
+## Install
 
 ```
 > git clone https://github.com/rylans/hackernews-top.git
@@ -13,7 +13,9 @@ Unofficial Python wrapper over Hacker News' official Firebase API.
 > pip install .
 ```
 
-### Usage
+## Usage Examples
+
+### Get Item
 
 ```
 >>> from hnapi.connectors.api_connector import ApiConnector
@@ -25,14 +27,25 @@ u'My YC app: Dropbox - Throw away your USB drive'
 u'dhouston'
 ```
 
-### Roadmap
+### Get User
+
+```
+>>> from hnapi.connectors.api_connector import ApiConnector
+>>> user = ApiConnector().get_user('pg')
+>>> user.get('about')
+u'Bug Fixer.'
+>>> user.get('karma')
+155046
+```
+
+## Roadmap
 
 * Item types:
-  * Story **Partial support**
+  * ~~Story~~ **Done**
   * Comment **Partial support**
-  * Job
-  * Ask HN
-  * Poll
+  * Job **Partial support**
+  * Ask HN **Partial support**
+  * Poll **Partial support**
 * User **Partial support**
 * API calls
   * ~~`v0/item`~~ **Done**
@@ -42,10 +55,10 @@ u'dhouston'
   * ~~`v0/updates`~~ **Done**
 * Schema assertions
 
-### Statistical Data
+## Statistical Data
 
 ![Domain Frequency](diagrams/frequency_bar.png)
 
-### License
+## License
 
 Apache
