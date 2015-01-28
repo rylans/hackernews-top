@@ -22,6 +22,15 @@ class HnapiTest(unittest.TestCase):
         byline = item.get('by')
         self.assertEqual(byline, 'dhouston')
 
+    def test_get_comment(self):
+        """
+        Test retrieval of a comment
+        """
+        con = ApiConnector()
+        comment = con.get_item(15)
+        byline = comment.get('by')
+        self.assertEqual(byline, 'sama')
+
     def test_get_max_item(self):
         """
         Test retrieval of the max item without error
