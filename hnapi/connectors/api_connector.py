@@ -91,15 +91,15 @@ class ApiConnector(object):
         ex = RuntimeError()
         while this_try < self.max_retries:
             try:
+                sleep_time = self.backoff_multiplier * (2**this_try)
+                self.logger.debug("Sleeping for %s seconds", str(sleep_time))
+                time.sleep(sleep_time)
                 return self.__request(url)
             except NetworkError as e:
                 ex = e
                 if "HTTP Error 401" not in str(e):
                     raise e
                 else:
-                    sleep_time = self.backoff_multiplier * (2**(this_try + 1))
-                    self.logger.debug("Sleeping for %s seconds", str(sleep_time))
-                    time.sleep(sleep_time)
                     this_try += 1
         raise ex
 
