@@ -37,7 +37,24 @@ class ApiConnector(object):
         self.user_dict = {}
         self.logger = logging.getLogger(__name__)
         self.timeout = 35
-        self.max_retries = 3
+        self.max_retries = 5
+        self.backoff_multiplier = 0.9
+
+    def set_max_retries(self, retries):
+        """
+        Set the number of retries before failing the HTTP request
+
+        >>> ApiConnector().set_max_retries(2).max_retries == 2
+        True
+
+        >>> ApiConnector().set_max_retries(0)
+        Traceback (most recent call last):
+        RuntimeError: Max retries must be 1 or more
+        """
+        if retries < 1:
+            raise RuntimeError("Max retries must be 1 or more")
+        self.max_retries = retries
+        return self
 
     def set_timeout(self, timeout):
         """Set the timeout in seconds for the urllib2.urlopen call
@@ -80,7 +97,7 @@ class ApiConnector(object):
                 if "HTTP Error 401" not in str(e):
                     raise e
                 else:
-                    sleep_time = 0.2 * (2**(this_try + 1))
+                    sleep_time = self.backoff_multiplier * (2**(this_try + 1))
                     self.logger.debug("Sleeping for %s seconds", str(sleep_time))
                     time.sleep(sleep_time)
                     this_try += 1
