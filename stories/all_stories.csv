@@ -121,6 +121,7 @@ SCORE,TITLE,BY,URL
 11,Ask HN: Would you pay for honeypot logs?,fabulist,
 5,Ask HN: The best road to travel?,feroz1,
 4,Ask HN: Which publications do you read?,fivedollarshake,
+6,Ask HN: Is it legal to create an open blacklist of people / record of debtors?,folley,
 70,What's the cheapest living situation possible that still has basic utilities?,format997,
 6,Ask HN: Should I do a closed beta stage of my SaaS?,foxpc,
 1,Transcriptic a robotic cloud biology lab is hiring scientists and engineers,frisco,
@@ -251,6 +252,7 @@ SCORE,TITLE,BY,URL
 52,San Diego Hacker News Meetup 58 Tomorrow (1/30),th,http://anyvite.com/pznmqqaufc
 27,Rails – #forty_two() method,MrBra,http://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html#method-i-forty_two
 268,APIs.io – The API search engine,picsoung,http://apis.io
+82,Titan Seas Reflect Sunlight,otoolep,http://apod.nasa.gov/apod/ap150202.html
 6,Broadsheet,pauliesbell,http://app.broadsheet.io/#/home
 12,Apple iPsum: Lorem Ipsum Apple Style,taylanpince,http://appleipsum.org
 18,Applicative by the ACM,jcr,http://applicative.acm.org/index.html
@@ -272,6 +274,7 @@ SCORE,TITLE,BY,URL
 205,LSD: The Geek's Wonder Drug? (2006),pmoriarty,http://archive.wired.com/science/discoveries/news/2006/01/70015
 125,Disneyland with the Death Penalty (1993),kurren,http://archive.wired.com/wired/archive/1.04/gibson.html
 29,How Would You Redo the Google Interface? (2004),tmslnz,http://archive.wired.com/wired/archive/12.03/google.html?pg=12
+39,How four underdogs took on M.I.T. in underwater bot championship (2005),curtis,http://archive.wired.com/wired/archive/13.04/robot_pr.html
 33,The Doomslayer (1997),sutro,http://archive.wired.com/wired/archive/5.02/ffsimon_pr.html
 9,O Engineers (2000),11thEarlOfMar,http://archive.wired.com/wired/archive/8.12/soul_pr.html
 37,The ArcticStartup guide to Estonian startup scene,jkaljundi,http://arcticstartup.com/2014/11/20/the-arcticstartup-guide-to-estonia
@@ -362,6 +365,7 @@ SCORE,TITLE,BY,URL
 81,That Whole Thing with Sound in In-Browser Emulation,xai3luGi,http://ascii.textfiles.com/archives/4501
 326,The Emularity,Mithrandir,http://ascii.textfiles.com/archives/4546
 33,Asciilands: An adventure game composed of text,bnj,http://asciilands.blogspot.com/
+45,Interactive D compiler,stesch,http://asm.dlang.org/
 144,Astral – Organize Your GitHub Stars with Ease,adamnemecek,http://astralapp.com
 79,AsyncDisplayKit – iOS framework that keeps complex user interfaces responsive,robert-boehnke,http://asyncdisplaykit.org/
 69,New Pacman for Atari 2600,shawndumas,http://atariage.com/forums/topic/229152-new-pacman-for-atari-2600/
@@ -412,6 +416,7 @@ SCORE,TITLE,BY,URL
 72,Category: The Essence of Composition,lelf,http://bartoszmilewski.com/2014/11/04/category-the-essence-of-composition/
 5,Linux on the OSF Mach3 microkernel (1996),sergiolp,http://bat8.inria.fr/~lang/hotlist/free/licence/fsf96/mklinux.html
 95,Battlecode 2015 – AI Programming Competition,dvorak42,http://battlecode.org/
+117,OsmocomBB – Open-Source GSM Baseband,vezzy-fnord,http://bb.osmocom.org/trac/
 181,Pirate Bay founder Gottfrid Warg faces lengthy jail term,pmalynin,http://bbc.com/news/technology-29832318
 50,Microsoft: Satya Nadella steers Windows giant to recovery,feroz1,http://bbc.com/news/technology-29900969
 88,Japan's levitating maglev train reaches 500km/h,mwc,http://bbc.com/news/world-asia-30067889
@@ -526,7 +531,7 @@ SCORE,TITLE,BY,URL
 10,Huh? A software cooperative?,jasim,http://blog.deobald.ca/2014/11/huh-software-cooperative.html
 245,Does Sponsoring Daring Fireball Work?,saddington,http://blog.desk.pm/df/
 29,The Connection Between Viral Events Traffic and Sales,saddington,http://blog.desk.pm/viral/
-7,Science’s Biggest Fail,Yhippa,http://blog.dilbert.com/post/109880240641/sciences-biggest-fail
+287,Science’s Biggest Fail,Yhippa,http://blog.dilbert.com/post/109880240641/sciences-biggest-fail
 10,Interviewing 1,jsmecham,http://blog.dizzyd.com/blog/2015/01/28/interview1/
 342,From Novice to Master and Back Again,walrus,http://blog.djmnet.org/2013/01/14/from-novice-to-master-and-back-again/
 98,LibreOffice 4.4 the Most Beautiful LibreOffice Ever,rbanffy,http://blog.documentfoundation.org/2015/01/29/libreoffice-4-4-the-most-beautiful-libreoffice-ever/
@@ -551,6 +556,7 @@ SCORE,TITLE,BY,URL
 10,ChatOps: Everything about deployments right inside your chat,homeyer,http://blog.flowdock.com/2014/11/11/chatops-devops-with-hubot/
 33,Why Twitter Can't Replace RSS,ElleS,http://blog.flowreader.com/twitter-cant-replace-rss/
 42,Little’s Law: An insight on the relation between latency and throughput,nkurz,http://blog.flux7.com/blogs/benchmarks/littles-law
+90,Interview with Jon Skeet,eddie_31003,http://blog.fogcreek.com/dev-life-interview-with-jon-skeet/
 96,Code Review Checklist,GarethX,http://blog.fogcreek.com/increase-defect-detection-with-our-code-review-checklist-example
 21,Taming a Wild Testless Code Beast,GarethX,http://blog.fogcreek.com/taming-a-wild-testless-code-beast-4-steps-to-improving-test-coverage/
 354,Technical Papers Every Programmer Should Read at Least Twice (2011),altern8,http://blog.fogus.me/2011/09/08/10-technical-papers-every-programmer-should-read-at-least-twice/
@@ -585,6 +591,7 @@ SCORE,TITLE,BY,URL
 170,Path Tracing 3D Fractals,arunc,http://blog.hvidtfeldts.net/index.php/2015/01/path-tracing-3d-fractals/
 3,Why Bad Listening Is One of the Worst Decisions Managers Can Make,smalter,http://blog.idonethis.com/manager-decision-making/
 5,Reversing the Dropcam Part 2: Rooting Your Dropcam,hippich,http://blog.includesecurity.com/2014/04/reverse-engineering-dropcam-rooting-the-device.html
+30,Why I Don't Recommend Scrypt (2014),krn,http://blog.ircmaxell.com/2014/03/why-i-dont-recommend-scrypt.html
 18,An Open Letter to PHP-FIG by Anthony Ferrara,hkdobrev,http://blog.ircmaxell.com/2014/10/an-open-letter-to-php-fig.html
 75,PHP Install Statistics,ingve,http://blog.ircmaxell.com/2014/12/php-install-statistics.html
 49,Don't use the mailing lists,asmeurer,http://blog.ironholds.org/dont-use-the-mailing-lists-a-love-letter-to-the-r-community/
@@ -660,6 +667,7 @@ SCORE,TITLE,BY,URL
 325,Rust 1.0: Scheduling the trains,steveklabnik,http://blog.rust-lang.org/2014/12/12/1.0-Timeline.html
 420,Yehuda Katz and Steve Klabnik Are Joining the Rust Core Team,wycats,http://blog.rust-lang.org/2014/12/12/Core-Team.html
 890,Announcing Rust 1.0 Alpha,steveklabnik,http://blog.rust-lang.org/2015/01/09/Rust-1.0-alpha.html
+20,Beyond the IPO Hype – Why we decided to become a private company again,berndg,http://blog.ruxit.com/beyond-ipo-hype-decided-become-private-company/
 23,What I Wish I Knew When Starting Out as a Software Developer: Slow the Fuck Down,chx,http://blog.salsitasoft.com/what-i-wish-i-knew-when-starting-out-as-a-software-developer-slow-the-fuck-down/
 357,A new team at Reddit,gatsby,http://blog.samaltman.com/a-new-team-at-reddit
 139,A Question,philip1209,http://blog.samaltman.com/a-question
@@ -719,6 +727,7 @@ SCORE,TITLE,BY,URL
 3,Philae: The Biggest Jump Ever,hanula,http://blog.wolfspelz.de/2014/11/philae-biggest-jump-ever.html
 32,The Long Tail of the English Language,impostervt,http://blog.wordsapi.com/2015/01/the-long-tail-of-english-language.html
 3,What's a Verb That Rhymes with 'Wow'? Searching for Words with Words API,impostervt,http://blog.wordsapi.com/2015/01/whats-verb-that-rhymes-with-wow.html
+10,Our New and Improved UI,GordyMD,http://blog.workshape.io/new-ui/
 42,When trees fall: Programming machine learning and artificial intelligence,superfx,http://blog.wtf.sg
 99,Female Founders Conference 2015 applications are open,katm,http://blog.ycombinator.com/female-founders-conference-2015-applications-are-open
 1713,Hacker News API,kevin,http://blog.ycombinator.com/hacker-news-api
@@ -842,7 +851,7 @@ SCORE,TITLE,BY,URL
 77,Future of Programming Languages,jfaucett,http://c2.com/cgi/wiki?FutureOfProgrammingLanguages
 85,Inferno OS,pmoriarty,http://c2.com/cgi/wiki?InfernoOs
 42,Lisp Macro,pmoriarty,http://c2.com/cgi/wiki?LispMacro
-112,C2 wiki switching to single page application,chrisdotcode,http://c2.com/cgi/wiki?WikiWikiSystemNotice
+152,A complete rewrite of wiki as a single page application,chrisdotcode,http://c2.com/cgi/wiki?WikiWikiSystemNotice
 67,What is C4 rice?,iwwr,http://c4rice.irri.org/index.php/component/content/article/19-about/56-what-is-c4-rice
 4,Commodore Clicker: JavaScript C64 emulation clocked by an incremental game,Two9A,http://c64clicker.com/
 17,Rosetta – 3D Model,cabbibo,http://cabbi.bo/rosetta/
@@ -908,7 +917,7 @@ SCORE,TITLE,BY,URL
 26,Sketchpad: A man-machine graphical communication system (2003),sebastianconcpt,http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.10.4290&rep=rep1&type=pdf
 8,A Categorical Manifesto [pdf],pmoriarty,http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.13.362&rep=rep1&type=pdf
 233,SQL Scaling and What's Unique About Postgres,spathak,http://citusdata.com/blog/90-sql-scaling-and-whats-unique-about-postgres
-92,Single-Tag Website,tbassetto,http://cj-johnson.github.io/Single-Tag_Website/
+158,Single-Tag Website,tbassetto,http://cj-johnson.github.io/Single-Tag_Website/
 5,A Rust adventure,steveklabnik,http://ck.kennt-wayne.de/2014/dec/a-rust-adventure
 254,The Meditations by Marcus Aurelius,rohan404,http://classics.mit.edu/Antoninus/meditations.html
 1,ClearTax (YC S14) is hiring: Re-imagine personal finance in India,architgupta,http://cleartax.in/meta/careers
@@ -919,6 +928,7 @@ SCORE,TITLE,BY,URL
 22,Show HN: Cloujera – fine-grained search for spoken words in Coursera's videos,vise890,http://cloujera.clojurecup.com/
 39,Show HN: Cluckles live theme editor for Bootstrap,ilikeprograms,http://cluckles.com
 19,New Clues – From two Cluetrain authors,steven,http://cluetrain.com/newclues/
+20,Odd Comments and Strange Doings in Unix,luu,http://cm.bell-labs.com/cm/cs/who/dmr/odd.html
 28,Advice from Doug McIlroy,hoggle,http://cm.bell-labs.com/who/dmr/mdmpipe.html
 33,Reflections on Trusting Trust (1984),joaojeronimo,http://cm.bell-labs.com/who/ken/trust.html
 9,Show HN: Bash Keyboard Shortcuts Stickers,flipstewart,http://cmd.club/
@@ -941,6 +951,7 @@ SCORE,TITLE,BY,URL
 1,CodeNow (YC W14) Is Hiring a Program Assistant in NYC,seashore,http://codenow.org/program-assistant/
 127,C# Autocomplete Demo Using Bing Code Search Engine,miket,http://codesnippet.research.microsoft.com/
 29,The Six Million Dollar LibC (2008),arunc,http://codingrelic.geekhold.com/2008/11/six-million-dollar-libc.html
+49,I have no idea what I'm doing,InternetGiant,http://codon.com/i-have-no-idea-what-im-doing
 6,Laravel 5 – Site Rewrite Tutorial Series,wrighty52,http://codular.com/laravel-5-rewrite-tutorial
 10,Animated Page Transitions with React.js,mhr_online,http://coenraets.org/blog/2014/12/animated-page-transitions-with-react-js/
 47,Transducers now available for Java/JavaScript/Ruby,siavosh,http://cognitect-labs.github.io/
@@ -1080,7 +1091,7 @@ SCORE,TITLE,BY,URL
 458,Write You a Haskell: Building a modern functional compiler from first principles,tenslisi,http://dev.stephendiehl.com/fun/
 285,Let's Write an LLVM Specializer for Python,tenslisi,http://dev.stephendiehl.com/numpile/
 10,Scaling our email infrastructure with postfix and sendgrid,jconnolly,http://dev.theladders.com/2014/11/pipes-tubes-and-email/
-504,Windows 10 for Raspberry Pi 2,velodrome,http://dev.windows.com/en-us/featured/raspberrypi2support
+708,Windows 10 for Raspberry Pi 2,velodrome,http://dev.windows.com/en-us/featured/raspberrypi2support
 3,Implementing Unique Data Structures in C for Fun and Profit,hackmyssloff,http://devanpatel.me/implementing-unique-data-structures-in-c/
 53,What Do You Need?,nreece,http://developer.amd.com/community/blog/2014/11/04/what-do-you-need/
 5,Android L Developer Preview –  Final APIs Now Available,dbcooper,http://developer.android.com/about/versions/android-5.0.html
@@ -1363,6 +1374,7 @@ SCORE,TITLE,BY,URL
 145,DBus FreeDesktop and lots of madness,billiob,http://gentooexperimental.org/~patrick/weblog/archives/2014-11.html#e2014-11-23T09_26_01.txt
 38,The Cost of Features (2013),dennisgorelik,http://geoff.greer.fm/2013/03/06/the-cost-of-features/
 20,Why Neovim Is Better Than Vim,ggreer,http://geoff.greer.fm/2015/01/15/why-neovim-is-better-than-vim/
+92,World's Tallest Tsunami – Lituya Bay Alaska 1958,vinnyglennon,http://geology.com/records/biggest-tsunami.shtml
 110,Super easy project planning and estimation,geon,http://geon.github.io/estimator/
 6,Show HN: PixelBots – game where you can program bots,treskot,http://getpixelbots.com/
 73,Why REST is not a silver bullet for service integration,century19,http://getprismatic.com/story/1422136825657?share=NDAwMA.MTQyMjEzNjgyNTY1Nw.NT_Zo31VQdZtIqi1ml9HAZdWsgE
@@ -1418,6 +1430,7 @@ SCORE,TITLE,BY,URL
 173,Low Light and High Dynamic Range photography in the Google Camera App,jmintz,http://googleresearch.blogspot.com/2014/10/hdr-low-light-and-high-dynamic-range.html?
 26,Building a natural description of images,shazzy,http://googleresearch.blogspot.com/2014/11/a-picture-is-worth-thousand-coherent.html?m=1
 102,Case law is set free; what next?,anigbrowl,http://googlescholar.blogspot.com/2014/10/caselaw-is-set-free-what-next.html
+54,Gopher Gala winners announced,robotvert,http://gophergala.com/blog/gopher/gala/2015/02/03/winners/
 12,What I Learned about Tech and Business from Tyler Perry,jongos,http://gosier.org/post/105359991093/what-i-learned-about-tech-and-business-from-tyler
 4,Before Google Here's What New Yorkers Asked the NYPL,ca98am79,http://gothamist.com/2014/12/22/nypl_google_questions.php
 21,LiquidHaskell: Refinement Types via SMT and Predicate Abstraction,luu,http://goto.ucsd.edu/~rjhala/liquid/haskell/blog/about/
@@ -1438,6 +1451,7 @@ SCORE,TITLE,BY,URL
 20,Grim Fandango Remastered,danso,http://grimremastered.com/
 3,We don’t and can’t know how much it will cost to tackle climate change,spenrose,http://grist.org/climate-energy/we-dont-and-cant-know-how-much-it-will-cost-to-tackle-climate-change/
 1,Disqus is hiring its first iOS Developer (contract or FT),danielha,http://grnh.se/47eqmn
+1,HelloSign (YC W11) Is Hiring Front-end Engineers (React + Flux SASS),burnout1540,http://grnh.se/7yv5dq
 1,HelloSign (YC W11) Is Hiring DevOps and Front-end Engineers,burnout1540,http://grnh.se/dq4h0m
 1,HelloSign (YC W11) Is Hiring Front-end Engineers (React + Flux SASS),burnout1540,http://grnh.se/er5fjq
 1,ZenPayroll is hiring a Product Manager,edawerd,http://grnh.se/m67dki
@@ -1498,6 +1512,7 @@ SCORE,TITLE,BY,URL
 31,What's Perky? My Handmade Keyboard,jacquesm,http://homepage2.nifty.com/perky/index.htm
 6,The Implicit Calculus: A New Foundation for Generic Programming [pdf],virtualwhys,http://homepages.inf.ed.ac.uk/wadler/papers/implicits/implicits.pdf
 70,An FPGA Is an Impoverished Accelerator,samps,http://homes.cs.washington.edu/~asampson/blog/fpga.html
+69,A Few Useful Things to Know about Machine Learning [pdf],denismars,http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf
 235,Code rot and why I picked OpenBSD,ezequiel-garzon,http://homing-on-code.blogspot.com/2015/01/code-rot-openbsd.html
 15,The torus is the product of two circles cubically,mrbbk,http://homotopytypetheory.org/2015/01/20/ts1s1-cubically/
 274,SpaCy: Industrial-strength NLP with Python and Cython,syllogism,http://honnibal.github.io/spaCy
@@ -1656,7 +1671,7 @@ SCORE,TITLE,BY,URL
 3,I self-published “Game Programming Patterns” here's how it went,munificent,http://journal.stuffwithstuff.com/2014/11/20/how-my-book-launch-went/
 320,Rooms and Mazes: A Procedural Dungeon Generator,dustinlakin,http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/
 19,What Color Is Your Function?,edsrzf,http://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/
-51,What Color Is Your Function? A JavaScript Allegory,jashkenas,http://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function
+388,What Color Is Your Function?,jashkenas,http://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function
 9,Acoustic Tractor Beam,scribu,http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.112.174302
 5,Physics of Beer Tapping,philip1209,http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.113.214501?utm_source=email&utm_medium=email&utm_campaign=prl-alert
 81,The Search for MH 370 (Inmarsat),wglb,http://journals.cambridge.org/download.php?file=%2FNAV%2FS037346331400068Xa.pdf&code=99d6daf127f9c88ca22b52fd9ff5084a
@@ -1763,6 +1778,7 @@ SCORE,TITLE,BY,URL
 54,MOOCs are closed platforms and probably doomed,davmre,http://lemire.me/blog/archives/2014/12/24/moocs-are-closed-platforms-and-probably-doomed/
 285,How to Learn Efficiently,acconrad,http://lemire.me/blog/archives/2014/12/30/how-to-learn-efficiently/
 64,Less.Mail – An email assistant that makes you work less,ilyaeck,http://less.robinlabs.com
+9,Hey Apple Would You Please Rent the App Store to Amazon?,Audiophilip,http://lessig.tumblr.com/post/109918495012/hey-apple-would-you-please-rent-the-app-store-to
 6,Dark Arts of Rationality,jeremynixon,http://lesswrong.com/lw/jhs/dark_arts_of_rationality/
 4,Let's kill Paypal Enough is enough,tomtoise,http://letskillpaypal.com/
 408,Show HN: Meet me I'll buy you coffee,milesokeefe,http://letstalkover.coffee
@@ -1991,7 +2007,7 @@ SCORE,TITLE,BY,URL
 150,The Man Who Made Tetris,cryptoz,http://motherboard.vice.com/read/the-man-who-made-tetris
 61,A Math Model Is Predicting the Ebola Outbreak,mikeleeorg,http://motherboard.vice.com/read/this-math-model-is-predicting-the-ebola-outbreak-with-incredible-accuracy
 36,Website Streams Camera Footage from Users Who Didn't Change Their Password,BrandonMarc,http://motherboard.vice.com/read/this-website-streams-camera-footage-from-users-who-didnt-change-their-password
-3,Why We Should Build Cloud Cities on Venus,cryptoz,http://motherboard.vice.com/read/why-we-should-build-cloud-cities-on-venus
+240,Why We Should Build Cloud Cities on Venus,cryptoz,http://motherboard.vice.com/read/why-we-should-build-cloud-cities-on-venus
 16,Today Motorola Mobility becomes part of the Lenovo family of companies,abraham,http://motorola-blog.blogspot.com/2014/10/hello-lenovo.html
 155,Mouse Box,mhlakhani,http://mouse-box.com/#index_pl.html
 12,Mouse Box: An ARM computer in a mouse,fotcorn,http://mouse-box.com/
@@ -2302,6 +2318,7 @@ SCORE,TITLE,BY,URL
 703,What Doesn't Seem Like Work?,achariam,http://paulgraham.com/work.html
 30,V.I. Arnold On teaching mathematics (1997),mr_tyzic,http://pauli.uni-muenster.de/~munsteg/arnold.html
 14,Why you should really care about C/C++ static analysis,AndreyKarpov,http://paulinsights.wordpress.com/2014/07/10/why-you-should-really-care-about-cc-static-analysis/comment-page-1/#comment-1
+64,Designing Twitter Video – A look into the design and prototyping process,koenbok,http://paulstamatiou.com/twitter-video/
 35,The Internet has made defensive writers of us all,gourlaysama,http://pchiusano.github.io/2014-10-11/defensive-writing
 28,The problematic culture of “Worse is Better”,jamii,http://pchiusano.github.io/2014-10-13/worseisworse.html
 147,Lab 1: Booting a PC,luu,http://pdos.csail.mit.edu/6.828/2014/labs/lab1/
@@ -2480,7 +2497,7 @@ SCORE,TITLE,BY,URL
 72,Striking parallels between mathematics and software engineering,datascientist,http://radar.oreilly.com/2015/01/striking-parallels-between-mathematics-and-software-engineering.html
 8,RADXA Rock Pro and Rock Light (ARM Development Boards),tbrock,http://radxa.com/Home
 83,The Raft Consensus Algorithm,ForHackernews,http://raftconsensus.github.io/
-54,Destructuring and Recursion in ES6,StylifyYourBlog,http://raganwald.com/2015/02/02/destructuring.html
+108,Destructuring and Recursion in ES6,StylifyYourBlog,http://raganwald.com/2015/02/02/destructuring.html
 65,Scrap your MapReduce – Introduction to Apache Spark,Garbage,http://rahulkavale.github.io/blog/2014/11/16/scrap-your-map-reduce/
 3,RailsBricks 3 released: Create Rails apps. Faster,nicoschuele,http://railsbricks.net/news/railsbricks-3-is-live
 6,Ramda: practical functional JavaScript,bpierre,http://ramda.github.io/ramdocs/docs/
@@ -2521,6 +2538,7 @@ SCORE,TITLE,BY,URL
 3,Show HN: Online journal webapp with highlight text ability,andrewjcasal,http://reflectupon.net
 100,Starting data analysis with R: Things I wish I'd been told,ingve,http://reganmian.net/blog/2014/10/14/starting-data-analysiswrangling-with-r-things-i-wish-id-been-told/
 29,RegViz: A Web-Based Tool for Visual Debugging of Regular Expressions,beckf,http://regviz.org
+335,Replacing Middle Management with APIs,gwintrob,http://rein.pk/replacing-middle-management-with-apis/
 11,Ubuntu 14.10 released,vibragiel,http://releases.ubuntu.com/14.10/
 52,2014 CSS Report: Examining how CSS is being used in the wild,andrewbaron,http://reports.quickleft.com/css
 17,On the criteria to be used in decomposing systems into modules (1971),gflandre,http://repository.cmu.edu/cgi/viewcontent.cgi?article=2979&context=compsci
@@ -2573,6 +2591,7 @@ SCORE,TITLE,BY,URL
 36,Behind OS X’s modern face lies an aging collection of Unix tools,ingve,http://robservatory.com/behind-os-xs-modern-face-lies-an-aging-collection-of-unix-tools/
 28,Why You Should Charge from Day One,robn_fastmail,http://rocketship.fm/episodes/ep-79-rob-mueller/
 5,Organic algae shot claiming to have over 65 nutrients… only has 2,falcor84,http://rockstarresearch.com/organic-algae-shot-claiming-to-have-over-65-nutrients-only-has-2/
+75,Monty Oum animator at Rooster Teeth has died,brbcoding,http://roosterteeth.com/members/journal/entry.php?id=3302319
 75,Visualising an Asynchronous Monad,astrada,http://roscidus.com/blog/blog/2014/10/27/visualising-an-asynchronous-monad/
 62,Securing the Unikernel,lelf,http://roscidus.com/blog/blog/2015/01/21/securing-the-unikernel/
 629,Rosetta comet landing – live stream,fla,http://rosetta.esa.int/?landing
@@ -2676,6 +2695,7 @@ SCORE,TITLE,BY,URL
 65,Battery life: Apple's solving for x,mmastrac,http://sixcolors.com/post/2015/01/battery-life-apples-solving-for-x/
 60,The 12” MacBook Air: Back to Basics?,r0h1n,http://sixcolors.com/post/2015/01/the-macbook-air-returning-to-its-roots/
 60,Snap webcam photos whenever your app crashes,viclou,http://sizeof.io/snap-webcam-photos-whenever-your-app-crashes/
+138,Debian Jessie on Raspberry Pi 2,EmanueleAina,http://sjoerd.luon.net/posts/2015/02/debian-jessie-on-rpi2/
 1,SketchDeck is hiring an engineer to build our B2B marketplace,edmack,http://sketchdeck.com/article/sketchdecks-hiring-its-first-engineer/
 187,Mezzanine: A Common Lisp-based 64-bit OS for VirtualBox,self,http://slexy.org/view/s20Pc2LaIw
 30,Fix CSS by writing it in JavaScript,oleg009,http://slides.com/kof/jss
@@ -2782,6 +2802,7 @@ SCORE,TITLE,BY,URL
 4,How I launched a productized consulting service that brought $15450 in a month,rmcastil,http://studiofellow.com/articles/productized/
 3,Submarine Cable Map 2014,123user,http://submarine-cable-map-2014.telegeography.com/
 47,Ten years a MicroISV,aaronbrethorst,http://successfulsoftware.net/2015/01/07/10-years-a-microisv/
+38,Calling all student founders: $20K office and mentorship from Highland Capital,yodac,http://summer.hcp.com/
 76,One group dominates the second round of net neutrality comments,fragsworth,http://sunlightfoundation.com/blog/2014/12/16/one-group-dominates-the-second-round-of-net-neutrality-comments/?
 5,IE 11 doesn't work with Node.js localhost + port,franze,http://superuser.com/questions/702225/ie-doesnt-work-with-localhost-port
 170,Multiple vulnerabilities released in NTP,mahmoudimus,http://support.ntp.org/bin/view/Main/SecurityNotice#Buffer_overflow_in_ctl_putdata
@@ -2813,6 +2834,7 @@ SCORE,TITLE,BY,URL
 19,D is for Data Science,vtuulos,http://tech.adroll.com/blog/data/2014/11/17/d-is-for-data-science.html
 4,Meet Kano the UK startup that lets anyone build and code their own computer,robinwauters,http://tech.eu/features/3265/kano-profile/
 6,The Spanish startup scene in 2014: more investments bigger deals,robinwauters,http://tech.eu/features/3584/spanish-vc-investments-data-analysis-2014/
+4,Meet Babbel: 100000 people download its language-learning apps every day,robinwauters,http://tech.eu/features/3852/babbel-profile-markus-witte-interview/
 3,Nokia Launches 7.9 inch Tablet with Android 5.00,gjsriv,http://tech.firstpost.com/news-analysis/big-surprise-nokia-launches-7-9-inch-n1-tablet-running-android-5-0-lollipop-242285.html
 83,Comparing Message Queue Architectures on AWS,itaifrenkel,http://tech.forter.com/comparing-message-queue-architectures-on-aws/
 26,Marc Andreessen Annotates Paul Krugman's Amazon Op-Ed,lawsohard,http://tech.genius.com/Paul-krugman-amazons-monopsony-is-not-ok-annotated
@@ -2923,6 +2945,7 @@ SCORE,TITLE,BY,URL
 112,Tesla’s P85D Will Get Even Faster Thanks to a Software Update,martin_,http://techcrunch.com/2015/01/29/teslas-p85d-will-get-even-faster-thanks-to-a-software-update/
 89,AOL To Lay Off 150 People Mostly In Sales; Folding Joystiq TUAW Into Engadget,uptown,http://techcrunch.com/2015/01/30/aohell/
 27,Virtual Reality The Empathy Machine,_pius,http://techcrunch.com/2015/02/01/what-it-feels-like/
+248,Uber Opening Robotics Research Facility in Pittsburgh to Build Self-Driving Cars,foobarqux,http://techcrunch.com/2015/02/02/uber-opening-robotics-research-facility-in-pittsburgh-to-build-self-driving-cars/
 5,A Brief History of Tesla,KhalilK,http://techcrunch.com/gallery/a-brief-history-of-tesla/
 78,Internet companies should not be monitoring terrorists or anyone else,primitive,http://techfruit.com/2014/11/26/internet-companies-not-monitoring-terrorists-anyone-else/
 266,Samsung Unveils SSD Delivering Speeds of Over 2 GB/s,notsony,http://techgage.com/news/samsung-unveils-first-pcie-3-0-x4-based-m-2-ssd-delivering-speeds-of-over-2gbs/
@@ -3062,12 +3085,13 @@ SCORE,TITLE,BY,URL
 89,It's Almost 2015. Update Your Footer,mikk0j,http://updateyourfooter.com/
 192,Japanese zoning,nkurz,http://urbankchoze.blogspot.com/2014/04/japanese-zoning.html
 1,URX (YC S13) is hiring distributed systems and front end engineers,jmilinovich,http://urx.com/careers/
+11,Modern SQL in PostgreSQL [and other databases],mariuz,http://use-the-index-luke.com/blog/2015-02/modern-sql
 9,Panda 4: Display HN Product Hunt GitHub at the Same Time,milen,http://usepanda.com
 73,Stack Computers: the new wave (1989),dragonbonheur,http://users.ece.cmu.edu/~koopman/stack_computers/index.html
 45,Hand Ciphers,biffa,http://users.telenet.be/d.rijmenants/en/handciphers.htm
 6,Why your 64-bit Go programs may have a huge virtual size,ohjeez,http://utcc.utoronto.ca/~cks/space/blog/programming/GoBigVirtualSize
 171,Intel has screwed up their DC S3500 SSDs,luu,http://utcc.utoronto.ca/~cks/space/blog/tech/IntelDCSSDSectorSizeMistake
-61,Why people were enthused about GCC early on in its life,zdw,http://utcc.utoronto.ca/~cks/space/blog/unix/GccEarlyEnthusiasm
+183,Why people were enthused about GCC early on in its life,zdw,http://utcc.utoronto.ca/~cks/space/blog/unix/GccEarlyEnthusiasm
 74,Reddit co-founder Alexis Ohanian fights for a free and open Internet,wallflower,http://uvamagazine.org/articles/voice_of_his_generation
 3,Science Exchange (YC S11) Reproducibility Project: Cancer Biology,jcr,http://validation.scienceexchange.com/#/cancer-biology
 5,K-means clustering is not a free lunch,__Joker,http://varianceexplained.org/r/kmeans-free-lunch/
@@ -3113,7 +3137,8 @@ SCORE,TITLE,BY,URL
 13,Computer-Intensive Methods in Statistics (1983) [pdf],niels_olson,http://web.cecs.pdx.edu/~cgshirl/Documents/Demonstrations/1983%20Diaconis%20Efron%20Computer-Intensive%20Methods%20in%20Statistics%20Sci%20Am%20May%201983.pdf
 36,TrustDavis: A Non-Exploitable Online Reputation System [pdf],kwikiel,http://web.cs.ucdavis.edu/~defigued/index_files/trustdavis.pdf
 176,Nobody Ever Gets Credit for Fixing Problems That Never Happened (2001) [pdf],xvirk,http://web.mit.edu/nelsonr/www/Repenning=Sterman_CMR_su01_.pdf
-89,Third Base – Ternary Notation (2001),sidcool,http://web.williams.edu/Mathematics/sjmiller/public_html/105Sp10/addcomments/Hayes_ThirdBase.htm
+95,Third Base – Ternary Notation (2001),sidcool,http://web.williams.edu/Mathematics/sjmiller/public_html/105Sp10/addcomments/Hayes_ThirdBase.htm
+5,Amazon Opens First College Retail Location at Purdue University,greenvaio,http://webandtechs.com/2015/02/amazon-college-retail-location-purdue-university/
 64,Web MIDI API,dgellow,http://webaudio.github.io/web-midi-api/
 46,A Survey of RTS Game AI Research and Competition in StarCraft (2013) [pdf],mrtbld,http://webdocs.cs.ualberta.ca/~cdavid/pdf/starcraft_survey.pdf
 14,Speculations Concerning the First Ultraintelligent Machine (1965) [pdf],cr4zy,http://webdocs.cs.ualberta.ca/~sutton/Good65ultraintelligent.pdf
@@ -3178,12 +3203,14 @@ SCORE,TITLE,BY,URL
 38,Acorns – Automatically Invest Your Spare Change,gregchristian,http://www.acorns.com
 44,Heathkit – The Electronic History Mystery,joezydeco,http://www.adafruit.com/blog/2014/12/20/heathkit-the-electronic-history-mystery/
 94,An Introduction to Semiconductor Economics,mpoloton,http://www.adapteva.com/andreas-blog/semiconductor-economics-101/
+138,Over 20 designers have copied my website and I don't mind,dunny105,http://www.adhamdannaway.com/blog/web-design/imitation-truly-is-the-sincerest-form-of-flattery
 44,After 15 years as shareware Ad Muncher is now completely free,MurrayHurps,http://www.admuncher.com/free
 316,Alaskans vote to legalize marijuana,lygi,http://www.adn.com/article/20141104/alaskans-vote-legalize-marijuana
 34,From Zero to Fifty: How AdPushup Closed $632K in Angel Investment,ankitoberoi,http://www.adpushup.com/blog/adpushup-closes-angel-round-funding/
 23,What and How Much It Takes to Build an Office in the Indian Capital?,shubhamjain,http://www.adpushup.com/blog/new-adpushup-office-features-and-cost-breakdown/
 32,Our No Asshole Rule,yarapavan,http://www.adventur.es/adventures-blog/2014/12/22/no-asshole-rule
 299,Secret surveillance detected in Oslo,draugadrotten,http://www.aftenposten.no/nyheter/iriks/Secret-surveillance-detected-in-Oslo-7825278.html
+190,SWEATSHOP – I can´t take any more,sphericalgames,http://www.aftenposten.no/webtv/serier-og-programmer/sweatshopenglish/TRAILER-SWEATSHOP---I-cant-take-any-more-7800835.html?paging=&section=webtv_serierogprogrammer_sweatshop_sweatshopenglish
 18,Airbnb in the City – New York State Attorney General's Report [pdf],ics,http://www.ag.ny.gov/pdfs/Airbnb%20report.pdf
 22,Not Everyone Is “Killing” It: How and When to Admit It,ilamont,http://www.agilevc.com/blog/2015/01/21/not-everyone-killing-admit.html
 58,Software optimization resources,antiuniverse,http://www.agner.org/optimize/
@@ -3272,6 +3299,7 @@ SCORE,TITLE,BY,URL
 132,Inactivity 'kills more than obesity',sjcsjc,http://www.bbc.co.uk/news/health-30812439
 3,MSF is calling on the pharmaceutical giants to make vaccination more affordable,nly,http://www.bbc.co.uk/news/health-30853336
 109,Dementia 'linked' to common over-the-counter drugs,k-mcgrady,http://www.bbc.co.uk/news/health-30988643
+4,Three-person babies technique voted on by MPs,k-mcgrady,http://www.bbc.co.uk/news/health-31069173
 91,The anarchic experimental schools of the 1970s,wldlyinaccurate,http://www.bbc.co.uk/news/magazine-29518319
 21,The Dutch boy mopping up a sea of plastic,choult,http://www.bbc.co.uk/news/magazine-29631332
 63,Martin Gardner puzzle master extraordinaire,Bzomak,http://www.bbc.co.uk/news/magazine-29688355
@@ -3315,6 +3343,7 @@ SCORE,TITLE,BY,URL
 4,The daunting challenge of reporting on cyberwar,iamben,http://www.bbc.co.uk/news/technology-30813585
 442,Google Glass sales halted,kerrsclyde,http://www.bbc.co.uk/news/technology-30831128
 4,'Snoopers' charter' revival on hold as redraft demanded,callum85,http://www.bbc.co.uk/news/technology-31001575
+10,US tech firms ask China to postpone 'intrusive' rules,riaface,http://www.bbc.co.uk/news/technology-31039227
 63,Flights disrupted after computer failure at UK control centre,ilghiro,http://www.bbc.co.uk/news/uk-30454240
 20,Hoax call to David Cameron prompts security review,iamben,http://www.bbc.co.uk/news/uk-30977267
 61,Litvinenko post-mortem 'probably most dangerous ever',gedrap,http://www.bbc.co.uk/news/uk-31020466
@@ -3341,6 +3370,7 @@ SCORE,TITLE,BY,URL
 84,Alibaba's Singles' Day sales exceed predictions at $8.5bn,theklub,http://www.bbc.com/news/business-29999289
 149,Twitter's debt assigned 'junk' status,InternetGiant,http://www.bbc.com/news/business-30048344
 109,Finnish phoenix: The startups rising from Nokia's ashes,InternetGiant,http://www.bbc.com/news/business-31044810
+47,Harper Lee to publish second novel,InternetGiant,http://www.bbc.com/news/entertainment-arts-31118355
 499,Paralysed man walks again after cell transplant,pierre-renaux,http://www.bbc.com/news/health-29645760
 31,Back-lit e-readers 'damage sleep and health' doctors warn,leephillips,http://www.bbc.com/news/health-30574260
 155,Regular naps are 'key to learning',yitchelle,http://www.bbc.com/news/health-30776745
@@ -3383,13 +3413,15 @@ SCORE,TITLE,BY,URL
 18,Make coders develop Blackberry apps says firm's boss,percept,http://www.bbc.com/news/technology-30932399
 21,AI will not kill us says Microsoft Research chief,Yuioup,http://www.bbc.com/news/technology-31023741
 32,BMW fixes lock security flaw,jackgavigan,http://www.bbc.com/news/technology-31093065
+5,Lost chunk of pioneering Edsac computer found,Libertatea,http://www.bbc.com/news/technology-31100014
 5,Terrifying time loop: The man trapped in constant deja vu,srikar,http://www.bbc.com/news/uk-30927102
 15,Kepler telescope identifies ancient solar system,SwellJoe,http://www.bbc.com/news/uk-england-birmingham-31002598
+12,Northampton's medieval chess workshop 'first to be found',benbreen,http://www.bbc.com/news/uk-england-northamptonshire-30214707
 3,How world’s worst Ebola outbreak began with one boy’s death,lentil_soup,http://www.bbc.com/news/world-africa-30199004
 232,India's tiger population sees 30% increase,SimplyUseless,http://www.bbc.com/news/world-asia-30896028
 30,Australians lead efforts to move space junk with lasers,srikar,http://www.bbc.com/news/world-australia-29847830
 28,Gun attack on French magazine Charlie Hebdo kills 10,franzpeterstein,http://www.bbc.com/news/world-europe-30710883
-39,Herculaneum scrolls unlocked using photon beams,diodorus,http://www.bbc.com/news/world-europe-31087746
+68,Herculaneum scrolls unlocked using photon beams,diodorus,http://www.bbc.com/news/world-europe-31087746
 159,Drone carrying drugs crashes near US-Mexico border,kisamoto,http://www.bbc.com/news/world-latin-america-30931367
 150,BBC uses RIPA terrorism laws to catch TV licence fee dodgers in Northern Ireland,k-mcgrady,http://www.belfasttelegraph.co.uk/news/local-national/northern-ireland/bbc-uses-ripa-terrorism-laws-to-catch-tv-licence-fee-dodgers-in-northern-ireland-30911647.html
 803,Be My Eyes – Lend your eyes to the blind,khebbie,http://www.bemyeyes.org/
@@ -3414,6 +3446,7 @@ SCORE,TITLE,BY,URL
 4,PyDev of the Week: Brian Curtin,driscollis,http://www.blog.pythonlibrary.org/2014/11/10/pydev-of-the-week-brian-curtin/
 11,Bloomberg 404 Page,ca98am79,http://www.bloomberg.com/404
 98,Inside a British Bank-Bombing Spree,mparramon,http://www.bloomberg.com/graphics/2015-atm-bombers/
+88,Chipotle: The Definitive Oral History,tim_sw,http://www.bloomberg.com/graphics/2015-chipotle-oral-history/
 70,IBM Paying Globalfoundries $1.5B to Take Unit in Retreat from Chips,colmvp,http://www.bloomberg.com/news/2014-10-19/ibm-agrees-to-pay-globalfoundries-1-5-billion-to-take-chip-unit.html
 116,IBM Plunges as CEO Abandons 2015 Earnings Forecast,orin_hanner,http://www.bloomberg.com/news/2014-10-20/ibm-abandons-2015-earnings-goal-as-rometty-divests-assets-1-.html
 28,Maglev Train Seen Making Washington-to-Baltimore Trip at 311 MPH,forrest_t,http://www.bloomberg.com/news/2014-10-21/washington-baltimore-15-minute-trip-pushed-in-maglev-plan.html
@@ -3446,6 +3479,10 @@ SCORE,TITLE,BY,URL
 332,SpaceX Sells 10% Stake to Google Fidelity for $1B,hodgesmr,http://www.bloomberg.com/news/2015-01-20/musk-s-spacex-sells-10-stake-to-google-fidelity-for-1-billion.html?hootPostID=e032d9a22131660ad2c3ecfaa1639a46
 266,Valve Economist Yanis Varoufakis Appointed Finance Minister of Greece,Jacqued,http://www.bloomberg.com/news/2015-01-27/greece-s-new-finance-minister-says-euro-is-like-hotel-california.html
 6,The CEO Who Saved a Life and Lost His Job,wslh,http://www.bloomberg.com/news/articles/2015-01-22/biotech-drug-approvals-social-media-storm-hits-chimerix
+490,Google Is Developing Its Own Uber Competitor,geoffwoo,http://www.bloomberg.com/news/articles/2015-02-02/exclusive-google-and-uber-are-going-to-war-over-taxis
+48,RadioShack in Talks to Sell Half Its Stores to Sprint Shutter the Rest,davidradcliffe,http://www.bloomberg.com/news/articles/2015-02-02/radioshack-is-said-to-discuss-liquidation-as-part-of-sprint-deal
+6,Amazon in Talks To Buy Some of RadioShack's Stores,prostoalex,http://www.bloomberg.com/news/articles/2015-02-03/amazon-said-to-mull-buying-radioshack-stores-in-retail-expansion
+12,Inside Radio Shack's slow motion collapse,rmason,http://www.bloomberg.com/news/features/2015-02-02/inside-radioshack-s-slow-motion-collapse
 216,Paul Graham and Jessica Livingston Interview [video],ynotgiant,http://www.bloomberg.com/video/paul-graham-and-jessica-livingston-studio-1-0-10-09-J5e3sjvtRrys6nd286HWUA.html
 4,In Silicon Valley Greed Is Good,fludlight,http://www.bloombergview.com/articles/2014-10-13/in-silicon-valley-greed-is-good
 353,Capital One Fraud Researchers May Also Have Done Some Fraud,sirteno,http://www.bloombergview.com/articles/2015-01-23/capital-one-fraud-researchers-may-also-have-done-some-fraud
@@ -3552,6 +3589,7 @@ SCORE,TITLE,BY,URL
 48,The Predictions of Robert A. Heinlein,danso,http://www.challzine.net/30/30predictions.html
 90,Air Fares 101 – Why do fares change all the time?,ZeljkoS,http://www.cheapair.com/blog/travel-tips/air-fares-101-why-do-fares-change-all-the-time/
 47,Coroutines in C (2000),jeffreyrogers,http://www.chiark.greenend.org.uk/~sgtatham/coroutines.html
+4,Sieja kCura land $125M from heavyweight backers,wglb,http://www.chicagobusiness.com/article/20150203/BLOGS11/150209949/sieja-kcura-land-125-million-from-heavyweight-backers?X-IgnoreUserAgent=1
 23,Vivian Maier's undeveloped film on hold amid legal fight,jacquesm,http://www.chicagotribune.com/entertainment/chi-vivian-maier-photos-legal-fight-20140912-story.html
 78,Study: Chicago red light cameras provide few safety benefits,greenburger,http://www.chicagotribune.com/news/watchdog/redlight/ct-red-light-camera-safety-met-20141219-story.html#page=1
 62,The Writer Automaton Switzerland [video],frr149,http://www.chonday.com/Videos/the-writer-automaton
@@ -3681,6 +3719,7 @@ SCORE,TITLE,BY,URL
 45,Datapath.io: Provider-Independent Elastic IP Addresses,sspies,http://www.datapath.io/#availability
 59,Maps of Street Layouts Colored by Orientation,forrest_t,http://www.datapointed.net/2014/10/maps-of-street-grids-by-orientation/
 14,National Data Science Bowl,willis77,http://www.datasciencebowl.com/
+3,DataStax Acquires Aurelius the Experts Behind TitanDB,Gulthor,http://www.datastax.com/2015/02/datastax-acquires-aurelius-the-experts-behind-titandb
 264,My First Keyboard Build,gurgus,http://www.davecooper.org/blog/2014/10/15/i-built-a-keyboard/
 66,Something New in Garage Doors,cek,http://www.davintosh.com/2015/01/01/something-new-in-garage-doors/
 51,Java 8: No more loops,GarethX,http://www.deadcoderising.com/java-8-no-more-loops/
@@ -3843,6 +3882,7 @@ SCORE,TITLE,BY,URL
 109,Is Homo Economicus a Psychopath?,jonathansizz,http://www.forbes.com/sites/peterubel/2014/12/15/is-homo-economicus-a-psychopath/
 359,Next Week's Bloodbath At IBM Won't Fix The Real Problem,randomname2,http://www.forbes.com/sites/robertcringely/2015/01/22/next-weeks-bloodbath-at-ibm-wont-fix-the-real-problem/
 6,Silk Road Judge: Tor Browser's “mumbo-jumbo to most people on the jury”,feroz1,http://www.forbes.com/sites/sarahjeong/2015/01/19/tor-browser-is-mumbo-jumbo/
+4,How Ross Ulbricht's Defense Was Derailed,law,http://www.forbes.com/sites/sarahjeong/2015/02/03/the-silk-road-trial-that-wasnt/
 123,Sean Rad Out as Tinder CEO,dreamweapon,http://www.forbes.com/sites/stevenbertoni/2014/11/04/exclusive-sean-rad-out-as-tinder-ceo-inside-the-crazy-saga
 14,Ionic Security (Atlanta) Raises 40.1m in Series C Funding,k2xl,http://www.forbes.com/sites/thomasbrewster/2015/01/13/ionic-security-funding-round/
 82,Attacks on 'Insecure' Progressive Insurace Dongle Could Spawn Road Carnage,thealexknapp,http://www.forbes.com/sites/thomasbrewster/2015/01/15/researcher-says-progressive-insurance-dongle-totally-insecure/
@@ -4079,6 +4119,7 @@ SCORE,TITLE,BY,URL
 41,Homebrew Wearable Electronics Steampunk VFD Wristwatch,waterlesscloud,http://www.johngineer.com/blog/?p=1595
 622,A Career in Science Will Cost You Your Firstborn,timr,http://www.johnskylar.com/post/107416685924/a-career-in-science-will-cost-you-your-firstborn
 138,Revisiting the “Cookieless Domain” Recommendation,luu,http://www.jonathanklein.net/2014/02/revisiting-cookieless-domain.html
+19,The Life of a PHP Developer,jon_kuperman,http://www.jonkuperman.com/life-of-a-php-developer/
 110,The LaTeX cargo cult,reledi,http://www.joshparsons.net/latex/
 54,Guardian launches open-source data journalism tool,denzil_correa,http://www.journalism.co.uk/news/guardian-launches-open-source-data-journalism-tool/s2/a562933/
 19,SmartDataCenter and Manta are now open source,porker,http://www.joyent.com/blog/sdc-and-manta-are-now-open-source
@@ -4118,6 +4159,7 @@ SCORE,TITLE,BY,URL
 62,These experts still don't buy the FBI claim that North Korea hacked Sony,dnetesn,http://www.latimes.com/business/hiltzik/la-fi-mh-these-experts-still-dont-buy-20141221-column.html
 48,Virgin Galactic pilot defied the odds to survive crash,danso,http://www.latimes.com/business/la-fi-virgin-survivor-20141105-story.html
 116,FCC chairman tips his hand on net neutrality,mikecarlton,http://www.latimes.com/business/technology/la-fi-tn-fcc-chairman-wheeler-ces-net-neutrality-title-ii-20150107-story.html?track=rss&utm_source=dlvr.it&utm_medium=twitter&dlvrit=515009
+29,Danish study: moderate jogging higher benefits,mkempe,http://www.latimes.com/science/sciencenow/la-sci-sn-running-health-20150202-story.html
 177,When a Cartoonist Landed in L.A. County Jail She Drew What She Saw,Mz,http://www.laweekly.com/publicspectacle/2014/12/31/when-a-cartoonist-landed-in-la-county-jail-she-drew-what-she-saw-using-only-a-golf-pencil?showFullText=true
 83,Four Areas of Legal Ripe for Disruption by Smart Startups,krambs,http://www.lawtechnologytoday.org/2014/12/smart-startups/
 31,Functional programming recursion schemes,llazzaro,http://www.lazzaro.com.ar/#/archive/83103005589
@@ -4138,6 +4180,7 @@ SCORE,TITLE,BY,URL
 28,The Life and Times of the Father of Linear Programming (2005),the_d00d,http://www.lionhrtpub.com/orms/orms-8-05/dantzig.html
 51,Clojure is Imperative,momo-reina,http://www.lispcast.com/clojure-is-imperative
 15,Elm FRP in Clojure core.async,leephillips,http://www.lispcast.com/elm-frp-in-core-async
+110,DirectX 11 vs. DirectX 12 oversimplified,snake_case,http://www.littletinyfrogs.com/article/460524/DirectX11vsDirectX12_oversimplified
 3,Renaissance-Era Italian Warlord Was Poisoned Mummy Reveals,Thevet,http://www.livescience.com/49319-mummy-reveals-italian-warlord-poisoned.html
 28,How to Recreate a Sloppy Ancient Greek Drinking Game,diodorus,http://www.livescience.com/49441-greek-drinking-game-kottabos-recreated.html
 36,Mummy mask may reveal oldest known gospel,diodorus,http://www.livescience.com/49489-oldest-known-gospel-mummy-mask.html
@@ -4243,6 +4286,7 @@ SCORE,TITLE,BY,URL
 81,Still no stem cells via easy 'STAP' path,lelf,http://www.nature.com/news/still-no-stem-cells-via-easy-stap-path-1.16606
 95,The most-cited papers,harleyk,http://www.nature.com/news/the-top-100-papers-1.16224?WT.ec_id=NATURE-20141030
 19,Time for the Social Sciences,Thevet,http://www.nature.com/news/time-for-the-social-sciences-1.16621?WT.ec_id=NATURE-20141225
+36,Measurements on the reality of the wavefunction,MichaelAO,http://www.nature.com/nphys/journal/vaop/ncurrent/full/nphys3233.html
 8,The dynamics of correlated novelties,foolrush,http://www.nature.com/srep/2014/140731/srep05890/full/srep05890.html?repost
 31,Electric Turbochargers: The Next Big Thing in Fuel Efficiency,nkurz,http://www.navigantresearch.com/blog/electric-turbochargers-the-next-big-thing-in-fuel-efficiency
 144,Waste Water from Oil Fracking Injected into Clean Aquifers,dismal2,http://www.nbcbayarea.com/investigations/Waste-Water-from-Oil-Fracking-Injected-into-Clean-Aquifers-282733051.html
@@ -4307,6 +4351,7 @@ SCORE,TITLE,BY,URL
 242,The Whole Haystack: The N.S.A. claims it needs access to all our phone records,djoldman,http://www.newyorker.com/magazine/2015/01/26/whole-haystack
 349,Almost Everything in “Dr. Strangelove” Was Based on Fact,ux-app,http://www.newyorker.com/news/news-desk/almost-everything-in-dr-strangelove-was-true
 137,Inside the Collapse of the New Republic,GabrielF00,http://www.newyorker.com/news/news-desk/inside-collapse-new-republic
+49,Is Bilingualism Really an Advantage?,smonusbonus,http://www.newyorker.com/science/maria-konnikova/bilingual-advantage-aging-brain?mbid=social_facebook
 8,How Headlines Change the Way We Think,unclesaamm,http://www.newyorker.com/science/maria-konnikova/headlines-change-way-think
 3,Is Social Psychology Biased Against Republicans?,clarkm,http://www.newyorker.com/science/maria-konnikova/social-psychology-biased-republicans
 38,The Struggles of a Psychologist Studying Self-Control,grej,http://www.newyorker.com/science/maria-konnikova/struggles-psychologist-studying-self-control
@@ -4371,7 +4416,7 @@ SCORE,TITLE,BY,URL
 11,The Myth of Chinese Super Schools,r12s,http://www.nybooks.com/articles/archives/2014/nov/20/myth-chinese-super-schools/
 17,Wake Up Europe,rouma7,http://www.nybooks.com/articles/archives/2014/nov/20/wake-up-europe/
 280,Why Innocent People Plead Guilty,colmvp,http://www.nybooks.com/articles/archives/2014/nov/20/why-innocent-people-plead-guilty/
-18,The Reporter Resists His Government,danso,http://www.nybooks.com/articles/archives/2015/feb/19/james-risen-reporter-resists-his-government/
+57,The Reporter Resists His Government,danso,http://www.nybooks.com/articles/archives/2015/feb/19/james-risen-reporter-resists-his-government/
 90,Los Alamos Declassified,benbreen,http://www.nybooks.com/blogs/gallery/2015/jan/14/los-alamos-declassified/
 150,A Poor Imitation of Alan Turing,dave446,http://www.nybooks.com/blogs/nyrblog/2014/dec/19/poor-imitation-alan-turing/
 125,Escape from Microsoft Word,samclemens,http://www.nybooks.com/blogs/nyrblog/2014/oct/21/escape-microsoft-word/
@@ -4544,6 +4589,7 @@ SCORE,TITLE,BY,URL
 24,Chickens Agree: Left Means Less; Right Means More,sgustard,http://www.nytimes.com/2015/01/30/science/left-means-less-even-for-chickens.html
 44,Closing the Math Gap for Boys,wallflower,http://www.nytimes.com/2015/02/01/opinion/sunday/intense-tutoring-can-close-the-math-gap.html
 165,Why You Should Tell Your Children How Much You Make,mikek,http://www.nytimes.com/2015/02/01/your-money/why-you-should-tell-your-kids-how-much-you-make.html
+607,F.C.C. Is Expected to Propose Regulating the Internet as a Utility,NearAP,http://www.nytimes.com/2015/02/03/technology/in-net-neutrality-push-fcc-is-expected-to-propose-regulating-the-internet-as-a-utility.html
 97,Georgia Tech Student Indicted in UGA Hack,dsugarman,http://www.nytimes.com/aponline/2014/12/30/us/ap-us-georgia-website-hack.html?_r=0
 362,Old Masters: After 80 some people don’t retire. They reign,wallflower,http://www.nytimes.com/interactive/2014/10/23/magazine/old-masters-at-top-of-their-game.html
 39,The Affordable Care Act: Who Was Helped Most,brandonb,http://www.nytimes.com/interactive/2014/10/29/upshot/obamacare-who-was-helped-most.html?_r=0
@@ -4604,7 +4650,9 @@ SCORE,TITLE,BY,URL
 3,10 Books Every Java Developer Should Read,javinpaul,http://www.petrikainulainen.net/reviews/10-books-every-java-developer-should-read/
 6,We Are Gonna Need It,sloria,http://www.petrikainulainen.net/software-development/design/we-are-gonna-need-it/
 4,Public Perceptions of Privacy and Security in the Post-Snowden Era,amirmc,http://www.pewinternet.org/2014/11/12/public-privacy-perceptions/
+149,PFQ I/O,lelf,http://www.pfq.io/
 5,PFQ – Network Monitoring Framework for Multi-core Architectures,awgn,http://www.pfq.io
+5,Gravity Causes the Expansion of the Universe,antoaravinth,http://www.philica.com/display_article.php?article_id=453
 115,PPA Impounds UberX Vehicles in Undercover Sting Operation,themartorana,http://www.phillymag.com/news/2014/10/26/uber-philadelphia-uberx-ppa-sting-impounds/
 18,Reasons to use Bing,pepethecow,http://www.philosophicalgeek.com/2014/10/13/reasons-you-should-be-using-bing/
 10,Apple OS X 10.10 vs. Ubuntu 14.10 Performance Test,niutech,http://www.phoronix.com/scan.php?page=article&item=osx10_ubuntu1410
@@ -4617,6 +4665,8 @@ SCORE,TITLE,BY,URL
 131,Show HN: Picky Pint – Scan beer lists with a photo,mp_mn,http://www.pickypint.com/
 145,How did Einstein Think?,srsamarthyam,http://www.pitt.edu/~jdnorton/Goodies/Einstein_think/index.html
 47,Einstein for Everyone,Paananen,http://www.pitt.edu/~jdnorton/teaching/HPS_0410/
+63,We're on the Way to Europa,IndianAstronaut,http://www.planetary.org/blogs/casey-dreier/2015/0202-its-official-we-are-on-the-way-to-europa-fy2016.html
+100,Why it takes so long to get data back from New Horizons,sohkamyung,http://www.planetary.org/blogs/emily-lakdawalla/2015/01300800-talking-to-pluto-is-hard.html
 20,Planetary Society Announces Test Flight for Privately Funded Spacecraft,ghosh,http://www.planetary.org/press-room/releases/2015/planetary-society-announces.html
 1,PlanGrid (YC W12) is looking for awesome JavaScript hackers,kennystone,http://www.plangrid.com/en/jobs?gh_jid=25379
 1,PlanGrid (YC W12) is hiring Android hackers to revolutionize construction,tyoung,http://www.plangrid.com/en/jobs?gh_jid=25385
@@ -4731,6 +4781,7 @@ SCORE,TITLE,BY,URL
 22,How to Create a Tab UI with Riot 2.0,robertwpearce00,http://www.robertwpearce.com/blog/riotjs-example/
 163,Laser-generated surface structures create extremely water-repellent metals,Zaheer,http://www.rochester.edu/newscenter/superhydrophobic-metals-85592/
 102,SSLsplit – Transparent and scalable SSL/TLS interception,shayanbahal,http://www.roe.ch/SSLsplit
+7,A history of VisionFS,EvanAnderson,http://www.rogerbinns.com/visionfs.html
 175,Rohinni: Paper-thin LED lighting,fpp,http://www.rohinni.com
 21,Cicada: Solving the Web's Deepest Mystery,BogdanCalin,http://www.rollingstone.com/culture/features/cicada-solving-the-webs-deepest-mystery-20150115?page=3
 259,The $9B Witness: JPMorgan Chase's Worst Nightmare,winstonsmith,http://www.rollingstone.com/politics/news/the-9-billion-witness-20141106?page=6
@@ -4783,6 +4834,7 @@ SCORE,TITLE,BY,URL
 89,Julia by Example,alixaxel,http://www.scolvin.com/juliabyexample/
 220,What does the NSA think of academic cryptographers?,robinhouston,http://www.scottaaronson.com/blog/?p=2059
 4,What I Believe,anatoly,http://www.scottaaronson.com/blog/?p=2119
+15,Quantum Machine Learning Algorithms: Read the Fine Print [pdf],fbrusch,http://www.scottaaronson.com/papers/qml.pdf
 171,Screeps – the world's first MMO sandbox strategy game for programmers,numo16,http://www.screeps.com/
 535,Scroll Slow. Have Fun,drinchev,http://www.scrollslowhavefun.com/
 58,Folds and parallelism,pmoriarty,http://www.scs.stanford.edu/11au-cs240h/notes/par.html
@@ -4849,6 +4901,7 @@ SCORE,TITLE,BY,URL
 155,Friends Don't Let Friends Clap on One and Three: A Backbeat Clapping Study,Munksgaard,http://www.slideshare.net/ethanhein/friends-dont-let-friends-clap-on-one-and-three-a-backbeat-clapping-study
 239,FreeBSD: the next 10 years,danieldk,http://www.slideshare.net/iXsystems/jordan-hubbard-free-bsd-the-next-10-years
 139,GPGPU Accelerates PostgreSQL,lelf,http://www.slideshare.net/kaigai/gpgpu-accelerates-postgresql
+178,Apple's original business plan,sirteno,http://www.slideshare.net/mobile/akdiamond/original-apple-business-plan
 192,How to write a developer resume that will get you hired,peteretep,http://www.slideshare.net/perlcareers/how-to-write-a-developer-cvrsum-that-will-get-you-hired
 140,Yahoo Mail moving to React,rfc791,http://www.slideshare.net/rmsguhan/react-meetup-mailonreact
 25,Inside Microsoft’s New Rendering Engine for the “Project Spartan”,robertnealan,http://www.smashingmagazine.com/2015/01/26/inside-microsofts-new-rendering-engine-project-spartan/
@@ -4898,6 +4951,7 @@ SCORE,TITLE,BY,URL
 113,You cannot have more than 10 years of experience in Rails,bugsbunny123,http://www.strategic-options.com/insight/you-cant-have-more-than-10-years-of-experience-on-rails/
 4,Budgeting vs. Estimating for Agile Projects,dmadden,http://www.stridenyc.com/blog/2014/11/6/budgeting-vs-estimating-for-agile-projects
 92,Student Doodles from the Middle Ages,benbreen,http://www.studio360.org/story/student-doodles-middle-ages/
+110,Sublime Text 3 builds picking up steam again,coldtea,http://www.sublimetext.com/3dev
 27,A 50 Year-old Teletype Powered by a Raspberry Pi,zdw,http://www.sudobob.com/teletype-pi/
 40,Tiny Data Approximate Bayesian Computation and the Unpaired Socks of Karl Broman,gwern,http://www.sumsar.net/blog/2014/10/tiny-data-and-the-socks-of-karl-broman/
 8,Show HN: Real-time Online Market for Services,sfyp,http://www.superfyp.com
@@ -4941,7 +4995,7 @@ SCORE,TITLE,BY,URL
 5,Body parts on a chip,dean,http://www.ted.com/talks/geraldine_hamilton_body_parts_on_a_chip
 64,OpenBSD 2014 by the numbers,zdw,http://www.tedunangst.com/flak/post/OpenBSD-2014-by-the-numbers
 33,Checking up on realloc efficiency,luu,http://www.tedunangst.com/flak/post/checking-up-on-realloc-efficiency
-156,Heartbleed in Rust,glass-,http://www.tedunangst.com/flak/post/heartbleed-in-rust
+240,Heartbleed in Rust,glass-,http://www.tedunangst.com/flak/post/heartbleed-in-rust
 36,Least worst golden key,zdw,http://www.tedunangst.com/flak/post/least-worst-golden-key
 196,Long term support considered harmful,luu,http://www.tedunangst.com/flak/post/long-term-support-considered-harmful
 68,Retiring crypt,zdw,http://www.tedunangst.com/flak/post/retiring-crypt
@@ -4983,6 +5037,7 @@ SCORE,TITLE,BY,URL
 6,A Cultural History of the Baseball Card,samclemens,http://www.theatlantic.com/business/archive/2014/12/a-cultural-history-of-the-baseball-card/383784/?single_page=true
 10,Meet the People (and Robots) Who Pack Your Online Orders,walterbell,http://www.theatlantic.com/business/archive/2014/12/meet-the-people-and-robots-who-pack-your-online-orders/383536/?single_page=true
 13,Meeting Ayn Rand on the Las Vegas Strip,dnetesn,http://www.theatlantic.com/business/archive/2014/12/meeting-ayn-rand-on-the-las-vegas-strip/383608/?single_page=true
+77,The Psychological Difference Between $12.00 and $11.67,pmcpinto,http://www.theatlantic.com/business/archive/2015/01/the-psychological-difference-between-1200-and-1167/384993?single_page=true
 27,Should the U.S. Make Standardized Tests Harder?,tokenadult,http://www.theatlantic.com/education/archive/2014/11/should-the-us-make-standardized-tests-harder/383084/?single_page=true
 199,Too Many Kids Quit Science Because They Don't Think They're Smart,tokenadult,http://www.theatlantic.com/education/archive/2014/11/too-many-kids-quit-science-because-they-dont-think-theyre-smart/382165/?single_page=true
 42,New SAT New Problems,tokenadult,http://www.theatlantic.com/education/archive/2015/01/new-sat-new-problems/384596/?single_page=true
@@ -5089,7 +5144,7 @@ SCORE,TITLE,BY,URL
 13,British serial entrepreneur missing as $1.4m Bitcoin is apparently stolen,anu_gupta,http://www.theguardian.com/technology/2014/oct/23/british-serial-entrepreneur-missing-bitcoin-apparently-stolen
 15,Elon Musk: artificial intelligence is our biggest existential threat,bloat,http://www.theguardian.com/technology/2014/oct/27/elon-musk-artificial-intelligence-ai-biggest-existential-threat
 9,PGP creator Phil Zimmermann: 'Intelligence agencies have never had it so good',Libertatea,http://www.theguardian.com/technology/2015/feb/02/pgp-phil-zimmermann-intelligence-agencies-encryption
-7,Redditcoin quietly killed off and lead developer fired,lelf,http://www.theguardian.com/technology/2015/feb/02/redditcoin-quietly-killed-off-and-lead-developer-fired
+209,Reddit has shut down its nascent cryptocurrency project,lelf,http://www.theguardian.com/technology/2015/feb/02/redditcoin-quietly-killed-off-and-lead-developer-fired
 8,Crowdfunding saved Timbuktu’s manuscripts,tomgruner,http://www.theguardian.com/technology/2015/jan/01/crowdfunding-timbuktu-manuscripts-african-culture
 5,David Cameron in 'cloud cuckoo land' over encrypted messaging apps ban,notsony,http://www.theguardian.com/technology/2015/jan/13/david-cameron-encrypted-messaging-apps-ban
 7,Kim Dotcom launches end-to-end encrypted voice chat ‘Skype killer’,nemoniac,http://www.theguardian.com/technology/2015/jan/22/kim-dotcom-launches-encrypted-voice-chat-skype-killer
@@ -5105,6 +5160,7 @@ SCORE,TITLE,BY,URL
 172,French soldier’s room unchanged 96 years after his death in the first world war,benbreen,http://www.theguardian.com/world/2014/oct/14/french-soldier-room-unchanged-first-world-war
 181,How Whisper app tracks ‘anonymous’ users,blackRust,http://www.theguardian.com/world/2014/oct/16/-sp-revealed-whisper-app-tracking-users
 4,Pope Francis blasts life sentences as a “hidden death penalty”,bennettfeely,http://www.theguardian.com/world/2014/oct/23/pope-francis-life-sentence-hidden-death-penalty-torture
+97,Iceland to build first temple to Norse gods since Viking age,bootload,http://www.theguardian.com/world/2015/feb/02/iceland-temple-norse-gods-1000-years
 104,Roberto Saviano: My life under armed guard,sasvari,http://www.theguardian.com/world/2015/jan/14/-sp-roberto-saviano-my-life-under-armed-guard-gomorrah
 4,Russian iphone statue removed after Apple CEO comes out as gay,robin_reala,http://www.theguardian.com/world/video/2014/nov/04/russian-statue-removed-apple-ceo-comes-out-as-gay-video
 40,Norfolk museum acquires Bronze Age dirk used as doorstop,diodorus,http://www.thehistoryblog.com/archives/33542
@@ -5123,7 +5179,7 @@ SCORE,TITLE,BY,URL
 5,Yosemite infested by nasty 'Rootpipe' vuln,abdullahdiaa,http://www.theregister.co.uk/2014/11/04/rootpipe_another_os_x_vuln/
 10,Why has the Russian economy plunged so suddenly?,trextrex,http://www.theregister.co.uk/2014/12/28/just_how_badly_has_uncle_volodya_messed_up_the_russian_economy/
 233,'YOUTUBE is EVIL': Somebody had a tape running Google,tankenmate,http://www.theregister.co.uk/2015/01/29/oops_google_somebody_left_a_tape_running/
-519,Turbocharged Raspberry Pi 2 unleashed,mmastrac,http://www.theregister.co.uk/2015/02/02/raspberry_pi_model_2/
+566,Turbocharged Raspberry Pi 2 unleashed,mmastrac,http://www.theregister.co.uk/2015/02/02/raspberry_pi_model_2/
 33,DIY calculator: HP30b to WP34S,zdw,http://www.thereminworld.com/Forums/T/29229/diy-calculator-hp30b-to-wp34s
 83,When arts die they turn into hobbies,privong,http://www.thesmartset.com/article/article01201501.aspx
 138,A lucky little fish solves iron deficiency among women in Cambodia,gwern,http://www.thestar.com/news/gta/2011/11/12/canadians_lucky_iron_fish_saves_lives_in_cambodia.html
@@ -5162,6 +5218,7 @@ SCORE,TITLE,BY,URL
 78,Show HN: Timely for iPhone – Scheduling and Time Tracking Simultaneously,matmik,http://www.timelyapp.com/iphone
 48,Anglo-Saxons did not use the four-letter profanities we credit them with,benbreen,http://www.timeshighereducation.co.uk/features/culture/it-wasnt-all-nasty-brutish-and-short/2017639.fullarticle
 9,Show HN: TK Checker – A WordPress plugin that helps you edit your posts,helen842000,http://www.tkchecker.com
+19,Read Roald Dahl's plea to parents: Make sure this tragedy does not happen to you,edward,http://www.today.com/parents/roald-dahls-plea-parents-make-sure-tragedy-does-not-happen-2D80469411
 147,Building a CustoMac: Buyer's Guide,lelf,http://www.tonymacx86.com/446-building-customac-buyer-s-guide-october-2014.html
 9,Elon Musk Names SpaceX Drone Ships in Honor of Iain M. Banks,robin_reala,http://www.tor.com/blogs/2015/01/elon-musk-iain-m-banks-just-read-the-instructions
 50,TreeFrog: high-speed full-stack C++ framework for web applications,ingve,http://www.treefrogframework.org/
@@ -5290,6 +5347,7 @@ SCORE,TITLE,BY,URL
 95,Dallas health worker who tested positive for Ebola wore ‘full’ protective gear,cmrivers,http://www.washingtonpost.com/news/post-nation/wp/2014/10/12/dallas-health-care-worker-who-treated-thomas-eric-duncan-has-tested-positive-for-ebola/?hpid=z1
 150,Slow-motion video of raindrops reveals how rain gets its distinctive smell,prateekj,http://www.washingtonpost.com/news/speaking-of-science/wp/2015/01/16/slow-mo-video-of-raindrops-reveals-how-rain-gets-its-distinctive-smell/
 90,A woman who can't feel fear,tacon,http://www.washingtonpost.com/news/speaking-of-science/wp/2015/01/20/meet-the-woman-who-cant-feel-fear/
+92,Sell your poop for $13000 per year,briandear,http://www.washingtonpost.com/news/speaking-of-science/wp/2015/01/29/you-can-earn-13000-a-year-selling-your-poop/?tid=sm_fb
 5,Rental America: Why the poor pay $4150 for a $1500 sofa,footpath,http://www.washingtonpost.com/news/storyline/wp/2014/10/16/she-bought-a-sofa-on-installment-payments-now-its-straining-her-life/
 77,The mathematician who proved why hipsters all look alike,huherto,http://www.washingtonpost.com/news/storyline/wp/2014/11/11/the-mathematician-who-proved-why-hipsters-all-look-alike/
 102,At Penn students can get credit for ‘Wasting Time on the Internet’,jkopelman,http://www.washingtonpost.com/news/the-intersect/wp/2014/10/28/at-penn-students-can-get-credit-for-wasting-time-on-the-internet/
@@ -5315,6 +5373,7 @@ SCORE,TITLE,BY,URL
 30,The Mobile Telephone in Bell System Service 1946-1993,ForHackernews,http://www.wb6nvh.com/Carphone.htm
 3,Metacrap: Putting the torch to seven straw-men of the meta-utopia (2001),GuiA,http://www.well.com/~doctorow/metacrap.htm
 19,White-Box Cryptography: Hiding Keys in Software (2012) [pdf],chetanahuja,http://www.whiteboxcrypto.com/files/2012_misc.pdf
+352,Join the U.S. Digital Service,danso,http://www.whitehouse.gov/digital/united-states-digital-service
 1187,President Obama Calls for a Free and Open Internet,jordanmessina,http://www.whitehouse.gov/net-neutrality
 38,Editing Julia code with Emacs,deng,http://www.wilfred.me.uk/blog/2014/11/16/editing-julia-code-with-emacs/
 217,Woz’s take on the Apple 1’s noisy -5 volt supply,fogus,http://www.willegal.net/blog/?p=6023
@@ -5517,7 +5576,7 @@ SCORE,TITLE,BY,URL
 40,Voice-elements,tylermauthe,http://zenorocha.github.io/voice-elements/
 98,Terrain Rendering and GUIs with WebGL,dshankar,http://zephyrosanemos.com
 70,Fake versus Real FTDI USB Serial Chips,ChuckMcM,http://zeptobars.ru/en/read/FTDI-FT232RL-real-vs-fake-supereal
-76,Reverse-engineering of KR580VM80A / i8080 is complete,xai3luGi,http://zeptobars.ru/en/read/KR580VM80A-intel-i8080-verilog-reverse-engineering
+89,Reverse-engineering of KR580VM80A / i8080 is complete,xai3luGi,http://zeptobars.ru/en/read/KR580VM80A-intel-i8080-verilog-reverse-engineering
 14,Fundamental Analysis,SatyajitSarangi,http://zerodha.com/varsity/module/fundamental-analysis/
 95,A free complete guide to Technical Analysis,SatyajitSarangi,http://zerodha.com/varsity/module/technical-analysis/
 61,Handbook of Data Structures and Applications – B Trees (2004) [pdf],armenb,http://zgking.com:8080/home/donghui/publications/books/dshandbook_BTree.pdf
@@ -5683,6 +5742,7 @@ SCORE,TITLE,BY,URL
 3,Show HN: Coggle – Beautiful mind maps,heelhook,https://coggle.it/
 4,Reddit Notes Are an Embarrassing Mess,markmassie,https://coinreport.net/opinion-reddit-notes-embarrassing-mess/
 40,Bootstrapping a Compiler,wglb,https://combinatorylogic.wordpress.com/
+19,Commits.io,robgering,https://commits.io/
 18,The Sony Breach Demonstrates the Importance of Moving Beyond Perimeter Defense,wglb,https://community.rapid7.com/community/infosec/blog/2015/01/07/the-sony-breach-demonstrates-the-importance-of-moving-beyond-perimeter-defense
 154,The Internet of Gas Station Tank Gauges,fla,https://community.rapid7.com/community/infosec/blog/2015/01/22/the-internet-of-gas-station-tank-gauges?hn-repost
 100,Consul.io – Service discovery and configuration made easy,rogerfernandezg,https://consul.io/
@@ -5729,6 +5789,7 @@ SCORE,TITLE,BY,URL
 130,Go 1.5 Bootstrap Plan,Goranek,https://docs.google.com/document/d/1OaatvGhEAq7VseQ9kkavxKNAfepWy2yhPUBs96FGV28/edit
 83,Summary of Golang Generics Discussion,signa11,https://docs.google.com/document/d/1vrAy9gMpMoS3uaVphB32uVXX4pi-HnNjkMEgyAHX4N4/edit#
 17,Is this microservice?,mrkschan,https://docs.google.com/drawings/d/1upfZP0O8Jn3izR59TmWe0F31doHQci-KGEBryYJcb6M
+17,Ask HN: Best performing app on Hacker News? (survey),AntiFreeze,https://docs.google.com/forms/d/12wwu2Vz7UAiLmbWE3rlvOvXpn0cnUyD4XP22gOCbGvk/viewform?usp=send_form
 14,Poll about an upcoming fast numpy/scipy port to JS,inglor,https://docs.google.com/forms/d/1IVo7rJ50uAzDYTbL-kegJBWgQenwGUBs_D89Bhu1LH0/viewform?c=0&w=1
 26,The present/future of AngularJS,tilt,https://docs.google.com/presentation/d/1-M5U0B6JI2JKU2ibVmU-xKkR7a88Uz1ZN0pc2lEuGzE/
 346,Angular 2 Core,tilt,https://docs.google.com/presentation/d/1XQP0_NTzCUcFweauLlkZpbbhNVYbYy156oD--KLmXsk/
@@ -5973,6 +6034,7 @@ SCORE,TITLE,BY,URL
 6,Pong a pure JavaScript pong game clone based on socket.io and canvas,enricolucia,https://github.com/enricolucia/pong
 115,Show HN: Luakernel – Lua + SQLite + musl libc running on x86,ers35,https://github.com/ers35/luakernel
 185,Y U NO commit??,esneider,https://github.com/esneider/YUNOcommit.vim
+104,React License – Additional Grant of Patent Rights,bcardarella,https://github.com/facebook/react/blob/master/PATENTS
 223,Facebook Go Libraries,akavel,https://github.com/facebookgo
 255,Fastsocket – A highly scalable socket for Linux,nicolast,https://github.com/fastos/fastsocket
 33,Feature Macros an Alternative to Feature Expressions in Clojure,wooby,https://github.com/feature-macros/clojurescript/tree/feature-macros/feature-macros-demo
@@ -6120,6 +6182,7 @@ SCORE,TITLE,BY,URL
 309,List of Computer Science Courses,denismars,https://github.com/prakhar1989/awesome-courses/blob/master/README.md
 193,List of University Courses for Learning Computer Science,hising,https://github.com/prakhar1989/awesome-courses
 188,Show HN: Create generative background images from a string in Go,pravj,https://github.com/pravj/geo_pattern
+74,Show HN: AI Planning for Starcraft,primaryobjects,https://github.com/primaryobjects/strips#starcraft
 74,Decrypting Android Snapchat images,fla,https://github.com/programa-stic/snapchat-decrypt
 6,Sql-Mvc: Write web applications in SQL instead of JavaScript,mariuz,https://github.com/quale-quest/sql-mvc
 56,Genetic brainfuck programming,r00nk,https://github.com/r0nk/corvus
@@ -6197,6 +6260,7 @@ SCORE,TITLE,BY,URL
 141,Show HN: Ultra a Leiningen plugin for a superior development environment,venantius,https://github.com/venantius/ultra
 140,Stack Exchange for Emacs,masolino,https://github.com/vermiculus/sx.el/
 83,Elixir plugin for SublimeText 3 providing code completion and linting,jonbaer,https://github.com/vishnevskiy/ElixirSublime
+105,Flux Comparison by Example,ksmtk,https://github.com/voronianski/flux-comparison
 46,Show HN: Gifify – Convert any video file to an optimized animated GIF,vvoyer,https://github.com/vvo/gifify
 13,Show HN: Header-only debug module for c++11,porphyry3,https://github.com/vzaccaria/debug.hxx
 103,San Francisco system font replacement for Yosemite,siong1987,https://github.com/wellsriley/YosemiteSanFranciscoFont
@@ -6234,6 +6298,7 @@ SCORE,TITLE,BY,URL
 66,Stripe SQLite data exports beta,rscnt_,https://groups.google.com/a/lists.stripe.com/forum/#!topic/api-discuss/x2VXdVdn66w
 170,Freebase is closing down; data going to WikiData,chatman,https://groups.google.com/d/msg/freebase-discuss/s_BPoL92edc/Y585r7_2E1YJ
 118,Next version of Shen will be BSD licensed,tizoc,https://groups.google.com/forum/#!msg/qilang/e4-PcL2K2WQ/5OLaUdEFwXAJ
+33,Aurelius has been acquired by DataStax,luu,https://groups.google.com/forum/#!topic/aureliusgraphs/c07WEdH-epY
 67,“The Go tree is now open for general work”,thepumpkin1979,https://groups.google.com/forum/#!topic/golang-dev/otCULnOjs7I
 681,Go is moving to GitHub,davecheney,https://groups.google.com/forum/#!topic/golang-dev/sckirqOWepg
 145,Go 1.4 Beta 1 is released,pjmlp,https://groups.google.com/forum/#!topic/golang-nuts/7VAcfULjiB8
@@ -6287,6 +6352,7 @@ SCORE,TITLE,BY,URL
 24,Dash now available on iOS,davidbarker,https://itunes.apple.com/us/app/dash-api-docs/id935284832?mt=8&uo=4
 38,Show HN: Beautiful movie app for movie info trailers showtimes,wushupork,https://itunes.apple.com/us/app/marquee-movies-trailers-showtimes/id954721891?ls=1&mt=8
 25,Show HN: Places iOS App – Find beautiful destinations around the world,hobonumber1,https://itunes.apple.com/us/app/places-discover-beautiful/id926161879
+10,VLC for iOS is back in App Store – not by VideoLAN,teajay,https://itunes.apple.com/us/app/vlc/id960077796
 165,Developing iOS 8 Apps with Swift,krackjack,https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099
 103,SEO penalties of moving our blog to a subdomain,chriswrites,https://iwantmyname.com/blog/2015/01/seo-penalties-of-moving-our-blog-to-a-subdomain.html
 64,The Big Data Brain Drain,barry-cotter,https://jakevdp.github.io/blog/2013/10/26/big-data-brain-drain/
@@ -6308,6 +6374,7 @@ SCORE,TITLE,BY,URL
 1,Cratejoy (YC S13) – We're Hiring a QA Lead in Austin TX,aelaguiz,https://jobs.lever.co/cratejoy/4c59b6d3-9dc9-42a0-b0e2-62a54f2c8e3e
 1,Cratejoy (YC S13) is hiring a full stack software engineer,aelaguiz,https://jobs.lever.co/cratejoy/e43a554b-661d-481f-bf40-a043873fb5fe
 1,Cratejoy (YC S13) is hiring a platform engineer,aelaguiz,https://jobs.lever.co/cratejoy/fbffc303-9d9a-4208-bb5b-24fe021a120b
+1,Kamcord is looking for an iOS App Engineer Love mobile games? Join us,vecter,https://jobs.lever.co/kamcord/8480c014-d88c-4d2a-8286-2b99c9923905?lever-source=hackernews
 1,Kamcord is looking for a Lead Designer,vecter,https://jobs.lever.co/kamcord/8ce5e4ab-4718-4310-a3a9-1e3e357a22cf?lever-source=hackernews
 1,Kamcord is looking for a Lead Designer,vecter,https://jobs.lever.co/kamcord/8ce5e4ab-4718-4310-a3a9-1e3e357a22cf
 1,Kamcord is looking for a Lead Back end Engineer,vecter,https://jobs.lever.co/kamcord/dabf2f18-26bc-402b-adc5-cb178bcaf9e3
@@ -6377,6 +6444,7 @@ SCORE,TITLE,BY,URL
 73,Understanding Traceroute [pdf],blueatlas,https://major.io/wp-content/uploads/2012/06/RAS_Traceroute_Book_Format.pdf
 97,Apple Maps Connect,Aqua_Geek,https://mapsconnect.apple.com
 110,Improving Redis CRC performance,localhost,https://matt.sh/redis-crcspeed
+123,Show HN: Meet Matterhorn your new project manager,Linnea,https://matterhorn.io
 126,Walk through a 3D model of Y Combinator,wildpeaks,https://matterport.com/blog/walk-3d-model-y-combinator
 4,Brandon Hilkert: Writing and Launching a Tech Book $9K in 1 Day [Audio],mkremer90,https://mattkremer.com/mk-010-brandon-hilkert-writing-launching-a-tech-book/
 180,Defcon 22 videos and slides,fla,https://media.defcon.org/DEF%20CON%2022/DEF%20CON%2022%20video%20and%20slides/
@@ -6393,6 +6461,7 @@ SCORE,TITLE,BY,URL
 157,Our Journey to and Through YC,sama,https://medium.com/@UseShout/our-journey-to-and-through-yc-a1d118e47f5
 3,2015: The year Augmented Reality matures,AndrewKemendo,https://medium.com/@Visidraft/2015-the-year-augmented-reality-matures-69acdc05ee60
 1207,Hi It’s Google Corporate Development,maxidog,https://medium.com/@WhatALongHandle/hi-its-google-corporate-development-d0c77fd69191
+3,Introducing Darkleaks,granfalloon,https://medium.com/@ZozanCudi/darkleaks-information-blackmarket-1ee5ac28c892
 3,Startups Are Overrated,tomasien,https://medium.com/@acecallwood/startups-are-overrated-3e7d7cf2cce9
 4,Lego’s letter to parents and how not to tell a fake when you don’t see one,fermigier,https://medium.com/@adambanksdotcom/legos-letter-to-parents-and-how-not-to-tell-a-fake-when-you-dont-see-one-2ca9dfe586d7
 335,Rust and Go,mperham,https://medium.com/@adamhjk/rust-and-go-e18d511fbd95
@@ -6426,7 +6495,7 @@ SCORE,TITLE,BY,URL
 25,MegaHAL Turns Twenty-One,kranzky,https://medium.com/@jason_hutchens/megahal-turns-twenty-one-42837346b965
 216,Why I love databases,strzalek,https://medium.com/@jeeyoungk/why-i-love-databases-1d4cc433685f
 12,“Screw You Angular”,bceagle,https://medium.com/@jeffwhelpley/screw-you-angular-62b3889fd678
-4,Make Your Startup Great at One Thing,jim_greco,https://medium.com/@jgreco/be-great-at-one-thing-313e0ea9263a
+129,Make Your Startup Great at One Thing,jim_greco,https://medium.com/@jgreco/be-great-at-one-thing-313e0ea9263a
 14,Flash Boys in the US Treasury Market,jim_greco,https://medium.com/@jgreco/flash-boys-in-the-us-treasury-market-87e5cd389556
 266,Cat Litter Boxes and DRM,DanBlake,https://medium.com/@jorge_lo/the-future-a-cat-litter-and-drm-6dbda26428f8
 11,Functional Programming should be your #1 priority for 2015,leephillips,https://medium.com/@jugoncalves/functional-programming-should-be-your-1-priority-for-2015-47dd4641d6b9
@@ -6451,6 +6520,7 @@ SCORE,TITLE,BY,URL
 65,Peter Thiel’s advice on startups,StylifyYourBlog,https://medium.com/@paulmillr/zero-to-one-summary-8dbda22e1559
 105,How Grigori Perelman solved one of math's greatest mysteries,phacks,https://medium.com/@phacks/how-grigori-perelman-solved-one-of-maths-greatest-mystery-89426275cb7
 130,How Big is Email?,raindrift,https://medium.com/@raindrift/how-big-is-email-305bbdb69776
+43,A journey and a method for drawing spheres,refik,https://medium.com/@refik/a-journey-and-a-method-for-drawing-spheres-5b24246ca479
 19,Dart is Dead,horrido,https://medium.com/@richardeng/dart-is-dead-aedced9fd3d1
 80,The Smalltalk Revolution,horrido,https://medium.com/@richardeng/the-smalltalk-revolution-ee245c281f51
 25,Hailo Re-Thunk,chuhnk,https://medium.com/@robwinters/hailo-re-thunk-4a640a4e8870
@@ -6469,7 +6539,7 @@ SCORE,TITLE,BY,URL
 75,Bitcoin for Rockstars,rahim,https://medium.com/backchannel/bitcoin-for-rockstars-ca8366802f9
 52,The next generation of DIYBio tools are coming,steven,https://medium.com/backchannel/diybio-comes-of-age-4a5b15d1131f
 70,Fix a Parking Ticket? There's an App for That,steven,https://medium.com/backchannel/fix-a-parking-ticket-theres-an-app-for-that-26efeedfd1fc
-3,Chief scientist Andrew Ng on the state of deep learning at Baidu,calebgarling,https://medium.com/backchannel/google-brains-co-inventor-tells-why-hes-building-chinese-neural-networks-662d03a8b548
+119,Andrew Ng on the state of deep learning at Baidu,calebgarling,https://medium.com/backchannel/google-brains-co-inventor-tells-why-hes-building-chinese-neural-networks-662d03a8b548
 110,Google's Deep Learning Blitz to Make Search Smarter,steven,https://medium.com/backchannel/google-search-will-be-your-next-brain-5207c26e4523
 58,How Bitcoin’s Blockchain Could Power an Alternate Internet,steven,https://medium.com/backchannel/how-bitcoins-blockchain-could-power-an-alternate-internet-bb501855af67
 372,How I Crashed and Burned in Y Combinator,mparramon,https://medium.com/backchannel/how-i-f-ed-up-in-ycombinator-35a19e7ace68?hn=1
@@ -6478,6 +6548,7 @@ SCORE,TITLE,BY,URL
 208,Detailed report shows how U.S. Internet access monopolies punish rivals,evanh2002,https://medium.com/backchannel/jammed-e474fc4925e4
 114,Larry Lessig’s Long Walk,steven,https://medium.com/backchannel/larry-lessigs-long-walk-b96d80d34972
 201,Exempting popular apps from data charges is anti-competitive,steven,https://medium.com/backchannel/less-than-zero-199bcb05a868
+68,One Man’s Quest to Rid Wikipedia of Exactly One Grammatical Mistake,interkats,https://medium.com/backchannel/meet-the-ultimate-wikignome-10508842caad
 173,Should Surgeons Keep Score?,jsomers,https://medium.com/backchannel/should-surgeons-keep-score-8b3f890a7d4c
 51,The Deep Mind of Demis Hassabis,sinwave,https://medium.com/backchannel/the-deep-mind-of-demis-hassabis-156112890d8a
 112,The Gentleman Who Made Google Scholar,soundsop,https://medium.com/backchannel/the-gentleman-who-made-scholar-d71289d9a82d
@@ -6505,6 +6576,7 @@ SCORE,TITLE,BY,URL
 40,The People Who Run Wikipedia,WestCoastJustin,https://medium.com/matter/the-36-people-who-run-wikipedia-21ecca70bcca
 148,Wake No More – The exhausting world of the hypersomniac,interkats,https://medium.com/matter/wake-no-more-8bbd49528b9
 30,The Gigantic Secretive Market Where France’s Top Chefs Buy Their Food,kostyk,https://medium.com/matter/we-took-a-tour-of-the-worlds-biggest-food-market-bc1d770d16d8
+266,The curious case of disappearing Polish S,radley,https://medium.com/medium-eng/the-curious-case-of-disappearing-polish-s-fa398313d4df
 287,Against Productivity,bmmayer1,https://medium.com/message/against-productivity-b19f56b67da6
 6,An Old Fogey’s Analysis of a Teenager’s View on Social Media,apress,https://medium.com/message/an-old-fogeys-analysis-of-a-teenagers-view-on-social-media-5be16981034d
 140,Back to the Future Time Travel and the Secret History of the 1980s,samclemens,https://medium.com/message/back-to-the-future-time-travel-and-the-secret-history-of-the-1980s-80bf3c6347cf
@@ -6528,6 +6600,7 @@ SCORE,TITLE,BY,URL
 40,David Deutsch’s New Theory of Reality,ghosh,https://medium.com/the-physics-arxiv-blog/deeper-than-quantum-mechanics-david-deutschs-new-theory-of-reality-9b8281bc793a
 27,Quantum Random Number Generator Created Using a Smartphone Camera,lelf,https://medium.com/the-physics-arxiv-blog/quantum-random-number-generator-created-using-a-smartphone-camera-602f88552b64
 165,The Growing Impact of Old Scientific Papers,denismars,https://medium.com/the-physics-arxiv-blog/the-extraordinary-growing-impact-of-the-history-of-science-642022a39d67
+34,A panel on mindfulness meditation self-care and mental health,pmcpinto,https://medium.com/thelist/how-not-to-have-a-meltdown-in-2015-mindfulness-meditation-mental-health-9dd4c83f3747
 28,Signal Intelligence Helped Shoot Down a Third of North Vietnam’s MiG-21s,vinnyglennon,https://medium.com/war-is-boring/spies-helped-the-usaf-shoot-down-a-third-of-north-vietnams-migs-ae81e42e50e7
 34,History offers clues to what the U.S. Air Force’s secretive spaceplane can do,vinnyglennon,https://medium.com/war-is-boring/wondering-what-the-u-s-air-forces-secretive-spaceplane-can-do-history-offers-clues-9b5a30ea7084
 6,Demonstrating the Datacenter Operating System – Mesosphere,sirinath,https://mesosphere.com/2014/12/10/demonstrating-the-datacenter-operating-system/
@@ -6752,6 +6825,7 @@ SCORE,TITLE,BY,URL
 16,Marc Andreessen finds out how complex it is to write a “Hello World” in Java EE,ivom2gi,https://twitter.com/pmarca/status/546540497724907520
 22,Indian Govt order bans 32 sites including Archive.org GitHub Pastebin Vimeo,shrikrishna,https://twitter.com/pranesh_prakash/status/550196008416600064
 3,Twitter UTF-8 encoding errors getting character encoding right isn't that hard,edward,https://twitter.com/search?q=%22We%C3%A2%C2%80%C2%99re%22%20OR%20%22don%C3%A2%C2%80%C2%99t%22&src=typd
+172,A source for this picture?,franzpeterstein,https://twitter.com/simonpang/status/562095677975441408/photo/1
 186,Twitpic blocking archive team from backing up pictures,Argorak,https://twitter.com/textfiles/status/523160196672409600
 4,Tim Cook Congratulates Box on IPO,dahjelle,https://twitter.com/tim_cook/status/558645473288806401
 42,Twitter Emoji for Everyone,niftylettuce,https://twitter.github.io/twemoji/
@@ -6866,6 +6940,7 @@ SCORE,TITLE,BY,URL
 114,Flipping bits in memory without accessing them [pdf],ColinWright,https://www.ece.cmu.edu/~safari/pubs/kim-isca14.pdf
 3,Electric Vehicles often much worse for the environment than Petrol Vehicles,TheMagicHorsey,https://www.economist.com/news/science-and-technology/21636715-why-electric-car-may-be-much-dirtier-petrol-one-cleaner-what
 43,Effects of the x86 ISA on the Front End: Where have all the cycles gone? (2001) [pdf],nkurz,https://www.eecs.umich.edu/techreports/cse/01/CSE-TR-440-01.pdf
+17,New WiFi system Eero promises to blanket your home in fast reliable WiFi,alexis,https://www.eero.com/
 698,Britons: You Have 72 Hours to Stop the Snooper's Charter,sinak,https://www.eff.org//deeplinks/2015/01/britons-you-have-72-hours-stop-snoopers-charter
 232,India’s Downward Spiral,iprashantsharma,https://www.eff.org/deeplinks/2012/02/india%E2%80%99s-downward-spiral
 138,DEFCON Router Hacking Contest Reveals Major Vulnerabilities,Garbage,https://www.eff.org/deeplinks/2014/08/def-con-router-hacking-contest-success-fun-learning-and-profit-many
@@ -6996,6 +7071,7 @@ SCORE,TITLE,BY,URL
 565,Meteor hits 1.0,debergalis,https://www.meteor.com/
 196,Falsehoods programmers believe about addresses,ColinWright,https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
 6,“Data Rotting” concept receives CIDR 2015 Wildest Idea award,dnedev,https://www.monetdb.org/blog/data-rotting-concept-receives-cidr-2015-wildest-idea-award
+113,Announcing MongoDB 3.0,meghan,https://www.mongodb.com/blog/post/announcing-mongodb-30
 320,Firefox 33,digitalcreate,https://www.mozilla.org/en-US/firefox/33.0/releasenotes/
 697,Firefox Hello,ajankovic,https://www.mozilla.org/en-US/firefox/hello/
 430,Mozilla Research Projects,yuashizuki,https://www.mozilla.org/en-US/research/projects/
@@ -7020,7 +7096,7 @@ SCORE,TITLE,BY,URL
 94,OpenSSL Security Advisory,tlo,https://www.openssl.org/news/secadv_20150108.txt
 54,Optimizely: Statistics for the Internet age is here,kylerush,https://www.optimizely.com/statistics
 85,Outernet: Humanity's Public Library,dsr12,https://www.outernet.is/en/
-95,Authentication Cheat Sheet,colund,https://www.owasp.org/index.php/Authentication_Cheat_Sheet
+290,Authentication Cheat Sheet,colund,https://www.owasp.org/index.php/Authentication_Cheat_Sheet
 83,How We Failed at OpenStack,jsnell,https://www.packet.net/blog/how-we-failed-at-openstack
 19,Rewrite from Ruby to Golang resulted in ~70x speed increase,wowoc,https://www.pandastream.com/blog/building-a-scaleable-app-that-can-actually-scale/
 59,Bastion hosts,slem,https://www.pandastrike.com/posts/20141113-bastion-hosts
@@ -7047,8 +7123,10 @@ SCORE,TITLE,BY,URL
 117,Why Bitcoin Core 0.10's release notes say “…libsecp256k1 is better than…OpenSSL”,bdr,https://www.reddit.com/r/Bitcoin/comments/2rrxq7/on_why_010s_release_notes_say_we_have_reason_to/
 6,Trezor Switches from LGPLv3 to Microsoft Reference Source License,xkarga00,https://www.reddit.com/r/Bitcoin/comments/2u1wea/trezor_code_no_longer_lgplv3_but_now_more/
 529,Elon Musk AMA,kfinley,https://www.reddit.com/r/IAmA/comments/2rgsan/i_am_elon_musk_ceocto_of_a_rocket_company_ama/
+10,First NetHack bot ascension,ivank,https://www.reddit.com/r/nethack/comments/2tluxv/yaap_fullauto_bot_ascension_bothack
 19,My regrets as a 46 year old and advice to others at a crossroad,franze,https://www.reddit.com/r/tifu/comments/2livoo/tifu_my_whole_life_my_regrets_as_a_46_year_old/
 158,Reddit transparency report 2014,soundsop,https://www.reddit.com/wiki/transparency/2014
+1,Rocketrip is hiring senior software and test engineers,danrocketrip,https://www.rocketrip.com/jobs
 58,Ruby 2.1.5 Released,reledi,https://www.ruby-lang.org/en/news/2014/11/13/ruby-2-1-5-is-released/
 316,Ruby 2.2.0 Released,kokonotu,https://www.ruby-lang.org/en/news/2014/12/25/ruby-2-2-0-released/
 15,RunAbove – French Cheapest S3-compatible Storage ($0.01/GB/month),arnley,https://www.runabove.com/storage/object-storage.xml
@@ -7080,7 +7158,7 @@ SCORE,TITLE,BY,URL
 8,Visual Essay about Steve Jobs and NeXT,voidfiles,https://www.storehouse.co/stories/o80n9-steve-jobs
 681,Gotham 7.5K: A Rare High Altitude Night Flight Above NYC,davidbarker,https://www.storehouse.co/stories/r3rcy-gotham-7-5k
 48,Story Worth – privately collect and share family stories,qu1mby,https://www.storyworth.com
-1,Streak (YC S11) Is Hiring for a Lead Android Dev,alooPotato,https://www.streak.com/careers
+1,Grow your own Mobile Team + build better email at Streak (YC S11),alooPotato,https://www.streak.com/careers
 14,Show HN: Taskfort – Self-Hostable Project Management / Kanban Tool,tim_nuwin,https://www.taskfort.com
 6,ISPs Are Throttling Encryption Breaking Net Neutrality,doctorshady,https://www.techdirt.com/articles/20141012/06344928801/revealed-isps-already-violating-net-neutrality-to-block-encryption-make-everyone-less-safe-online.shtml
 30,Leaked Emails Reveal MPAA Plans to Pay Elected Officials to Attack Google,choult,https://www.techdirt.com/articles/20141212/12142629419/leaked-emails-reveal-mpaa-plans-to-pay-elected-officials-to-attack-google.shtml
@@ -7184,6 +7262,7 @@ SCORE,TITLE,BY,URL
 4,Feynman on how magnets work and the problem with “Why?” questions,jgable,https://www.youtube.com/watch?v=wMFPe-DwULM
 40,History of MOS 6502 [video],teknotus,https://www.youtube.com/watch?v=wOJj-IdYZxI
 3,Where can blockchain technology take us? [video],jarsin,https://www.youtube.com/watch?v=wczMKASQk6s&list=UUhtICzF0ZEhhgoMA8YWhULw
+14,Mapping Localization and Self-Driving Vehicles [video],cma,https://www.youtube.com/watch?v=x5CZmlaMNCs#t=94
 73,Nvidia's demo of real-time object recognition using deep learning [video],vkhuc,https://www.youtube.com/watch?v=zsVsUvx8ieo
 35,Zeplin: Collaboration app for UI designers and front end developers,emre,https://www.zeplin.io
 1,Remote volunteering internships at Zidisha (YC W14 nonprofit),jkurnia,https://www.zidisha.org/volunteer
@@ -7296,6 +7375,7 @@ SCORE,TITLE,BY,URL
 5,Ask HN: Recommendations for purchase and storage of Bitcoins,saturngirl,
 231,Ask HN: How do you stay motivated to work on side projects?,sciguy77,
 73,Ask HN: If we could redesign the Internet from scratch what should it look like,sdouglas,
+16,I worked on this comic for four years–why I'm giving it away free,sdreed,
 148,Show HN: ssh chat.shazow.net,shazow,
 11,Ask HN: Meditation,shire,
 6,Ask HN: Do you feel low when friends are doing very well in a career you love?,sidcool,
@@ -7340,7 +7420,7 @@ SCORE,TITLE,BY,URL
 4,Ask HN: What are your working tunes?,viaHack,
 3,Ask HN: Any deals on learning this holiday?,vijayr,
 19,Will Microsoft Open Source Internet Explorer?,vikas0380,
-16,Ask HN: Who's using Clojure in production?,viksit,
+8,Ask HN: What is the best affordable programmable drone?,viksit,
 7,Share your cv,voiduser,
 15,Ask HN: Interested in SaaS Metrics for PayPal?,webstartupper,
 411,Ask HN: Who is hiring? (February 2015),whoishiring,
