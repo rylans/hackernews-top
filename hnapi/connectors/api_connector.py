@@ -118,7 +118,7 @@ class ApiConnector(object):
     def get_top(self):
         """Request the top 100 stories
         >>> top = ApiConnector().get_top()
-        >>> len(top) == 100
+        >>> len(top) == 500
         True
         """
         endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
