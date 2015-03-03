@@ -68,7 +68,7 @@ class HnapiTest(unittest.TestCase):
         """
         con = ApiConnector()
         top = con.get_top()
-        self.assertTrue(len(top) == 100)
+        self.assertTrue(len(top) == 500)
 
         item_0 = con.get_item(top[0])
         self.assertTrue(con.is_api_item(item_0))
