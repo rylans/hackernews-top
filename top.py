@@ -20,7 +20,7 @@ def main(logger, known_users):
   for i in article_list:
     try:
       story = conn.get_item(i)
-      if not conn.is_valid_item(story):
+      if (not conn.is_valid_item(story)) or (not conn.is_story_item(story)):
         continue
       logger.debug(csvio.story_to_csv(story))
       stories.append(story)

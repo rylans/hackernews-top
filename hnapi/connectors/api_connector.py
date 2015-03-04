@@ -314,6 +314,17 @@ class ApiConnector(object):
         '''
         return not not (self.is_api_item(obj) and obj.get('dead'))
 
+    def is_story_item(self, item):
+        '''Return True if item is a story item
+
+        >>> ApiConnector().is_story_item(StoryItem({}))
+        True
+
+        >>> ApiConnector().is_story_item(PollItem({}))
+        False
+        '''
+        return type(item) is StoryItem
+
 if __name__ == '__main__':
     import doctest
     logging.disable(logging.CRITICAL)
