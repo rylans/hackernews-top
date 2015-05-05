@@ -171,13 +171,17 @@ class CsvIo:
           stripped_line = line.strip()
           split_line = stripped_line.split(',')
           cols = len(split_line)
-          primary_key = split_line[sort_col]
-          for z in range(cols):
-            if z in volatile_cols:
-              continue
-            if z != sort_col:
-              primary_key += split_line[z]
-          csv_lines[primary_key] = stripped_line
+          primary_key = ""
+          try:
+            primary_key = split_line[sort_col]
+            for z in range(cols):
+              if z in volatile_cols:
+                continue
+              if z != sort_col:
+                primary_key += split_line[z]
+            csv_lines[primary_key] = stripped_line
+          except IndexError:
+            pass
 
     keys = [k for k in csv_lines.keys()]
     sorted_keys = sorted(keys)
