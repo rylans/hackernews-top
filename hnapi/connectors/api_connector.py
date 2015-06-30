@@ -158,6 +158,10 @@ class ApiConnector(object):
 
     def build_hnitem(self, item_json):
         """Build an instance of hnitem depending on the type"""
+        if not item_json:
+            self.logger.debug("Item_json should not be none. Skipping")
+            return None
+
         if item_json.get('type') == "story" or item_json.get('type') == 'job':
             return StoryItem(item_json)
         elif item_json.get('type') == "comment":
