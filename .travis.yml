@@ -9,7 +9,6 @@ install:
   - pip install coveralls
   - pip install .
 script: 
-  - python csv_io.py
   - python -m hnapi.connectors.api_connector
   - python -m hnapi.items.storyitem
   - python -m hnapi.items.useritem
