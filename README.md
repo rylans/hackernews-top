@@ -1,7 +1,7 @@
 Hacker News Top
 ==============
 
-[![Build Status](https://travis-ci.org/rylans/hackernews-top.svg?branch=master)](https://travis-ci.org/rylans/hackernews-top) [![Coverage Status](https://coveralls.io/repos/rylans/hackernews-top/badge.svg?branch=master)](https://coveralls.io/r/rylans/hackernews-top?branch=master)
+[![Build Status](https://travis-ci.org/rylans/hackernews-top.svg?branch=master)](https://travis-ci.org/rylans/hackernews-top) [![Coverage Status](https://coveralls.io/repos/rylans/hackernews-top/badge.svg?branch=master)](https://coveralls.io/r/rylans/hackernews-top?branch=master) [![Version](https://badge.fury.io/py/hntop.svg)](https://badge.fury.io/py/hntop)
 
 Unofficial Python wrapper over Hacker News' official Firebase API.
 
@@ -78,10 +78,6 @@ u'Interesting. Being partially colour blind I would have thought that the origin
   * `v0/maxitem` **Partial support**
   * ~~`v0/updates`~~ **Done**
 * Schema assertions
-
-## Statistical Data
-
-![Domain Frequency](diagrams/frequency_bar.png)
 
 ## License
 
