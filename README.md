@@ -1,7 +1,7 @@
 Hacker News Top
 ==============
 
-[![Build Status](https://travis-ci.org/rylans/hackernews-top.svg?branch=master)](https://travis-ci.org/rylans/hackernews-top) [![Coverage Status](https://coveralls.io/repos/rylans/hackernews-top/badge.svg?branch=master)](https://coveralls.io/r/rylans/hackernews-top?branch=master) [![Version](https://badge.fury.io/py/hntop.svg)](https://badge.fury.io/py/hntop)
+[![Build Status](https://travis-ci.org/rylans/hackernews-top.svg?branch=master)](https://travis-ci.org/rylans/hackernews-top) [![Coverage Status](https://coveralls.io/repos/rylans/hackernews-top/badge.svg?branch=master)](https://coveralls.io/r/rylans/hackernews-top?branch=master) [![Version](https://badge.fury.io/py/hntop.svg)](https://badge.fury.io/py/hntop) [![License](https://img.shields.io/pypi/l/hntop.svg)(https://github.com/rylans/hackernews-top)
 
 Unofficial Python wrapper over Hacker News' official Firebase API.
 
