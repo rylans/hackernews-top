@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-"""setup.py"""
-# pylint: disable=bad-continuation
 
 from setuptools import setup, find_packages
 
@@ -11,4 +9,5 @@ setup(name='hntop',
       author_email='rylans@gmail.com',
       url='https://github.com/rylans/hackernews-top',
       keywords=['hn', 'hackernews', 'hnapi', 'hackernews top'],
+      license='Apache',
       packages=find_packages())
