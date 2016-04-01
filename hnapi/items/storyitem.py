@@ -18,6 +18,7 @@ Author: Rylan Santinon
 from ..schemas.storyschema import StorySchema
 from .hnitem import HnItem
 
+
 class StoryItem(HnItem):
     """Story Item based on the abstract HnItem
 
@@ -51,8 +52,7 @@ class StoryItem(HnItem):
         return StorySchema()
 
     def __repr__(self):
-        return "StoryItem(json=%r, schema=%r)" \
-                % (self.json, self.get_schema())
+        return '<story#%s: %s>' % (str(self.get('id')), self.get('title'))
 
 if __name__ == '__main__':
     import doctest

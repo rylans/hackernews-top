@@ -17,6 +17,7 @@ Author: Rylan Santinon
 from ..schemas.commentschema import CommentSchema
 from .hnitem import HnItem
 
+
 class CommentItem(HnItem):
     """Comment Item based on the abstract HnItem
 
@@ -50,8 +51,8 @@ class CommentItem(HnItem):
         return CommentSchema()
 
     def __repr__(self):
-        return "CommentItem(json=%r, schema=%r)" \
-                % (self.json, self.get_schema())
+        return '<comment#%s: %s...>' % (
+            str(self.get('id')), self.get('text')[:12])
 
 if __name__ == '__main__':
     import doctest

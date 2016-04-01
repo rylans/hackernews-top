@@ -8,7 +8,7 @@ Author: Rylan Santinon
 """
 
 try:
-    #pylint: disable= no-name-in-module, import-error
+    # pylint: disable= no-name-in-module, import-error
     import urllib.request as urllib2
 except ImportError:
     import urllib2
@@ -21,6 +21,7 @@ from ..items.updatesitem import UpdatesItem
 from ..items.commentitem import CommentItem
 from ..items.pollitem import PollItem
 
+
 class NetworkError(RuntimeError):
     """Runtime errors for http calls and json parsing
 
@@ -28,11 +29,14 @@ class NetworkError(RuntimeError):
     Traceback (most recent call last):
     NetworkError: foo
     """
+
     def __init__(self, e):
         super(NetworkError, self).__init__(e)
 
+
 class ApiConnector(object):
     '''Connects to HackerNews API and provides the schema'''
+
     def __init__(self):
         self.user_dict = {}
         self.logger = logging.getLogger(__name__)
@@ -71,7 +75,7 @@ class ApiConnector(object):
         self.timeout = timeout
         return self
 
-    #pylint: disable=line-too-long, invalid-name
+    # pylint: disable=line-too-long, invalid-name
     def request(self, url):
         """Request json data from the URL
 
@@ -91,7 +95,7 @@ class ApiConnector(object):
         ex = RuntimeError()
         while this_try < self.max_retries:
             try:
-                sleep_time = self.backoff_multiplier * ((2**this_try) - 1)
+                sleep_time = self.backoff_multiplier * ((2 ** this_try) - 1)
                 self.logger.debug("Sleeping for %s seconds", str(sleep_time))
                 time.sleep(sleep_time)
                 return self.__request(url)
@@ -108,6 +112,8 @@ class ApiConnector(object):
         try:
             resp = urllib2.urlopen(url, timeout=self.timeout)
             jsondata = json.loads(resp.read().decode('utf-8'))
+            if not jsondata:
+                raise NetworkError('When requesting [%s] got nothing' % url)
             return jsondata
         except (urllib2.URLError, ValueError, Exception) as e:
             self.logger.exception(e)
@@ -127,7 +133,7 @@ class ApiConnector(object):
         except NetworkError:
             return []
 
-    #pylint: disable=no-self-use, unused-variable
+    # pylint: disable=no-self-use, unused-variable
     def make_item_endpoint(self, item_id):
         """Return the API URL for the given item_id
 
@@ -234,7 +240,7 @@ class ApiConnector(object):
         itemid = self.request(url)
         return itemid
 
-    #pylint: disable=logging-not-lazy
+    # pylint: disable=logging-not-lazy
     def get_kids_recur(self, kids, level):
         """Recursive helper method for retrieving kids in comments"""
         for k in [str(k) for k in kids]:

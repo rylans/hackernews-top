@@ -15,6 +15,7 @@ Example:
 from ..schemas.userschema import UserSchema
 from .hnitem import HnItem
 
+
 class UserItem(HnItem):
     """
     User Item based on the abstract HnItem
@@ -49,8 +50,7 @@ class UserItem(HnItem):
         return UserSchema()
 
     def __repr__(self):
-        return "UserItem(json=%r, schema=%r)" \
-                % (self.json, self.get_schema())
+        return '<user %s>' % (str(self.get('id')))
 
 if __name__ == '__main__':
     import doctest
