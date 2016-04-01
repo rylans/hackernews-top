@@ -99,6 +99,22 @@ class HnapiTest(unittest.TestCase):
         con.set_timeout(4)
         self.assertEqual(con.timeout, 4)
 
+    def test_set_retries(self):
+        """
+        Test set_retries
+        """
+        con = ApiConnector()
+        con.set_max_retries(12)
+        self.assertEqual(con.max_retries, 12)
+
+    def test_set_retries_error(self):
+        """
+        Test set_retries throws RuntimeError
+        """
+        con = ApiConnector()
+        con.set_max_retries(0)
+        self.assertRaises(RuntimeError, con.set_max_retries, 0)
+
     def test_get_kids(self):
         """
         Test retrieval of comment usernames from a story
