@@ -8,7 +8,7 @@ def read(f):
     return open(f, encoding='utf-8').read()
 
 setup(name='hntop',
-      version='0.0.6',
+      version='0.0.7',
       description='Python wrapper over HackerNews Firebase API',
       long_description=read('README.rst'),
       author='Rylan Santinon',
@@ -16,7 +16,7 @@ setup(name='hntop',
       url='https://github.com/rylans/hackernews-top',
       keywords=['hn', 'hackernews', 'hnapi', 'hackernews top'],
       license='Apache',
-      classifiers=(
+      classifiers=[
           'Development Status :: 3 - Alpha',
           'License :: OSI Approved :: Apache Software License',
           'Natural Language :: English',
@@ -25,5 +25,5 @@ setup(name='hntop',
           'Programming Language :: Python :: 3.3',
           'Programming Language :: Python :: 3.4',
           'Topic :: Utilities',
-          'Topic :: Internet :: WWW/HTTP :: Indexing/Search'),
+          'Topic :: Internet :: WWW/HTTP :: Indexing/Search'],
       packages=find_packages())
