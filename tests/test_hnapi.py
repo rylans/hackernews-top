@@ -112,7 +112,6 @@ class HnapiTest(unittest.TestCase):
         Test set_retries throws RuntimeError
         """
         con = ApiConnector()
-        con.set_max_retries(0)
         self.assertRaises(RuntimeError, con.set_max_retries, 0)
 
     def test_get_kids(self):
