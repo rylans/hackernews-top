@@ -290,7 +290,7 @@ class ApiConnector(object):
         '''
         if obj == None:
             return False
-        return not not obj.get('id')
+        return bool(obj.get('id'))
 
     def is_valid_item(self, obj):
         '''Returns true iff obj is an undeleted HN item
@@ -322,7 +322,7 @@ class ApiConnector(object):
         >>> ApiConnector().is_dead_item(None)
         False
         '''
-        return not not (self.is_api_item(obj) and obj.get('dead'))
+        return bool(self.is_api_item(obj) and obj.get('dead'))
 
 if __name__ == '__main__':
     import doctest
