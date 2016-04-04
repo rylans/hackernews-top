@@ -78,6 +78,11 @@ class HnItem(object):
 
         self._json.setdefault('type', 'unknown')
 
+    @property
+    def json(self):
+        '''return json object as dictionary'''
+        return self._json or {}
+
     def is_deleted(self):
         '''Return True if this item is deleted
 

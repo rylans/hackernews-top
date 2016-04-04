@@ -39,12 +39,19 @@ class NetworkError(RuntimeError):
 class HnApi(object):
     '''Connects to HackerNews API and provides the schema'''
 
-    def __init__(self):
+    def __init__(self,
+                 timeout=35,
+                 max_retries=5,
+                 backoff_multiplier=0.9):
         self.user_dict = {}
         self.logger = logging.getLogger(__name__)
-        self.timeout = 35
-        self.max_retries = 5
-        self.backoff_multiplier = 0.9
+        self.backoff_multiplier = backoff_multiplier
+
+        # stop warnings that these are defined outside of __init__
+        self.timeout, self.max_retries = 1, 1
+
+        self.set_timeout(timeout)
+        self.set_max_retries(max_retries)
 
     def set_max_retries(self, retries):
         """
@@ -136,17 +143,17 @@ class HnApi(object):
             return []
 
     # pylint: disable=no-self-use, unused-variable
-    def make_item_endpoint(self, item_id):
+    def _make_item_endpoint(self, item_id):
         """Return the API URL for the given item_id
 
-        >>> HnApi().make_item_endpoint(1)
+        >>> HnApi()._make_item_endpoint(1)
         'https://hacker-news.firebaseio.com/v0/item/1.json'
 
-        >>> HnApi().make_item_endpoint(None)
+        >>> HnApi()._make_item_endpoint(None)
         Traceback (most recent call last):
         RuntimeError: Parameter None must be an integer
 
-        >>> HnApi().make_item_endpoint('baz')
+        >>> HnApi()._make_item_endpoint('baz')
         Traceback (most recent call last):
         RuntimeError: Parameter baz must be an integer
         """
@@ -156,10 +163,10 @@ class HnApi(object):
             raise RuntimeError("Parameter %s must be an integer" % item_id)
         return "https://hacker-news.firebaseio.com/v0/item/" + str(item_id) + ".json"
 
-    def make_user_endpoint(self, username):
+    def _make_user_endpoint(self, username):
         """Return the API URL for the given username
 
-        >>> HnApi().make_user_endpoint('pg')
+        >>> HnApi()._make_user_endpoint('pg')
         'https://hacker-news.firebaseio.com/v0/user/pg.json'
         """
         return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
@@ -178,7 +185,7 @@ class HnApi(object):
         >>> it.get_field_by_name('by') == 'pg'
         True
         """
-        url = self.make_item_endpoint(item_id)
+        url = self._make_item_endpoint(item_id)
         story = self.request(url)
         if story != None and story.get("by"):
             by = str(story["by"])
@@ -192,7 +199,7 @@ class HnApi(object):
         >>> u.get('id') == 'pg'
         True
         """
-        url = self.make_user_endpoint(username)
+        url = self._make_user_endpoint(username)
         user = self.request(url)
         return self._build_hnitem(user)
 
@@ -231,10 +238,10 @@ class HnApi(object):
         return itemid
 
     # pylint: disable=logging-not-lazy
-    def get_kids_recur(self, kids, level):
+    def _get_kids_recur(self, kids, level):
         """Recursive helper method for retrieving kids in comments"""
         for k in [str(k) for k in kids]:
-            url = self.make_item_endpoint(k)
+            url = self._make_item_endpoint(k)
             jdata = self.request(url)
             if jdata == None or not jdata.get("by"):
                 continue
@@ -242,7 +249,7 @@ class HnApi(object):
             self.user_dict[by] = by
             self.logger.debug("Found user: %s at level: %s" % (by, level))
             if jdata.get("kids"):
-                self.get_kids_recur(jdata["kids"], level + 1)
+                self._get_kids_recur(jdata["kids"], level + 1)
 
     def get_kids(self, story):
         """Get all usernames from comments of a story
@@ -263,7 +270,7 @@ class HnApi(object):
         if story == None or not story.get("kids"):
             return
         kids = story["kids"]
-        self.get_kids_recur(kids, 0)
+        self._get_kids_recur(kids, 0)
         return self.user_dict
 
     def is_api_item(self, obj):
