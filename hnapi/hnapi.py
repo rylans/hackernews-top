@@ -23,6 +23,7 @@ import logging
 
 from .hnitem import HnItem
 
+
 class NetworkError(RuntimeError):
     """Runtime errors for http calls and json parsing
 
@@ -35,7 +36,7 @@ class NetworkError(RuntimeError):
         super(NetworkError, self).__init__(e)
 
 
-class ApiConnector(object):
+class HnApi(object):
     '''Connects to HackerNews API and provides the schema'''
 
     def __init__(self):
@@ -49,10 +50,10 @@ class ApiConnector(object):
         """
         Set the number of retries before failing the HTTP request
 
-        >>> ApiConnector().set_max_retries(2).max_retries == 2
+        >>> HnApi().set_max_retries(2).max_retries == 2
         True
 
-        >>> ApiConnector().set_max_retries(0)
+        >>> HnApi().set_max_retries(0)
         Traceback (most recent call last):
         RuntimeError: Max retries must be 1 or more
         """
@@ -64,10 +65,10 @@ class ApiConnector(object):
     def set_timeout(self, timeout):
         """Set the timeout in seconds for the urllib2.urlopen call
 
-        >>> ApiConnector().set_timeout(3.551).timeout == 3.551
+        >>> HnApi().set_timeout(3.551).timeout == 3.551
         True
 
-        >>> ApiConnector().set_timeout(-2)
+        >>> HnApi().set_timeout(-2)
         Traceback (most recent call last):
         RuntimeError: Timeout must be non-negative
         """
@@ -80,15 +81,15 @@ class ApiConnector(object):
     def request(self, url):
         """Request json data from the URL
 
-        >>> j = ApiConnector().request('https://hacker-news.firebaseio.com/v0/item/1.json')
+        >>> j = HnApi().request('https://hacker-news.firebaseio.com/v0/item/1.json')
         >>> j['by'] == 'pg'
         True
 
-        >>> ApiConnector().request('https://hacker-news.firebaseio.com/v0/foobar/1.json')
+        >>> HnApi().request('https://hacker-news.firebaseio.com/v0/foobar/1.json')
         Traceback (most recent call last):
         NetworkError: HTTP Error 401: Unauthorized
 
-        >>> ApiConnector().request('http://www.yahoo.co.jp') # doctest: +ELLIPSIS
+        >>> HnApi().request('http://www.yahoo.co.jp') # doctest: +ELLIPSIS
         Traceback (most recent call last):
         NetworkError: ...
         """
@@ -124,7 +125,7 @@ class ApiConnector(object):
 
     def get_top(self):
         """Request the top stories
-        >>> top = ApiConnector().get_top()
+        >>> top = HnApi().get_top()
         >>> len(top) > 100
         True
         """
@@ -138,14 +139,14 @@ class ApiConnector(object):
     def make_item_endpoint(self, item_id):
         """Return the API URL for the given item_id
 
-        >>> ApiConnector().make_item_endpoint(1)
+        >>> HnApi().make_item_endpoint(1)
         'https://hacker-news.firebaseio.com/v0/item/1.json'
 
-        >>> ApiConnector().make_item_endpoint(None)
+        >>> HnApi().make_item_endpoint(None)
         Traceback (most recent call last):
         RuntimeError: Parameter None must be an integer
 
-        >>> ApiConnector().make_item_endpoint('baz')
+        >>> HnApi().make_item_endpoint('baz')
         Traceback (most recent call last):
         RuntimeError: Parameter baz must be an integer
         """
@@ -158,7 +159,7 @@ class ApiConnector(object):
     def make_user_endpoint(self, username):
         """Return the API URL for the given username
 
-        >>> ApiConnector().make_user_endpoint('pg')
+        >>> HnApi().make_user_endpoint('pg')
         'https://hacker-news.firebaseio.com/v0/user/pg.json'
         """
         return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
@@ -173,7 +174,7 @@ class ApiConnector(object):
     def get_item(self, item_id):
         """Get a particular item by item's id
 
-        >>> it = ApiConnector().get_item(1)
+        >>> it = HnApi().get_item(1)
         >>> it.get_field_by_name('by') == 'pg'
         True
         """
@@ -187,7 +188,7 @@ class ApiConnector(object):
     def get_user(self, username):
         """Get a user by username
 
-        >>> u = ApiConnector().get_user('pg')
+        >>> u = HnApi().get_user('pg')
         >>> u.get('id') == 'pg'
         True
         """
@@ -200,7 +201,7 @@ class ApiConnector(object):
 
         See UpdatesItem and UpdatesSchema
 
-        >>> u = ApiConnector().get_updates()
+        >>> u = HnApi().get_updates()
         >>> len(u.get('profiles')) > 3
         True
 
@@ -221,7 +222,7 @@ class ApiConnector(object):
         Examples
         --------
 
-        >>> itemid = ApiConnector().get_max_item()
+        >>> itemid = HnApi().get_max_item()
         >>> itemid > 8669130
         True
         """
@@ -246,12 +247,12 @@ class ApiConnector(object):
     def get_kids(self, story):
         """Get all usernames from comments of a story
 
-        >>> o = ApiConnector().get_kids({'kids':[1]})
+        >>> o = HnApi().get_kids({'kids':[1]})
         >>> len(o.keys()) == 10
         True
 
         >>> s = HnItem({'kids':[1]})
-        >>> o = ApiConnector().get_kids(s)
+        >>> o = HnApi().get_kids(s)
         >>> len(o.keys()) == 10
         True
         """
@@ -268,13 +269,13 @@ class ApiConnector(object):
     def is_api_item(self, obj):
         '''Returns true iff obj is an HN item
 
-        >>> ApiConnector().is_api_item({'id':321})
+        >>> HnApi().is_api_item({'id':321})
         True
 
-        >>> ApiConnector().is_api_item(None)
+        >>> HnApi().is_api_item(None)
         False
 
-        >>> ApiConnector().is_api_item({'id':123, 'deleted':'True'})
+        >>> HnApi().is_api_item({'id':123, 'deleted':'True'})
         True
         '''
         if obj == None:
@@ -284,13 +285,13 @@ class ApiConnector(object):
     def is_valid_item(self, obj):
         '''Returns true iff obj is an undeleted HN item
 
-        >>> ApiConnector().is_valid_item({'id':123})
+        >>> HnApi().is_valid_item({'id':123})
         True
 
-        >>> ApiConnector().is_valid_item(None)
+        >>> HnApi().is_valid_item(None)
         False
 
-        >>> ApiConnector().is_valid_item({'id':123, 'deleted':'True'})
+        >>> HnApi().is_valid_item({'id':123, 'deleted':'True'})
         False
         '''
         try:
@@ -302,13 +303,13 @@ class ApiConnector(object):
         '''
         Return True iff obj is a dead HN item
 
-        >>> ApiConnector().is_dead_item({'id':101})
+        >>> HnApi().is_dead_item({'id':101})
         False
 
-        >>> ApiConnector().is_dead_item({'id':101, 'dead':'true'})
+        >>> HnApi().is_dead_item({'id':101, 'dead':'true'})
         True
 
-        >>> ApiConnector().is_dead_item(None)
+        >>> HnApi().is_dead_item(None)
         False
         '''
         return bool(self.is_api_item(obj) and obj.get('dead'))

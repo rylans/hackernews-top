@@ -1,2 +1,2 @@
-from .api_connector import ApiConnector
-from .api_connector import NetworkError
+from .hnapi import HnApi
+from .hnapi import NetworkError

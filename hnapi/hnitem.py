@@ -3,6 +3,9 @@
 Author: Rylan Santinon
 """
 
+#HnItem({'by':'norvig', 'id':'2921983', 'type':'comment'})
+
+
 class HnItem(object):
     """Hacker news item
 
@@ -57,7 +60,11 @@ class HnItem(object):
         "items": [8423305, 8420805, 8423178],
         "profiles": ["thefox", "mdda", "neom"]
     }
+
+    >>> HnItem({'karma':'123', 'id':'2921983'}).type
+    'user'
     """
+
     def __init__(self, json):
         # dict from serialized JSON data
         self.json = json
@@ -71,8 +78,14 @@ class HnItem(object):
             self.json['type'] = 'update'
             self.json['id'] = self.json['items'][0]
 
+        self.json.setdefault('type', 'unknown')
+
     def is_deleted(self):
-        """Return True if this item is deleted"""
+        '''Return True if this item is deleted
+
+        >>> HnItem({'deleted':'True'}).is_deleted()
+        True
+        '''
         return bool(self.json.get('deleted') or self.json.get('dead'))
 
     def get_field_by_name(self, name):
@@ -99,55 +112,28 @@ class HnItem(object):
             return ''
 
     def get(self, name):
-        """Same as get_field_by_name"""
+        """Same as get_field_by_name
+
+        >>> HnItem({'by':'norvig', 'id':'2921983', 'type':'comment'}).get('by')
+        'norvig'
+        """
         return self.get_field_by_name(name)
 
     def __getattr__(self, key):
+        '''get attribute
+
+        >>> HnItem({'by':'norvig', 'id':'2921983', 'type':'comment'}).type
+        'comment'
+        '''
         try:
             return self.json[key]
         except KeyError as keyerror:
             raise AttributeError(keyerror)
-
-    def is_special_field(self, name):
-        """Return True if name is a field like 'deleted' or 'dead'"""
-        return name == 'deleted' or name == 'dead'
 
     def __repr__(self):
         return '<HackerNews %s: %s>' % (
             self.get('type'), self.get('id'))
 
 if __name__ == '__main__':
-    import json
-    userjson = """{
-        "about" : "This is a test",
-        "created" : 1173923446,
-        "delay" : 0,
-        "id" : "jl",
-        "karma" : 2937,
-        "submitted" : [8265435, 8168423, 8090326]
-    }"""
-    jsondata = json.loads(userjson)
-    item = HnItem(jsondata)
-    print(item)
-
-    story = """{
-        "by": "dhouston",
-        "id": 8863,
-        "kids": [8952, 9224, 8917],
-        "score": 111,
-        "time": 1175714200,
-        "title": "My YC app: Dropbox - Throw away your USB drive",
-        "type": "story",
-        "url": "http://www.getdropbox.com/u/2/screencast.html"
-    }"""
-    jsonstory = json.loads(story)
-    storyitem = HnItem(jsonstory)
-    print(storyitem)
-
-    updates = """{
-        "items": [8423305, 8420805, 8423178],
-        "profiles": ["thefox", "mdda", "neom"]
-    }"""
-    jsonupdates = json.loads(updates)
-    updateitem = HnItem(jsonupdates)
-    print(updateitem)
+    import doctest
+    doctest.testmod()
