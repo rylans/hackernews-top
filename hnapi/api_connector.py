@@ -1,8 +1,13 @@
-"""
-Wrapper for the Hacker News API
+"""Wrapper for the Hacker News API
+
 Supports requests for:
-  -Story items
+  -Stories
+  -Comments
   -Users
+  -Polls
+  -Updates
+  -Top
+  -New
 
 Author: Rylan Santinon
 """
@@ -15,12 +20,8 @@ except ImportError:
 import time
 import json
 import logging
-from ..items.storyitem import StoryItem
-from ..items.useritem import UserItem
-from ..items.updatesitem import UpdatesItem
-from ..items.commentitem import CommentItem
-from ..items.pollitem import PollItem
 
+from .hnitem import HnItem
 
 class NetworkError(RuntimeError):
     """Runtime errors for http calls and json parsing
@@ -162,24 +163,12 @@ class ApiConnector(object):
         """
         return "https://hacker-news.firebaseio.com/v0/user/" + username + ".json"
 
-    def build_hnitem(self, item_json):
+    def _build_hnitem(self, item_json):
         """Build an instance of hnitem depending on the type"""
         if not item_json:
             self.logger.debug("Item_json should not be none. Skipping")
             return None
-
-        if item_json.get('type') == "story" or item_json.get('type') == 'job':
-            return StoryItem(item_json)
-        elif item_json.get('type') == "comment":
-            return CommentItem(item_json)
-        elif item_json.get('type') == "poll":
-            return PollItem(item_json)
-        elif item_json.get('created'):
-            return UserItem(item_json)
-        elif item_json.get('profiles'):
-            return UpdatesItem(item_json)
-
-        raise RuntimeError("Item type unsupported: %r" % item_json)
+        return HnItem(item_json)
 
     def get_item(self, item_id):
         """Get a particular item by item's id
@@ -193,7 +182,7 @@ class ApiConnector(object):
         if story != None and story.get("by"):
             by = str(story["by"])
             self.user_dict[by] = by
-        return self.build_hnitem(story)
+        return self._build_hnitem(story)
 
     def get_user(self, username):
         """Get a user by username
@@ -204,7 +193,7 @@ class ApiConnector(object):
         """
         url = self.make_user_endpoint(username)
         user = self.request(url)
-        return self.build_hnitem(user)
+        return self._build_hnitem(user)
 
     def get_updates(self):
         """Get recent updates
@@ -224,7 +213,7 @@ class ApiConnector(object):
         """
         url = "https://hacker-news.firebaseio.com/v0/updates.json"
         updates = self.request(url)
-        return self.build_hnitem(updates)
+        return self._build_hnitem(updates)
 
     def get_max_item(self):
         """Get max item's id

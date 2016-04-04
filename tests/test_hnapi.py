@@ -5,8 +5,8 @@ from __future__ import unicode_literals
 
 import unittest
 
-from hnapi.connectors.api_connector import ApiConnector
-from hnapi.connectors.api_connector import NetworkError
+from hnapi import ApiConnector
+from hnapi import NetworkError
 
 #pylint: disable=too-many-public-methods
 class HnapiTest(unittest.TestCase):

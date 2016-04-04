@@ -16,7 +16,7 @@ Unofficial Python wrapper over Hacker News' official Firebase API.
 ### Get Item
 
 ```python
->>> from hnapi.connectors.api_connector import ApiConnector
+>>> from hnapi import ApiConnector
 >>> con = ApiConnector()
 >>> item = con.get_item(8863)
 >>> item.get('title')
@@ -28,7 +28,7 @@ u'dhouston'
 ### Get User
 
 ```python
->>> from hnapi.connectors.api_connector import ApiConnector
+>>> from hnapi import ApiConnector
 >>> user = ApiConnector().get_user('pg')
 >>> user.get('about')
 u'Bug Fixer.'
@@ -39,7 +39,7 @@ u'Bug Fixer.'
 ### Top Stories
 
 ```python
->>> from hnapi.connectors.api_connector import ApiConnector
+>>> from hnapi import ApiConnector
 >>> top = ApiConnector().get_top()
 >>> top
 [8959672, 8960995, 8961086, 8960029, 8960773, 8959207, 8960504, 8960280, 8960486, 8959875, 8955426, 8958731, 8961438, 8961093, 8959138]
@@ -48,7 +48,7 @@ u'Bug Fixer.'
 ### Max Item
 
 ```python
->>> from hnapi.connectors.api_connector import ApiConnector
+>>> from hnapi import ApiConnector
 >>> con = ApiConnector()
 >>> max_item_id = con.get_max_item()
 >>> max_item_id
