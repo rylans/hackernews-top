@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 import unittest
 
-from hnapi import ApiConnector
+from hnapi import HnApi
 from hnapi import NetworkError
 
 #pylint: disable=too-many-public-methods
@@ -17,7 +17,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test item retrieval and 'by' field
         """
-        con = ApiConnector()
+        con = HnApi()
         item = con.get_item(8863)
         byline = item.get('by')
         self.assertEqual(byline, 'dhouston')
@@ -26,7 +26,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test retrieval of a comment
         """
-        con = ApiConnector()
+        con = HnApi()
         comment = con.get_item(15)
         byline = comment.get('by')
         self.assertEqual(byline, 'sama')
@@ -35,7 +35,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test retrieval of the max item without error
         """
-        con = ApiConnector()
+        con = HnApi()
         max_item_id = con.get_max_item()
         max_item = con.get_item(max_item_id)
         self.assertTrue(max_item.get('id') > 0)
@@ -44,7 +44,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test retrieval of new users
         """
-        con = ApiConnector()
+        con = HnApi()
         updates = con.get_updates()
         self.assertTrue(len(updates.get('profiles')) > 1)
         user = con.get_user(updates.get('profiles')[0])
@@ -55,7 +55,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test retrieval of new items
         """
-        con = ApiConnector()
+        con = HnApi()
         updates = con.get_updates()
         self.assertTrue(len(updates.get('items')) > 1)
         item = con.get_item(updates.get('items')[0])
@@ -66,7 +66,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test retrieval of first and last items from /top endpoint
         """
-        con = ApiConnector()
+        con = HnApi()
         top = con.get_top()
         self.assertTrue(len(top) > 100)
 
@@ -80,7 +80,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test that api fails with appropriate error
         """
-        con = ApiConnector()
+        con = HnApi()
         self.assertRaises(NetworkError, \
                 con.request, "http://hacker-news.firebaseio.com/v0/foobar")
 
@@ -88,14 +88,14 @@ class HnapiTest(unittest.TestCase):
         """
         Test that set_timeout throws a RuntimeError
         """
-        con = ApiConnector()
+        con = HnApi()
         self.assertRaises(RuntimeError, con.set_timeout, -1)
 
     def test_set_timeout(self):
         """
         Test set_timeout
         """
-        con = ApiConnector()
+        con = HnApi()
         con.set_timeout(4)
         self.assertEqual(con.timeout, 4)
 
@@ -103,7 +103,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test set_retries
         """
-        con = ApiConnector()
+        con = HnApi()
         con.set_max_retries(12)
         self.assertEqual(con.max_retries, 12)
 
@@ -111,14 +111,14 @@ class HnapiTest(unittest.TestCase):
         """
         Test set_retries throws RuntimeError
         """
-        con = ApiConnector()
+        con = HnApi()
         self.assertRaises(RuntimeError, con.set_max_retries, 0)
 
     def test_get_kids(self):
         """
         Test retrieval of comment usernames from a story
         """
-        con = ApiConnector()
+        con = HnApi()
         item = con.get_item(8863)
         user_dict = con.get_kids(item)
         self.assertEqual(user_dict['noisemaker'], 'noisemaker')
@@ -129,7 +129,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test retrieval of item that isn't really an item
         """
-        con = ApiConnector()
+        con = HnApi()
         item = con.get_item(8847790)
         self.assertTrue(con.is_valid_item(item))
 
@@ -140,7 +140,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test retrieval of 'poll'
         """
-        con = ApiConnector()
+        con = HnApi()
         item = con.get_item(7059569)
         self.assertTrue(con.is_valid_item(item))
         self.assertEqual(item.get('type'), 'poll')
@@ -149,7 +149,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test that a dead item is determined to be dead
         """
-        con = ApiConnector()
+        con = HnApi()
         item = con.get_item(8937830)
         self.assertTrue(con.is_dead_item(item))
 
@@ -157,7 +157,7 @@ class HnapiTest(unittest.TestCase):
         """
         Test that a non-dead item is determined to be not dead
         """
-        con = ApiConnector()
+        con = HnApi()
         item = con.get_item(2549)
         self.assertFalse(con.is_dead_item(item))
 
@@ -166,12 +166,12 @@ class HnapiTest(unittest.TestCase):
         Test that make_item_endpoint throws an error when it takes a
         non-integer parameter
         """
-        con = ApiConnector()
+        con = HnApi()
         self.assertRaises(RuntimeError, con.make_item_endpoint, "asdf")
 
     def test_request_retry(self):
         """Test that the retry occurs"""
-        con = ApiConnector()
+        con = HnApi()
         self.assertRaises(NetworkError, \
             con.request, 'https://hacker-news.firebaseio.com/v0/foobar/1.json')
 
