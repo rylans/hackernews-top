@@ -54,6 +54,12 @@ class HnItem(object):
         """Same as get_field_by_name"""
         return self.get_field_by_name(name)
 
+    def __getattr__(self, key):
+        try:
+            return self.json[key]
+        except KeyError as keyerror:
+            raise AttributeError(keyerror)
+
     def is_special_field(self, name):
         """Return True if name is a field like 'deleted' or 'dead'"""
         return name == 'deleted' or name == 'dead'
