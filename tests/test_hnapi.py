@@ -161,14 +161,6 @@ class HnapiTest(unittest.TestCase):
         item = con.get_item(2549)
         self.assertFalse(con.is_dead_item(item))
 
-    def test_make_item_endpoint_error(self):
-        """
-        Test that make_item_endpoint throws an error when it takes a
-        non-integer parameter
-        """
-        con = HnApi()
-        self.assertRaises(RuntimeError, con.make_item_endpoint, "asdf")
-
     def test_request_retry(self):
         """Test that the retry occurs"""
         con = HnApi()
