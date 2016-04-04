@@ -8,7 +8,7 @@ def read(f):
     return open(f, encoding='utf-8').read()
 
 setup(name='hntop',
-      version='0.0.8',
+      version='0.0.9',
       description='Python wrapper over HackerNews Firebase API',
       long_description=read('README.rst'),
       author='Rylan Santinon',
