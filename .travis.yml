@@ -8,15 +8,7 @@ install:
   - pip install coveralls
   - pip install .
 script: 
-  - python -m hnapi.connectors.api_connector
-  - python -m hnapi.items.storyitem
-  - python -m hnapi.items.useritem
-  - python -m hnapi.items.updatesitem
-  - python -m hnapi.items.commentitem
-  - python -m hnapi.schemas.storyschema
-  - python -m hnapi.schemas.userschema
-  - python -m hnapi.schemas.updatesschema
-  - python -m hnapi.schemas.commentschema
+  - python -m hnapi.api_connector
   - nosetests --with-coverage --cover-package=hnapi
 after_success:
   coveralls

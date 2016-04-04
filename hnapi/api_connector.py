@@ -250,7 +250,7 @@ class ApiConnector(object):
         >>> len(o.keys()) == 10
         True
 
-        >>> s = StoryItem({'kids':[1]})
+        >>> s = HnItem({'kids':[1]})
         >>> o = ApiConnector().get_kids(s)
         >>> len(o.keys()) == 10
         True
