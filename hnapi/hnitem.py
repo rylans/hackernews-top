@@ -3,8 +3,6 @@
 Author: Rylan Santinon
 """
 
-#HnItem({'by':'norvig', 'id':'2921983', 'type':'comment'})
-
 
 class HnItem(object):
     """Hacker news item
@@ -55,7 +53,7 @@ class HnItem(object):
         "submitted" : [8265435, 8168423, 8090326]
     }
 
-    updates:
+    update:
     {
         "items": [8423305, 8420805, 8423178],
         "profiles": ["thefox", "mdda", "neom"]
@@ -67,18 +65,18 @@ class HnItem(object):
 
     def __init__(self, json):
         # dict from serialized JSON data
-        self.json = json
+        self._json = json
 
         # add missing type for user items. used in __repr__
-        if self.json.get('karma'):
-            self.json['type'] = 'user'
+        if self._json.get('karma'):
+            self._json['type'] = 'user'
 
         # add missing type for update items. used in __repr__
-        if self.json.get('profiles'):
-            self.json['type'] = 'update'
-            self.json['id'] = self.json['items'][0]
+        if self._json.get('profiles'):
+            self._json['type'] = 'update'
+            self._json['id'] = self._json['items'][0]
 
-        self.json.setdefault('type', 'unknown')
+        self._json.setdefault('type', 'unknown')
 
     def is_deleted(self):
         '''Return True if this item is deleted
@@ -86,7 +84,7 @@ class HnItem(object):
         >>> HnItem({'deleted':'True'}).is_deleted()
         True
         '''
-        return bool(self.json.get('deleted') or self.json.get('dead'))
+        return bool(self._json.get('deleted') or self._json.get('dead'))
 
     def get_field_by_name(self, name):
         """Get field by name
@@ -107,26 +105,33 @@ class HnItem(object):
             if `name` is not in the schema
         """
         try:
-            return self.json[name]
+            return self._json[name]
         except KeyError:
-            return ''
+            return None
 
-    def get(self, name):
-        """Same as get_field_by_name
+    def get(self, name, default=''):
+        """Returns the value corresponding to the `name` key in the JSON,
+        returns `default` if key does not exist.
 
         >>> HnItem({'by':'norvig', 'id':'2921983', 'type':'comment'}).get('by')
         'norvig'
+
+        >>> HnItem({'by':'norvig', 'id':'2921983', 'type':'comment'}).get('by', 'abcd')
+        'norvig'
+
+        >>> HnItem({'by':'norvig', 'id':'2921983', 'type':'comment'}).get('foobar','baz')
+        'baz'
         """
-        return self.get_field_by_name(name)
+        return self.get_field_by_name(name) or default
 
     def __getattr__(self, key):
-        '''get attribute
+        '''Get attribute. Throws AttributeError if key not in JSON
 
         >>> HnItem({'by':'norvig', 'id':'2921983', 'type':'comment'}).type
         'comment'
         '''
         try:
-            return self.json[key]
+            return self._json[key]
         except KeyError as keyerror:
             raise AttributeError(keyerror)
 
