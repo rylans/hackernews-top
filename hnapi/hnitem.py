@@ -61,6 +61,15 @@ class HnItem(object):
 
     >>> HnItem({'karma':'123', 'id':'2921983'}).type
     'user'
+
+    >>> HnItem({'items':[1234], 'profiles':['asdf']}).type
+    'update'
+
+    >>> HnItem({'type':'poll', 'by':'robg', 'id': 7059569}).type
+    'poll'
+
+    >>> HnItem({'type':'poll', 'by':'robg', 'id': 7059569}).by
+    'robg'
     """
 
     def __init__(self, json):
