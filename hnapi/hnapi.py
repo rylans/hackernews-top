@@ -43,7 +43,6 @@ class HnApi(object):
                  timeout=35,
                  max_retries=5,
                  backoff_multiplier=0.9):
-        self.user_dict = {}
         self.logger = logging.getLogger(__name__)
         self.backoff_multiplier = backoff_multiplier
 
@@ -136,11 +135,7 @@ class HnApi(object):
         >>> len(top) > 100
         True
         """
-        endpoint_top100 = "https://hacker-news.firebaseio.com/v0/topstories.json"
-        try:
-            return self.request(endpoint_top100)
-        except NetworkError:
-            return []
+        return self.request('https://hacker-news.firebaseio.com/v0/topstories.json')
 
     # pylint: disable=no-self-use, unused-variable
     def _make_item_endpoint(self, item_id):
@@ -178,6 +173,34 @@ class HnApi(object):
             return None
         return HnItem(item_json)
 
+    def get(self, id_or_username):
+        """Get an item or user
+
+        >>> HnApi().get('pg').type
+        'user'
+
+        >>> HnApi().get('x-name-doesnot-exist').type
+        Traceback (most recent call last):
+        NetworkError: When requesting [https://hacker-news.firebaseio.com/v0/user/x-name-doesnot-exist.json] got nothing
+
+        >>> HnApi().get(11436228).type
+        u'story'
+
+        >>> HnApi().get(0).type
+        Traceback (most recent call last):
+        NetworkError: When requesting [https://hacker-news.firebaseio.com/v0/item/0.json] got nothing
+
+        >>> HnApi().get({}).type
+        Traceback (most recent call last):
+        RuntimeError: get should be called with a string or number
+        """
+        try:
+            return self.get_item(int(id_or_username))
+        except ValueError:
+            return self.get_user(id_or_username)
+        except TypeError as e:
+            raise RuntimeError('get should be called with a string or number')
+
     def get_item(self, item_id):
         """Get a particular item by item's id
 
@@ -189,7 +212,6 @@ class HnApi(object):
         story = self.request(url)
         if story != None and story.get("by"):
             by = str(story["by"])
-            self.user_dict[by] = by
         return self._build_hnitem(story)
 
     def get_user(self, username):
@@ -236,42 +258,6 @@ class HnApi(object):
         url = "https://hacker-news.firebaseio.com/v0/maxitem.json"
         itemid = self.request(url)
         return itemid
-
-    # pylint: disable=logging-not-lazy
-    def _get_kids_recur(self, kids, level):
-        """Recursive helper method for retrieving kids in comments"""
-        for k in [str(k) for k in kids]:
-            url = self._make_item_endpoint(k)
-            jdata = self.request(url)
-            if jdata == None or not jdata.get("by"):
-                continue
-            by = str(jdata["by"])
-            self.user_dict[by] = by
-            self.logger.debug("Found user: %s at level: %s" % (by, level))
-            if jdata.get("kids"):
-                self._get_kids_recur(jdata["kids"], level + 1)
-
-    def get_kids(self, story):
-        """Get all usernames from comments of a story
-
-        >>> o = HnApi().get_kids({'kids':[1]})
-        >>> len(o.keys()) == 10
-        True
-
-        >>> s = HnItem({'kids':[1]})
-        >>> o = HnApi().get_kids(s)
-        >>> len(o.keys()) == 10
-        True
-        """
-        try:
-            story = story.json
-        except AttributeError:
-            pass
-        if story == None or not story.get("kids"):
-            return
-        kids = story["kids"]
-        self._get_kids_recur(kids, 0)
-        return self.user_dict
 
     def is_api_item(self, obj):
         '''Returns true iff obj is an HN item

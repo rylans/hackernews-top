@@ -114,17 +114,6 @@ class HnapiTest(unittest.TestCase):
         con = HnApi()
         self.assertRaises(RuntimeError, con.set_max_retries, 0)
 
-    def test_get_kids(self):
-        """
-        Test retrieval of comment usernames from a story
-        """
-        con = HnApi()
-        item = con.get_item(8863)
-        user_dict = con.get_kids(item)
-        self.assertEqual(user_dict['noisemaker'], 'noisemaker')
-        self.assertEqual(user_dict['jganetsk'], 'jganetsk')
-        self.assertEqual(user_dict['vlad'], 'vlad')
-
     def test_get_surrogate_item(self):
         """
         Test retrieval of item that isn't really an item
