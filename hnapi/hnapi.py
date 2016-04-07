@@ -137,6 +137,17 @@ class HnApi(object):
         """
         return self.request('https://hacker-news.firebaseio.com/v0/topstories.json')
 
+    def get_new(self):
+        """Request new stories
+
+        >>> HnApi().get_new()[0] > 11448677
+        True
+
+        >>> len(HnApi().get_new()) > 100
+        True
+        """
+        return self.request('https://hacker-news.firebaseio.com/v0/newstories.json')
+
     # pylint: disable=no-self-use, unused-variable
     def _make_item_endpoint(self, item_id):
         """Return the API URL for the given item_id

@@ -156,5 +156,17 @@ class HnapiTest(unittest.TestCase):
         self.assertRaises(NetworkError, \
             con.request, 'https://hacker-news.firebaseio.com/v0/foobar/1.json')
 
+    def test_request_new(self):
+        """Test request of new stories"""
+        con = HnApi()
+        new = con.get_new()
+        self.assertTrue(len(new) > 100)
+
+        item_0 = con.get_item(new[0])
+        self.assertTrue(con.is_api_item(item_0))
+
+        item_last = con.get_item(new[-1])
+        self.assertTrue(con.is_api_item(item_last))
+
 if __name__ == '__main__':
     unittest.main()
