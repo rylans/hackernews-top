@@ -68,6 +68,11 @@ Max Item
     >>> max_item.get('text')
     u'Interesting. Being partially colour blind I would have thought that the original was much greener, while the re-release is a lot bluer and..'
 
+Documentation
+-------------
+
+`Documentation <https://github.com/rylans/hackernews-top/blob/master/docs/index.md>`__
+
 License
 -------
 
