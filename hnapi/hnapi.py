@@ -109,7 +109,8 @@ class HnApi(object):
                 return self.__request(url)
             except NetworkError as e:
                 ex = e
-                if "HTTP Error 401" not in str(e):
+                if ("HTTP Error 401" not in str(e)
+                        and "requesting" not in str(e)):
                     raise e
                 else:
                     this_try += 1
