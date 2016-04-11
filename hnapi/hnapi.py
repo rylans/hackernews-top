@@ -25,15 +25,27 @@ from .hnitem import HnItem
 
 
 class NetworkError(RuntimeError):
-    """Runtime errors for http calls and json parsing
+    '''Runtime errors for http calls and json parsing
 
     >>> raise NetworkError('foo')
     Traceback (most recent call last):
     NetworkError: foo
-    """
 
-    def __init__(self, e):
+    >>> NetworkError('bar', True).retry
+    True
+
+    >>> NetworkError('baz').retry
+    False
+    '''
+
+    def __init__(self, e, retry=False):
         super(NetworkError, self).__init__(e)
+        self._retry = retry
+
+    @property
+    def retry(self):
+        '''Return True if error should be retried'''
+        return self._retry
 
 
 class HnApi(object):
@@ -41,7 +53,7 @@ class HnApi(object):
 
     def __init__(self,
                  timeout=35,
-                 max_retries=5,
+                 max_retries=3,
                  backoff_multiplier=0.9):
         self.logger = logging.getLogger(__name__)
         self.backoff_multiplier = backoff_multiplier
@@ -84,18 +96,18 @@ class HnApi(object):
         return self
 
     # pylint: disable=line-too-long, invalid-name
-    def request(self, url):
-        """Request json data from the URL
+    def _request(self, url):
+        """request json data from the URL
 
-        >>> j = HnApi().request('https://hacker-news.firebaseio.com/v0/item/1.json')
+        >>> j = HnApi()._request('https://hacker-news.firebaseio.com/v0/item/1.json')
         >>> j['by'] == 'pg'
         True
 
-        >>> HnApi().request('https://hacker-news.firebaseio.com/v0/foobar/1.json')
+        >>> HnApi(max_retries=1)._request('https://hacker-news.firebaseio.com/v0/foobar/1.json')
         Traceback (most recent call last):
         NetworkError: HTTP Error 401: Unauthorized
 
-        >>> HnApi().request('http://www.yahoo.co.jp') # doctest: +ELLIPSIS
+        >>> HnApi()._request('http://www.yahoo.co.jp') # doctest: +ELLIPSIS
         Traceback (most recent call last):
         NetworkError: ...
         """
@@ -106,40 +118,44 @@ class HnApi(object):
                 sleep_time = self.backoff_multiplier * ((2 ** this_try) - 1)
                 self.logger.debug("Sleeping for %s seconds", str(sleep_time))
                 time.sleep(sleep_time)
-                return self.__request(url)
-            except NetworkError as e:
-                ex = e
-                if ("HTTP Error 401" not in str(e)
-                        and "requesting" not in str(e)):
-                    raise e
+                return self._request_intern(url)
+            except NetworkError as net_err:
+                ex = net_err
+                if not net_err.retry:
+                    raise net_err
                 else:
                     this_try += 1
         raise ex
 
-    def __request(self, url):
-        """Request json data from url without retries"""
+    def _request_intern(self, url):
+        """request json data from url without retries"""
         try:
             resp = urllib2.urlopen(url, timeout=self.timeout)
             jsondata = json.loads(resp.read().decode('utf-8'))
             if not jsondata:
-                raise NetworkError('When requesting [%s] got nothing' % url)
+                raise NetworkError('When requesting [%s] got nothing' % url, retry=True)
             return jsondata
         except (urllib2.URLError, ValueError, Exception) as e:
             self.logger.exception(e)
-            raise NetworkError(e)
+            if isinstance(e, NetworkError):
+                raise e
+            if '401' in str(e):
+                raise NetworkError(e, retry=True)
+            else:
+                raise NetworkError(e)
         finally:
-            self.logger.debug("Requested %s", url)
+            self.logger.debug("requested %s", url)
 
     def get_top(self):
-        """Request the top stories
+        """request the top stories
         >>> top = HnApi().get_top()
         >>> len(top) > 100
         True
         """
-        return self.request('https://hacker-news.firebaseio.com/v0/topstories.json')
+        return self._request('https://hacker-news.firebaseio.com/v0/topstories.json')
 
     def get_new(self):
-        """Request new stories
+        """request new stories
 
         >>> HnApi().get_new()[0] > 11448677
         True
@@ -147,7 +163,7 @@ class HnApi(object):
         >>> len(HnApi().get_new()) > 100
         True
         """
-        return self.request('https://hacker-news.firebaseio.com/v0/newstories.json')
+        return self._request('https://hacker-news.firebaseio.com/v0/newstories.json')
 
     # pylint: disable=no-self-use, unused-variable
     def _make_item_endpoint(self, item_id):
@@ -191,14 +207,14 @@ class HnApi(object):
         >>> HnApi().get('pg').type
         'user'
 
-        >>> HnApi().get('x-name-doesnot-exist').type
+        >>> HnApi(max_retries=1).get('x-name-doesnot-exist').type
         Traceback (most recent call last):
         NetworkError: When requesting [https://hacker-news.firebaseio.com/v0/user/x-name-doesnot-exist.json] got nothing
 
         >>> HnApi().get(11436228).type
         u'story'
 
-        >>> HnApi().get(0).type
+        >>> HnApi(max_retries=1).get(0).type
         Traceback (most recent call last):
         NetworkError: When requesting [https://hacker-news.firebaseio.com/v0/item/0.json] got nothing
 
@@ -221,7 +237,7 @@ class HnApi(object):
         True
         """
         url = self._make_item_endpoint(item_id)
-        story = self.request(url)
+        story = self._request(url)
         if story != None and story.get("by"):
             by = str(story["by"])
         return self._build_hnitem(story)
@@ -234,7 +250,7 @@ class HnApi(object):
         True
         """
         url = self._make_user_endpoint(username)
-        user = self.request(url)
+        user = self._request(url)
         return self._build_hnitem(user)
 
     def get_updates(self):
@@ -254,7 +270,7 @@ class HnApi(object):
         True
         """
         url = "https://hacker-news.firebaseio.com/v0/updates.json"
-        updates = self.request(url)
+        updates = self._request(url)
         return self._build_hnitem(updates)
 
     def get_max_item(self):
@@ -268,7 +284,7 @@ class HnApi(object):
         True
         """
         url = "https://hacker-news.firebaseio.com/v0/maxitem.json"
-        itemid = self.request(url)
+        itemid = self._request(url)
         return itemid
 
     def is_api_item(self, obj):
