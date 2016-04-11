@@ -7,10 +7,13 @@ Function | Api Endpoint | Returns
 ---------|--------------|--------
 get_item(id) | https://hacker-news.firebaseio.com/v0/item/{id}.json | HnItem
 get_user(id) | https://hacker-news.firebaseio.com/v0/user/{id}.json | HnItem
-get_updates() | https://hacker-news.firebaseio.com/v0/updates.json | List of ids
 get_max_item() | https://hacker-news.firebaseio.com/v0/maxitem.json | id
+get_updates() | https://hacker-news.firebaseio.com/v0/updates.json | List of ids
 get_top() | https://hacker-news.firebaseio.com/v0/topstories.json | List of ids
 get_new() | https://hacker-news.firebaseio.com/v0/newstories.json | List of ids
+get_ask() | https://hacker-news.firebaseio.com/v0/askstories.json | List of ids
+get_show() | https://hacker-news.firebaseio.com/v0/showstories.json | List of ids
+get_job() | https://hacker-news.firebaseio.com/v0/jobstories.json | List of ids
 get(userid_or_itemid) | either /item/ or /user/ | HnItem
 
 # HnItem

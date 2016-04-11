@@ -165,6 +165,30 @@ class HnApi(object):
         """
         return self._request('https://hacker-news.firebaseio.com/v0/newstories.json')
 
+    def get_ask(self):
+        '''Get ask stories
+
+        >>> len(HnApi().get_ask()) > 15
+        True
+        '''
+        return self._request('https://hacker-news.firebaseio.com/v0/askstories.json')
+
+    def get_show(self):
+        '''Get show stories
+
+        >>> len(HnApi().get_show()) > 15
+        True
+        '''
+        return self._request('https://hacker-news.firebaseio.com/v0/showstories.json')
+
+    def get_job(self):
+        '''Get job stories
+
+        >>> len(HnApi().get_job()) > 15
+        True
+        '''
+        return self._request('https://hacker-news.firebaseio.com/v0/jobstories.json')
+
     # pylint: disable=no-self-use, unused-variable
     def _make_item_endpoint(self, item_id):
         """Return the API URL for the given item_id
