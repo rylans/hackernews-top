@@ -82,7 +82,7 @@ class HnapiTest(unittest.TestCase):
         """
         con = HnApi()
         self.assertRaises(NetworkError, \
-                con.request, "http://hacker-news.firebaseio.com/v0/foobar")
+                con._request, "http://hacker-news.firebaseio.com/v0/foobar")
 
     def test_set_timeout_error(self):
         """
@@ -154,7 +154,7 @@ class HnapiTest(unittest.TestCase):
         """Test that the retry occurs"""
         con = HnApi()
         self.assertRaises(NetworkError, \
-            con.request, 'https://hacker-news.firebaseio.com/v0/foobar/1.json')
+            con._request, 'https://hacker-news.firebaseio.com/v0/foobar/1.json')
 
     def test_request_new(self):
         """Test request of new stories"""
